@@ -1,13 +1,13 @@
 ###
 # Unity folders and files
 ###
-[Aa]ssets/AssetStoreTools*
-[Bb]uild/
-[Ll]ibrary/
-[Ll]ocal[Cc]ache/
-[Oo]bj/
-[Tt]emp/
-[Uu]nityGenerated/
+Game/[Aa]ssets/AssetStoreTools*
+Game/[Bb]uild/
+Game/[Ll]ibrary/
+Game/[Ll]ocal[Cc]ache/
+Game/[Oo]bj/
+Game/[Tt]emp/
+Game/[Uu]nityGenerated/
 # file on crash reports
 sysinfo.txt
 # Unity3D generated meta files
@@ -39,3 +39,11 @@ sysinfo.txt
 Icon?
 ehthumbs.db
 Thumbs.db
+
+[core]
+ autocrlf = false
+[filter "lfs"]
+ required = true
+ clean = git-lfs clean -- %f
+ smudge = git-lfs smudge -- %f
+ process = git-lfs filter-process
