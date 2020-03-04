@@ -5,23 +5,61 @@ using UnityEngine;
 public class CameraControl : MonoBehaviour
 {
     public int sensitivity = 10;
+    public int zoomFOV;
     public GameObject player;
     // Start is called before the first frame update
     Vector3 stockPosition;
     float width;
     float height;
-
+    float stockFOV;
+    public float zoomSpeed;
+    //public float fovDiff;
     void Start()
     {
-         width = Screen.width;
-         height = Screen.height;
-         stockPosition = transform.position;
+        width = Screen.width;
+        height = Screen.height;
+        stockPosition = transform.position;
+        stockFOV = Camera.main.fieldOfView;
+        // fovDiff = (zoomFOV - stockFOV) / 10;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = player.transform.position+stockPosition + 
+        transform.position = player.transform.position + stockPosition +
             new Vector3(Input.mousePosition.x / width * sensitivity, Input.mousePosition.y / height * sensitivity, 0);
+
+        if (Input.GetButton("Fire1") && Camera.main.fieldOfView != zoomFOV)
+        {
+            ZoomIn();
+        }
+
+        else if (!Input.GetButton("Fire1") && Camera.main.fieldOfView != stockFOV)
+        {
+            ZoomOut();
+        }
+
+
+    }
+
+    void ZoomIn()
+    {
+        if ((Camera.main.fieldOfView + (zoomSpeed * Time.deltaTime)) < zoomFOV)
+        {
+            Camera.main.fieldOfView += ((zoomSpeed * Time.deltaTime));
+            //Debug.Log(Camera.main.fieldOfView);          
+        }
+        else Camera.main.fieldOfView = zoomFOV;
+    }
+
+    void ZoomOut()
+    {
+
+        if ((Camera.main.fieldOfView - (zoomSpeed * Time.deltaTime)) > stockFOV)
+        {
+            Camera.main.fieldOfView -= ((zoomSpeed * Time.deltaTime));
+            // Debug.Log(Camera.main.fieldOfView);
+        }
+        else Camera.main.fieldOfView = stockFOV;
     }
 }
