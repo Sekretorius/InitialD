@@ -15,7 +15,7 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ChangeColor();
+        OnEvent();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,7 +30,7 @@ public class Interactable : MonoBehaviour
             isInteractable = false;
     }
 
-    private void ChangeColor()
+    public virtual void OnEvent()
     {
         if (isInteractable && Input.GetKey(KeyCode.E))
             gameObject.GetComponent<SpriteRenderer>().color = Color.green;
