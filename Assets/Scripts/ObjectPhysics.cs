@@ -43,12 +43,12 @@ public class ObjectPhysics : MonoBehaviour
 
     void FixedUpdate()
     {
-        velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
+        velocity += gravityModifier * Physics2D.gravity * Time.fixedDeltaTime;
         velocity.x = targetVelocity.x;
 
         grounded = false;
 
-        Vector2 deltaPosition = velocity * Time.deltaTime;
+        Vector2 deltaPosition = velocity * Time.fixedDeltaTime;
 
         Vector2 moveAlongGround = new Vector2(groundNormal.y, -groundNormal.x);
 
@@ -88,14 +88,14 @@ public class ObjectPhysics : MonoBehaviour
                 float projection = Vector2.Dot(velocity, currentNormal);
                 if (projection < 0)
                 {
-                    velocity = velocity - projection * currentNormal;
+                    velocity -= projection * currentNormal;
                 }
 
                 float modifiedDistance = hitBufferList[i].distance - shellRadius;
                 distance = modifiedDistance < distance ? modifiedDistance : distance;
             }
         }
-        rb2d.position = rb2d.position + move.normalized * distance;
+        rb2d.position += move.normalized * distance;
     }
 
 }
