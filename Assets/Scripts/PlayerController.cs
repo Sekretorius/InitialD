@@ -8,10 +8,28 @@ public class PlayerController : ObjectPhysics
     public float JumpTakeOffSpeed = 15;
     public float MaxSpeed = 7;
     public bool jump = false;
+    private int direction = 0;
+    public Animator Anim;
+
+    public void Start()
+    {
+        //Anim = gameObject.GetComponent<Animator>();
+    }
     protected override void ComputeVelocity()
     {
         move.y = 0;
         move.x = Input.GetAxisRaw("Horizontal");
+        turn(move.x);
+
+        if(move.x != 0)
+        {
+            Anim.SetBool("IsWalking", true);
+        }
+        else
+        {
+            Anim.SetBool("IsWalking", false);
+        }
+
         if (Input.GetKey(KeyCode.Space))
         {
             jump = true;
@@ -32,5 +50,16 @@ public class PlayerController : ObjectPhysics
             }
         }
         targetVelocity = move * MaxSpeed;
+    }
+    private void turn(float dir)
+    {
+        if (dir > 0)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        else if (dir < 0)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
     }
 }
