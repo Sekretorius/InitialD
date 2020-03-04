@@ -994,8 +994,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 983f79934d9167a4090c0ebb031a95b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 1
+  sensitivity: 2
+  zoomFOV: 100
   player: {fileID: 205047971}
+  zoomSpeed: 250
 --- !u!1 &1312199344
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,6 @@ public class PlayerController : ObjectPhysics
     public float JumpTakeOffSpeed = 15;
     public float MaxSpeed = 7;
     public bool jump = false;
-    private int direction = 0;
     public Animator Anim;
 
     public void Start()
@@ -19,7 +18,7 @@ public class PlayerController : ObjectPhysics
     {
         move.y = 0;
         move.x = Input.GetAxisRaw("Horizontal");
-        turn(move.x);
+        Turn(move.x);
 
         if(move.x != 0)
         {
@@ -46,12 +45,12 @@ public class PlayerController : ObjectPhysics
         {
             if (velocity.y > 0)
             {
-                velocity.y = velocity.y * .5f;
+                velocity.y *= .5f;
             }
         }
         targetVelocity = move * MaxSpeed;
     }
-    private void turn(float dir)
+    private void Turn(float dir)
     {
         if (dir > 0)
         {
