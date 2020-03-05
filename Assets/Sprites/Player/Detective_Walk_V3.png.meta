@@ -1,46 +1,49 @@
 fileFormatVersion: 2
-guid: 8a9d3467f7815584cba7e4c8beddea90
+guid: e7246c4af1f42d04b88125b2423dba5d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3820859353802713627
-    second: "Sprite-0001 \u2013 kopija_0"
+      213: 2770836011440474369
+    second: Detective_Walk_V3_0
   - first:
-      213: -3280233493551989609
-    second: "Sprite-0001 \u2013 kopija_1"
+      213: 5198313721207088653
+    second: Detective_Walk_V3_1
   - first:
-      213: -1054595083217207629
-    second: "Sprite-0001 \u2013 kopija_2"
+      213: -2763858656880740245
+    second: Detective_Walk_V3_2
   - first:
-      213: -5455681932179484522
-    second: "Sprite-0001 \u2013 kopija_3"
+      213: -5809108485267818653
+    second: Detective_Walk_V3_3
   - first:
-      213: 382900605721982474
-    second: "Sprite-0001 \u2013 kopija_4"
+      213: -1381315895383711161
+    second: Detective_Walk_V3_4
   - first:
-      213: -2247779443151737122
-    second: "Sprite-0001 \u2013 kopija_5"
+      213: 7338333029684382449
+    second: Detective_Walk_V3_5
   - first:
-      213: 5783239443728644057
-    second: "Sprite-0001 \u2013 kopija_6"
+      213: 2945027846221257106
+    second: Detective_Walk_V3_6
   - first:
-      213: 8455112062387921865
-    second: "Sprite-0001 \u2013 kopija_7"
+      213: 3216308346322228458
+    second: Detective_Walk_V3_7
   - first:
-      213: -7318602657194276816
-    second: "Sprite-0001 \u2013 kopija_8"
+      213: 6287850484555904422
+    second: Detective_Walk_V3_8
   - first:
-      213: 6167399215074984884
-    second: "Sprite-0001 \u2013 kopija_9"
+      213: 2222799867692386302
+    second: Detective_Walk_V3_9
   - first:
-      213: -5179007198223660217
-    second: "Sprite-0001 \u2013 kopija_10"
+      213: -2132743586132456181
+    second: Detective_Walk_V3_10
   - first:
-      213: 8685754600362877676
-    second: "Sprite-0001 \u2013 kopija_11"
+      213: 2269374612909869002
+    second: Detective_Walk_V3_11
   - first:
-      213: 1006335571640828701
-    second: "Sprite-0001 \u2013 kopija_12"
+      213: -4817045591643655527
+    second: Detective_Walk_V3_12
+  - first:
+      213: 2714652123120559855
+    second: Detective_Walk_V3_13
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -86,7 +89,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -137,10 +140,10 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Sprite-0001 \u2013 kopija_0"
+      name: Detective_Walk_V3_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 10
         y: 0
         width: 12
         height: 37
@@ -151,19 +154,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e55cd759a499fac0800000000000000
-      internalID: -3820859353802713627
+      spriteID: 10905c00cacf37620800000000000000
+      internalID: 2770836011440474369
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Sprite-0001 \u2013 kopija_1"
+      name: Detective_Walk_V3_1
       rect:
         serializedVersion: 2
-        x: 12
+        x: 37
         y: 0
-        width: 12
+        width: 13
         height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -172,19 +175,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79cbe7c54054a72d0800000000000000
-      internalID: -3280233493551989609
+      spriteID: d06669f99ce142840800000000000000
+      internalID: 5198313721207088653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Sprite-0001 \u2013 kopija_2"
+      name: Detective_Walk_V3_2
       rect:
         serializedVersion: 2
-        x: 24
+        x: 65
         y: 0
-        width: 12
+        width: 14
         height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -193,19 +196,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bef6fafb535d51f0800000000000000
-      internalID: -1054595083217207629
+      spriteID: b683c33f13dc4a9d0800000000000000
+      internalID: -2763858656880740245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Sprite-0001 \u2013 kopija_3"
+      name: Detective_Walk_V3_3
       rect:
         serializedVersion: 2
-        x: 36
+        x: 93
         y: 0
-        width: 12
+        width: 15
         height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -214,19 +217,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 690dce820368944b0800000000000000
-      internalID: -5455681932179484522
+      spriteID: 36777e15c96e16fa0800000000000000
+      internalID: -5809108485267818653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Sprite-0001 \u2013 kopija_4"
+      name: Detective_Walk_V3_4
       rect:
         serializedVersion: 2
-        x: 48
+        x: 121
         y: 0
-        width: 12
+        width: 14
         height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -235,20 +238,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a06375c7216505500800000000000000
-      internalID: 382900605721982474
+      spriteID: 742ad0df28494dce0800000000000000
+      internalID: -1381315895383711161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Sprite-0001 \u2013 kopija_5"
+      name: Detective_Walk_V3_5
       rect:
         serializedVersion: 2
-        x: 60
+        x: 150
         y: 0
         width: 12
-        height: 37
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,20 +259,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edee38571884ec0e0800000000000000
-      internalID: -2247779443151737122
+      spriteID: 1fa8ad5a20ff6d560800000000000000
+      internalID: 7338333029684382449
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Sprite-0001 \u2013 kopija_6"
+      name: Detective_Walk_V3_6
       rect:
         serializedVersion: 2
-        x: 72
+        x: 178
         y: 0
         width: 12
-        height: 37
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,17 +280,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d7397612a1324050800000000000000
-      internalID: 5783239443728644057
+      spriteID: 299d6a30937ded820800000000000000
+      internalID: 2945027846221257106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Sprite-0001 \u2013 kopija_7"
+      name: Detective_Walk_V3_7
       rect:
         serializedVersion: 2
-        x: 84
+        x: 206
         y: 0
         width: 12
         height: 37
@@ -298,17 +301,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c3a0c6af97965570800000000000000
-      internalID: 8455112062387921865
+      spriteID: ae419a6766f92ac20800000000000000
+      internalID: 3216308346322228458
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Sprite-0001 \u2013 kopija_8"
+      name: Detective_Walk_V3_8
       rect:
         serializedVersion: 2
-        x: 96
+        x: 234
         y: 0
         width: 12
         height: 37
@@ -319,19 +322,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03884bda8a91f6a90800000000000000
-      internalID: -7318602657194276816
+      spriteID: 6a5f8b483bee24750800000000000000
+      internalID: 6287850484555904422
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Sprite-0001 \u2013 kopija_9"
+      name: Detective_Walk_V3_9
       rect:
         serializedVersion: 2
-        x: 108
+        x: 262
         y: 0
-        width: 12
+        width: 13
         height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -340,19 +343,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b3419ae8e0079550800000000000000
-      internalID: 6167399215074984884
+      spriteID: ef70798e3b8f8de10800000000000000
+      internalID: 2222799867692386302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Sprite-0001 \u2013 kopija_10"
+      name: Detective_Walk_V3_10
       rect:
         serializedVersion: 2
-        x: 120
+        x: 290
         y: 0
-        width: 12
+        width: 14
         height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -361,20 +364,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74b00bc84687028b0800000000000000
-      internalID: -5179007198223660217
+      spriteID: b0d05971209f662e0800000000000000
+      internalID: -2132743586132456181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Sprite-0001 \u2013 kopija_11"
+      name: Detective_Walk_V3_11
       rect:
         serializedVersion: 2
-        x: 132
+        x: 318
         y: 0
         width: 12
-        height: 37
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -382,17 +385,38 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce228d83acff98870800000000000000
-      internalID: 8685754600362877676
+      spriteID: ac748c0df207e7f10800000000000000
+      internalID: 2269374612909869002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Sprite-0001 \u2013 kopija_12"
+      name: Detective_Walk_V3_12
       rect:
         serializedVersion: 2
-        x: 144
+        x: 346
+        y: 0
+        width: 12
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 992f7336e8a662db0800000000000000
+      internalID: -4817045591643655527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Detective_Walk_V3_13
+      rect:
+        serializedVersion: 2
+        x: 374
         y: 0
         width: 12
         height: 37
@@ -403,8 +427,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d13cd70eed837fd00800000000000000
-      internalID: 1006335571640828701
+      spriteID: fe66c5f19b16ca520800000000000000
+      internalID: 2714652123120559855
       vertices: []
       indices: 
       edges: []
