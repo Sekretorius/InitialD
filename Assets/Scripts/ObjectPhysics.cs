@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ObjectPhysics : MonoBehaviour
 {
-
     public float minGroundNormalY = .65f;
     public float gravityModifier = 1f;
     protected Vector2 targetVelocity;
@@ -17,6 +16,7 @@ public class ObjectPhysics : MonoBehaviour
     protected List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>(16);
     protected const float minMoveDistance = 0.001f;
     protected const float shellRadius = 0.01f;
+    public float mass = 1000;
 
     void OnEnable()
     {
@@ -33,12 +33,18 @@ public class ObjectPhysics : MonoBehaviour
     void Update()
     {
         targetVelocity = Vector2.zero;
+        
         ComputeVelocity();
     }
 
     protected virtual void ComputeVelocity()
     {
 
+    }
+    protected virtual void ComputeInteractiveVelocity(Vector2 move, float speed)
+    {
+        targetVelocity = move * speed;
+        ComputeVelocity();
     }
 
     void FixedUpdate()
@@ -54,10 +60,10 @@ public class ObjectPhysics : MonoBehaviour
 
         Vector2 move = moveAlongGround * deltaPosition.x;
 
+        Interact(move, velocity);
         Movement(move, false);
 
         move = Vector2.up * deltaPosition.y;
-
         Movement(move, true);
     }
 
@@ -97,5 +103,29 @@ public class ObjectPhysics : MonoBehaviour
         }
         rb2d.position += move.normalized * distance;
     }
-
+    private void Interact(Vector2 move, Vector2 velocity)
+    {
+        float distance = move.magnitude;
+        int count = rb2d.Cast(move, contactFilter, hitBuffer, distance);
+        hitBufferList.Clear();
+        for (int i = 0; i < count; i++)
+        {
+            hitBufferList.Add(hitBuffer[i]);
+        }
+        foreach (RaycastHit2D hit in hitBufferList)
+        {
+            if (hit != false)
+            {
+                ObjectPhysics physics = null;
+                hit.collider.TryGetComponent(out physics);
+                if (physics != null)
+                {
+                    //Debug.Log(hit.collider.name);
+                    //float otherMove = Mathf.Clamp((mass - physics.mass), 0, 2000);
+                    //physics.targetVelocity = new Vector2(move.x * otherMove * Time.fixedDeltaTime, 0);
+                    physics.ComputeInteractiveVelocity(move, gameObject.GetComponent<PlayerController>().MaxSpeed);
+                }
+            }
+        }
+    }
 }
