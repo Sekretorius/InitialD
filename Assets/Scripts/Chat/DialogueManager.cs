@@ -17,7 +17,8 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> responses;
     private bool turn;
 
-    private 
+    public bool Chat { get; private set; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,18 +26,13 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
         responses = new Queue<string>();
         turn = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Chat = false;
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
         UI.SetActive(true);
-
+        Chat = true;
         Debug.Log("Conversation with " + dialogue.name);
         sentences.Clear();
         responses.Clear();
@@ -61,6 +57,7 @@ public class DialogueManager : MonoBehaviour
         if(sentences.Count == 0 && responses.Count == 0)
         {
             Debug.Log("End of Conversation");
+            Chat = false;
             UI.SetActive(false);
             return;
         }
