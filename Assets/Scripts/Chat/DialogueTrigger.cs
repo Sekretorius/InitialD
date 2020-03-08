@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-
+    public GameObject NPC { get; private set; }
+    public GameObject Player;
     public Dialogue dialogue;
     public bool repeat;
     public int importance;
 
     public void OnTriggerDialogue()
     {
-        foreach (string item in dialogue.sentences)
-        {
-            Debug.Log(item);
-        }
-        
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-        
+        NPC = gameObject;
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, Player, NPC);
+        gameObject.GetComponent<ShowUI>().Disappear();
     }
 }

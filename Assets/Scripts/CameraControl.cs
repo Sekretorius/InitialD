@@ -7,6 +7,7 @@ public class CameraControl : MonoBehaviour
     public int sensitivity = 10;
     public int zoomFOV;
     public GameObject player;
+    public Vector3 mousePosition { get; private set; }
     // Start is called before the first frame update
     Vector3 stockPosition;
     float width;
@@ -26,8 +27,9 @@ public class CameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        mousePosition = new Vector3(Input.mousePosition.x / width * sensitivity, Input.mousePosition.y / height * sensitivity, 0);
         transform.position = player.transform.position + stockPosition +
-            new Vector3(Input.mousePosition.x / width * sensitivity, Input.mousePosition.y / height * sensitivity, 0);
+            mousePosition;
 
         if (Input.GetButton("Fire1") && Camera.main.fieldOfView != zoomFOV)
         {
@@ -38,8 +40,6 @@ public class CameraControl : MonoBehaviour
         {
             ZoomOut();
         }
-
-
     }
 
     void ZoomIn()

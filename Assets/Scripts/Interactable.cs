@@ -5,11 +5,15 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
 
-    public bool isInteractable;
+    public bool isInteractable { get; private set; }
+    public bool exit { get; set; }
+
+
     // Start is called before the first frame update
     void Start()
     {
         isInteractable = false;
+        exit = false;
     }
 
     // Update is called once per frame
@@ -28,6 +32,7 @@ public class Interactable : MonoBehaviour
     {
         if (collision.tag == "Player")
             isInteractable = false;
+        exit = true;
     }
 
     public virtual void OnEvent()

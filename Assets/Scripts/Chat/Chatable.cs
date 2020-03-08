@@ -5,7 +5,6 @@ using UnityEngine;
 public class Chatable : Interactable
 {
     public DialogueManager manager;
-
     // Update is called once per frame
     void Update()
     {
@@ -14,10 +13,16 @@ public class Chatable : Interactable
 
     public override void OnEvent()
     {
-        if (isInteractable && Input.GetKey(KeyCode.E))
+        if (isInteractable && Input.GetKeyDown(KeyCode.T) && manager.Chat == false)
             gameObject.GetComponent<DialogueTrigger>().OnTriggerDialogue();
         else if (manager.Chat == true && isInteractable && Input.GetKeyDown(KeyCode.T))
             manager.DisplayDialogue();
+
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        manager.StopDialogue();
     }
 
 
