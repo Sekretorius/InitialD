@@ -14,6 +14,7 @@ public class PlayerController : ObjectPhysics
     {
         //Anim = gameObject.GetComponent<Animator>();
     }
+    
     protected override void ComputeVelocity()
     {
         move.y = 0;

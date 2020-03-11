@@ -5,9 +5,9 @@ using UnityEngine;
 public class ObjectPhysics : MonoBehaviour
 {
     public float minGroundNormalY = .65f;
-    public float gravityModifier = 1f;
+    public float gravityModifier = 10f;
     protected Vector2 targetVelocity;
-    public bool grounded;
+    protected bool grounded;
     protected Vector2 groundNormal;
     protected Rigidbody2D rb2d;
     protected Vector2 velocity;
@@ -17,6 +17,11 @@ public class ObjectPhysics : MonoBehaviour
     protected const float minMoveDistance = 0.001f;
     protected const float shellRadius = 0.01f;
     public float mass = 1000;
+    public float frictionModifier = 10f;
+    public bool canSlip = true;
+    protected Vector2 aditionalforce;
+    protected Vector2 SlipForce;
+    protected float minInteractForce = 300f;
 
     void OnEnable()
     {
@@ -41,36 +46,48 @@ public class ObjectPhysics : MonoBehaviour
     {
 
     }
-    protected virtual void ComputeInteractiveVelocity(Vector2 move, float speed)
-    {
-        targetVelocity = move * speed;
-        ComputeVelocity();
-    }
-
     void FixedUpdate()
     {
         velocity += gravityModifier * Physics2D.gravity * Time.fixedDeltaTime;
-        velocity.x = targetVelocity.x;
+        if (groundNormal.x != 0 && grounded && canSlip)
+        {
+            SlipForce += new Vector2(groundNormal.y, -groundNormal.x) * mass / frictionModifier * Time.fixedDeltaTime;
+        }
+        if (targetVelocity.x == 0 && velocity.x != 0)
+        {
+            velocity.x -= velocity.x * Time.fixedDeltaTime;
+        } else if (targetVelocity.x == 0 && aditionalforce.x == 0 && SlipForce.x == 0)
+        {
+            velocity.x = 0;
+        }
+
+        velocity.x = targetVelocity.x + aditionalforce.x + SlipForce.x;
+        aditionalforce.x = 0;
+
+        if (targetVelocity.x == 0) SlipForce.x -= SlipForce.x * frictionModifier * Time.fixedDeltaTime;
+        else if (Mathf.Abs(SlipForce.x) > 1) SlipForce.x -= SlipForce.x * 0.5f;
+        else SlipForce.x = 0;
 
         grounded = false;
 
         Vector2 deltaPosition = velocity * Time.fixedDeltaTime;
 
         Vector2 moveAlongGround = new Vector2(groundNormal.y, -groundNormal.x);
-
         Vector2 move = moveAlongGround * deltaPosition.x;
 
-        Interact(move, velocity);
+        Interact(move);
         Movement(move, false);
-
         move = Vector2.up * deltaPosition.y;
         Movement(move, true);
     }
+    public void Prepare()
+    {
+        
+    }
 
-    void Movement(Vector2 move, bool yMovement)
+    public void Movement(Vector2 move, bool yMovement)
     {
         float distance = move.magnitude;
-
         if (distance > minMoveDistance)
         {
             int count = rb2d.Cast(move, contactFilter, hitBuffer, distance + shellRadius);
@@ -88,10 +105,10 @@ public class ObjectPhysics : MonoBehaviour
                     if (yMovement)
                     {
                         groundNormal = currentNormal;
-                        currentNormal.x = 0;
                     }
                 }
                 float projection = Vector2.Dot(velocity, currentNormal);
+                
                 if (projection < 0)
                 {
                     velocity -= projection * currentNormal;
@@ -103,7 +120,7 @@ public class ObjectPhysics : MonoBehaviour
         }
         rb2d.position += move.normalized * distance;
     }
-    private void Interact(Vector2 move, Vector2 velocity)
+    private void Interact(Vector2 move)
     {
         float distance = move.magnitude;
         int count = rb2d.Cast(move, contactFilter, hitBuffer, distance);
@@ -120,10 +137,12 @@ public class ObjectPhysics : MonoBehaviour
                 hit.collider.TryGetComponent(out physics);
                 if (physics != null)
                 {
-                    //Debug.Log(hit.collider.name);
-                    //float otherMove = Mathf.Clamp((mass - physics.mass), 0, 2000);
-                    //physics.targetVelocity = new Vector2(move.x * otherMove * Time.fixedDeltaTime, 0);
-                    physics.ComputeInteractiveVelocity(move, gameObject.GetComponent<PlayerController>().MaxSpeed);
+                    
+                    float diff = (mass - physics.mass);
+                    if (diff <= 0) diff = minInteractForce;
+                    physics.aditionalforce = move * diff * Time.fixedDeltaTime;
+                    physics.SlipForce = SlipForce;
+                    SlipForce.x *= 0.5f;
                 }
             }
         }
