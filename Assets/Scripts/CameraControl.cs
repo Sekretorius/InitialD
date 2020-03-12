@@ -22,6 +22,7 @@ public class CameraControl : MonoBehaviour
         stockPosition = transform.position;
         stockFOV = Camera.main.fieldOfView;
         // fovDiff = (zoomFOV - stockFOV) / 10;
+
     }
 
     // Update is called once per frame

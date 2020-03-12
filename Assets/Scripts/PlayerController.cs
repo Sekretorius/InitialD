@@ -12,6 +12,8 @@ public class PlayerController : ObjectPhysics
 
     public void Start()
     {
+
+        Application.targetFrameRate = 1000;
         //Anim = gameObject.GetComponent<Animator>();
     }
     

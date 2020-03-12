@@ -8,10 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/IgnasScene.unity
     guid: e45dcdd09d109fe4186a34d5df2d475e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/IgnasScene2.unity
     guid: 389917af636f7874bb83b2fb77e4043f
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: c629ea9ce926bd24aa431cf4ab27b603
   m_configObjects: {}

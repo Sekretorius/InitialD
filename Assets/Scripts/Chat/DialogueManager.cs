@@ -75,7 +75,7 @@ public class DialogueManager : MonoBehaviour
                 boxNPC.GetComponent<Transform>().position = position;
                 // Fade away
                 float delta = 4f - Mathf.Abs(NPC.transform.position.x - Player.transform.position.x);
-                //boxNPC.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, delta);
+                boxNPC.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, delta);
                 Text temp = dialogueTextNPC.GetComponent<Text>();
                 temp.color = new Color(temp.color.r, temp.color.g, temp.color.b, delta);
 
