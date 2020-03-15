@@ -22,7 +22,11 @@ public class Chatable : Interactable
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        manager.StopDialogue();
+        if (collision.tag == "Player")
+        {
+            SetFalse();
+            manager.StopDialogue();
+        }
     }
 
 
