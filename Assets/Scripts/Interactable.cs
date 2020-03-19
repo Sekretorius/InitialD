@@ -35,5 +35,4 @@ public class Interactable : MonoBehaviour
     {
         isInteractable = false;
     }
-
 }

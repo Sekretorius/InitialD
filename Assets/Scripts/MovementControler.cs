@@ -2,24 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControlerV2 : MonoBehaviour
+public abstract class MovementControler : MonoBehaviour
 {
-    public Animator anim;
-    private float minGroungNormalY = 0.65f;
-    private Vector2 targetVelocity;
-    private Vector2 move;
-    private Rigidbody2D rgbd;
-    private bool ground = false;
-    public float gravityModifier = 10f;
-    private Vector3 velocity = Vector2.zero;
-    private float movementSmoothing = .05f;
-    private bool jump = false;
     public float speed = 10f;
     public float JumpTakeOffSpeed = 10f;
+    public float movementSmoothing = .05f;
+    public float gravityModifier = 10f;
+    protected Animator anim;
+    protected float minGroungNormalY = 0.65f;
+    protected Vector2 targetVelocity;
+    protected Vector2 move;
+    protected Rigidbody2D rgbd;
+    protected bool ground = false;
+    protected Vector3 velocity = Vector2.zero;
+    protected bool jump = false;
+    protected bool isBlocked = false;
+    protected Transform obsticle = null;
+    protected bool canJumpOver = false;
+    
 
     void Start()
     {
-        rgbd = gameObject.GetComponent<Rigidbody2D>();
+        rgbd = GetComponent<Rigidbody2D>();
+        anim = GetComponentInChildren<Animator>();
     }
     void Update()
     {
@@ -27,12 +32,13 @@ public class PlayerControlerV2 : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        move = Vector2.zero;
+        ComputeMovement();
         Movement();
     }
-    private void Movement()
+    abstract protected void ComputeMovement();
+    public void Movement()
     {
-        move = Vector2.zero;
-        move.x = Input.GetAxisRaw("Horizontal");
         Turn(move.x);
 
         if (move.x != 0)
@@ -46,15 +52,6 @@ public class PlayerControlerV2 : MonoBehaviour
 
         targetVelocity = new Vector2(move.x * speed, rgbd.velocity.y);
         rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, movementSmoothing);
-
-        if (Input.GetKey(KeyCode.Space))
-        {
-            jump = true;
-        }
-        else
-        {
-            jump = false;
-        }
         if (jump && ground)
         {
             targetVelocity = new Vector2(rgbd.velocity.x, JumpTakeOffSpeed);
@@ -80,7 +77,11 @@ public class PlayerControlerV2 : MonoBehaviour
             if (contact.normal.y > minGroungNormalY)
             {
                 ground = true;
-                
+            }
+            else if(collision.collider.tag != "Player" && collision.collider.tag != "NPC")
+            {
+                isBlocked = true;
+                obsticle = collision.collider.transform;
             }
         }
     }
@@ -92,11 +93,29 @@ public class PlayerControlerV2 : MonoBehaviour
             {
                 ground = true;
             }
+            else if (collision.collider.tag != "Player" && collision.collider.tag != "NPC")
+            {
+                isBlocked = true;
+                obsticle = collision.collider.transform;
+                float cordY = transform.position.y - transform.localScale.y / 2;
+                float colCordY = collision.transform.position.y + collision.transform.localScale.y / 2;
+                float diff = colCordY - cordY;
+                if(diff <= transform.localScale.y / 2)
+                {
+                    canJumpOver = true;
+                }
+                else
+                {
+                    canJumpOver = false;
+                }
+            }
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         ground = false;
+        isBlocked = false;
+        obsticle = null;
     }
     private void Turn(float dir)
     {

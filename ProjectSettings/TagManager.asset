@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Interact
   - NPC
+  - Object
   layers:
   - Default
   - TransparentFX
@@ -16,9 +17,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Wall
+  - Player
+  - Enemy
   - 
   - 
   - 
