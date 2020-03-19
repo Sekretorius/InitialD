@@ -41,11 +41,11 @@ public abstract class MovementControler : MonoBehaviour
     {
         Turn(move.x);
 
-        if (move.x != 0)
+        if (move.x != 0 && anim != null)
         {
             anim.SetBool("IsWalking", true);
         }
-        else
+        else if (anim != null)
         {
             anim.SetBool("IsWalking", false);
         }
