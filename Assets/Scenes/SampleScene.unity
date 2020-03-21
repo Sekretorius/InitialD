@@ -999,9 +999,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1041003467}
   Location: {fileID: 562893649}
-  fade: 0
-  fadeOut: 0
-  freeze: 0
 --- !u!114 &507667349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1403,9 +1400,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1041003467}
   Location: {fileID: 507667347}
-  fade: 0
-  fadeOut: 0
-  freeze: 0
 --- !u!61 &562893652
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3520,8 +3514,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 5.9000244, y: -2.899994}
+  m_SizeDelta: {x: 70.5, y: 52.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1805750759
 MonoBehaviour:

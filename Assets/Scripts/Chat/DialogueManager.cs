@@ -120,6 +120,7 @@ public class DialogueManager : MonoBehaviour
         {
             StopDialogue();
             NPC.GetComponent<DialogueTrigger>().RemoveDialogue();
+            NPC.GetComponent<Collider2D>().tag = "NPC_Ignored";
             return;
         }
         if (turn || sentences.Count == 0)

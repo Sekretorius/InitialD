@@ -25,6 +25,7 @@ public abstract class MovementControler : MonoBehaviour
     {
         rgbd = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
+        
     }
     void Update()
     {
@@ -83,6 +84,12 @@ public abstract class MovementControler : MonoBehaviour
                 isBlocked = true;
                 obsticle = collision.collider.transform;
             }
+            if (collision.collider.tag == "Player" && GetComponent<Collider2D>().tag == "NPC_Ignored")
+            {
+                isBlocked = false;
+                Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<Collider2D>());
+            }
+
         }
     }
     private void OnCollisionStay2D(Collision2D collision)

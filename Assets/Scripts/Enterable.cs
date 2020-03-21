@@ -12,7 +12,6 @@ public class Enterable : Interactable
 
     private bool fade;
     private bool fadeOut;
-    private bool freeze;
 
     private Vector3 position;
 
@@ -23,7 +22,6 @@ public class Enterable : Interactable
         position = new Vector3();
         fade = false;
         fadeOut = false;
-        freeze = false;
     }
 
     // Update is called once per frame
@@ -31,7 +29,6 @@ public class Enterable : Interactable
     {
         OnEvent();
         StartFade(); // fading animation
-        FreezePlayer(); // stoping players movement during the fadeIn part
     }
 
     public override void OnEvent()
@@ -45,25 +42,19 @@ public class Enterable : Interactable
         Player.transform.position = new Vector3(Location.transform.position.x, Location.transform.position.y, 0);
     }
 
-    public void FreezePlayer()
-    {
-        if(freeze)
-            Player.transform.position = position;
-    }
-
     public void StartFade()
     {
         if (fade)
         {
             position = Player.transform.position;
-            freeze = true;
+            Player.GetComponent<PlayerControler>().FreezeMovement();
             fadeOut = true;
             fade = false;
             Fade.FadeIn();
         }
         if (fadeOut && Fade.done)
         {
-            freeze = false;
+            Player.GetComponent<PlayerControler>().FreezeMovement();
             fadeOut = false;
             Teleport();
             Fade.FadeOut();
