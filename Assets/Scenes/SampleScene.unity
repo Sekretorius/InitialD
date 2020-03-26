@@ -2081,8 +2081,8 @@ GameObject:
   - component: {fileID: 1041003472}
   - component: {fileID: 1041003469}
   - component: {fileID: 1041003468}
-  - component: {fileID: 1041003470}
   - component: {fileID: 1041003471}
+  - component: {fileID: 1041003473}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2137,22 +2137,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &1041003470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041003467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e5046da72cb20d43be1e3d382e85224, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 595044242}
-  gravityModifier: 6
-  speed: 10
-  JumpTakeOffSpeed: 30
 --- !u!58 &1041003471
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2184,6 +2168,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1041003473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041003467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14442ed1f0ebd72469eeb6935b163ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  JumpTakeOffSpeed: 30
+  movementSmoothing: 0.05
+  gravityModifier: 6
+  isHiden: 0
 --- !u!1 &1125874717
 GameObject:
   m_ObjectHideFlags: 0
