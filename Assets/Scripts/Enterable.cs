@@ -16,8 +16,9 @@ public class Enterable : Interactable
     private Vector3 position;
 
 
-    void Start()
+    protected new void Start()
     {
+        base.Start();
         Fade = FindObjectOfType<UIFader>();
         position = new Vector3();
         fade = false;
@@ -25,16 +26,17 @@ public class Enterable : Interactable
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        OnEvent();
-        StartFade(); // fading animation
-    }
+    //void Update()
+    //{
+    //    OnEvent();
+        
+    //}
 
-    public override void OnEvent()
+    protected override void OnEvent()
     {
         if (isInteractable && Input.GetKeyDown(KeyCode.E))
-            fade = true;     
+            fade = true;
+        StartFade(); // fading animation
     }
 
     public void Teleport()
@@ -47,18 +49,17 @@ public class Enterable : Interactable
         if (fade)
         {
             position = Player.transform.position;
-            Player.GetComponent<PlayerControler>().FreezeMovement();
+            Player.GetComponent<PlayerControler>().FreezeMovement(false);
             fadeOut = true;
             fade = false;
             Fade.FadeIn();
         }
         if (fadeOut && Fade.done)
         {
-            Player.GetComponent<PlayerControler>().FreezeMovement();
+            Player.GetComponent<PlayerControler>().FreezeMovement(true);
             fadeOut = false;
             Teleport();
             Fade.FadeOut();
         }
     }
-
 }

@@ -12,47 +12,53 @@ public abstract class MovementControler : MonoBehaviour
     protected float minGroungNormalY = 0.65f;
     protected Vector2 targetVelocity;
     protected Vector2 move;
-    protected Rigidbody2D rgbd;
-    protected bool ground = false;
+    public Rigidbody2D rgbd;
+    public bool ground = false;
     protected Vector3 velocity = Vector2.zero;
     protected bool jump = false;
     protected bool isBlocked = false;
     protected Transform obsticle = null;
     protected bool canJumpOver = false;
-    
 
-    void Start()
+    public bool isCarring = false;
+
+    public bool canMove = true;
+
+    public bool nullifiedImput = false;
+
+    protected void Start()
     {
         rgbd = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
-        
-    }
-    void Update()
-    {
-        
     }
     private void FixedUpdate()
     {
+        if (rgbd != null)
+        {
+            if (!nullifiedImput)
+            {
+                ComputeMovement();
+                ComputeAnimation();
+                Movement();
+            }
+        }
+        else
+        {
+            if (TryGetComponent(out Rigidbody2D rig))
+            {
+                rgbd = rig;
+            }
+        }
         move = Vector2.zero;
-        ComputeMovement();
-        Movement();
+        ground = false;
     }
     abstract protected void ComputeMovement();
+    abstract protected void ComputeAnimation();
     public void Movement()
     {
-        Turn(move.x);
-
-        if (move.x != 0 && anim != null)
-        {
-            anim.SetBool("IsWalking", true);
-        }
-        else if (anim != null)
-        {
-            anim.SetBool("IsWalking", false);
-        }
-
         targetVelocity = new Vector2(move.x * speed, rgbd.velocity.y);
         rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, movementSmoothing);
+
         if (jump && ground)
         {
             targetVelocity = new Vector2(rgbd.velocity.x, JumpTakeOffSpeed);
@@ -84,7 +90,7 @@ public abstract class MovementControler : MonoBehaviour
                 isBlocked = true;
                 obsticle = collision.collider.transform;
             }
-            if (collision.collider.tag == "Player" && GetComponent<Collider2D>().tag == "NPC_Ignored")
+            if (collision.collider.tag == "Player" && gameObject.tag == "NPC_Ignored")
             {
                 isBlocked = false;
                 Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<Collider2D>());
@@ -100,16 +106,22 @@ public abstract class MovementControler : MonoBehaviour
             {
                 ground = true;
             }
-            else if (collision.collider.tag != "Player" && collision.collider.tag != "NPC")
+            else
             {
                 isBlocked = true;
                 obsticle = collision.collider.transform;
                 float cordY = transform.position.y - transform.localScale.y / 2;
                 float colCordY = collision.transform.position.y + collision.transform.localScale.y / 2;
                 float diff = colCordY - cordY;
-                if(diff <= transform.localScale.y / 2)
-                {
-                    canJumpOver = true;
+                if(collision.collider.tag != "Player" && collision.collider.tag != "NPC"){
+                    if (diff <= transform.localScale.y / 1.5)
+                    {
+                        canJumpOver = true;
+                    }
+                    else
+                    {
+                        canJumpOver = false;
+                    }
                 }
                 else
                 {
@@ -124,7 +136,7 @@ public abstract class MovementControler : MonoBehaviour
         isBlocked = false;
         obsticle = null;
     }
-    private void Turn(float dir)
+    protected void Turn(float dir)
     {
         if (dir > 0)
         {
@@ -134,5 +146,13 @@ public abstract class MovementControler : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
+    }
+    public void IsGrounded(bool grounded)
+    {
+        ground = grounded; 
+    }
+    public void nullifyMovement(bool state)
+    {
+        nullifiedImput = state;
     }
 }

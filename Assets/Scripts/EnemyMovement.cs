@@ -7,44 +7,63 @@ public class EnemyMovement : MovementControler
     private Transform target { get; set; }
     public bool foundTarget = false;
     public bool canJump = false;
-    public bool canMove = true;
-    private Animator animator;
-    private float timer;
-    public float time = 5f;
+    private bool isFollowing = false;
+    private bool isNear = false;
     private float angleOnTimer = 0;
     private float minDistance = 2f;
+
+    public float time = 5f;
+    public float rightBorder = 2f;
+    public float leftBorder = 2f;
+
+    private float turnTimer;
+    private float moveTimer;
+    private float moveDirection;
+    new void Start()
+    {
+        base.Start();
+        rightBorder = transform.position.x + rightBorder;
+        leftBorder = transform.position.x - leftBorder;
+        moveTimer = time;
+        turnTimer = time;
+    }   
     public void SetTarget(Transform targetTransform)
     {
         if(targetTransform != null)
         {
-            foundTarget = true;
+            isFollowing = true;
         }
         else
         {
-            foundTarget = false;
+            isFollowing = false;
         }
         target = targetTransform;
     }
     protected override void ComputeMovement()
     {
-        if (target == null || !foundTarget)
+        isNear = false;
+        if (canMove)
         {
-            TurnAroundOnTimer();
-        }
-        if (foundTarget && target != null)
-        {
-            if (Vector2.Distance(transform.position, target.position) >= minDistance)
+            if (target == null || !isFollowing) // kai nėra taikinio
             {
-                canMove = true;
+                if (move.x == 0)
+                {
+                    TurnAroundOnTimer();
+                }
+                MoveOnTimer();
             }
-            else
+            if (isFollowing && target != null) // sekimas taikinio
             {
-                canMove = false;
+                if (!(Vector2.Distance(transform.position, target.position) >= minDistance))
+                {
+                    isNear = true;
+                }
+                if (!isNear)
+                {
+                    MoveTowardsTarget(target.position);
+                }
             }
-
-            MoveTowardsTarget(target);
-
-            if (isBlocked && obsticle != null && canJumpOver)
+            if (isBlocked && obsticle != null && canJumpOver) // kliūties peršokimas
             {
                 jump = true;
             }
@@ -54,40 +73,72 @@ public class EnemyMovement : MovementControler
             }
         }
     }
+    protected override void ComputeAnimation()
+    {
+        Turn(move.x);
+        if (move.x != 0 && anim != null)
+        {
+            anim.SetBool("IsWalking", true);
+        }
+        else if (anim != null)
+        {
+            anim.SetBool("IsWalking", false);
+        }
+    }
     void TurnAround(float angle)
     {
         transform.eulerAngles = new Vector3(0, angle, 0);
     }
+    void MoveOnTimer()
+    {
+        if (moveTimer <= 0)
+        {
+            moveTimer = Random.Range(1, 6);
+            moveDirection = Random.Range(-1, 2);
+        }
+        else if (rightBorder <= transform.position.x)
+            moveDirection = -1;
+        else if (leftBorder >= transform.position.x)
+            moveDirection = 1;
+        moveTimer -= Time.deltaTime;
+        Vector2 targetDirection = new Vector2(transform.position.x + moveDirection, transform.position.y);
+        if(!MoveTowardsTarget(targetDirection))
+        {
+            moveDirection = 0;
+        }
+    }
     void TurnAroundOnTimer()
     {
-        if (timer <= 0)
+        if (turnTimer <= 0)
         {
-            timer = time;
+            turnTimer = time;
             angleOnTimer = angleOnTimer == 0 ? 180 : 0;
             TurnAround(angleOnTimer);
         }
-        timer -= Time.deltaTime;
+        turnTimer -= Time.deltaTime;
     }
-    void MoveTowardsTarget(Transform target)
+    bool MoveTowardsTarget(Vector2 target)
     {
-        float diff = transform.position.x - target.position.x;
+        float diff = transform.position.x - target.x;
         float direction = diff > 0 ? -1 : 1;
         if (diff <= 0.2f && diff >= -0.2f)
         {
             direction = 0;
         }
-        if (isBlocked && obsticle != null)
+        if (isBlocked && obsticle != null && !canJumpOver)
         {
             float blockingDirection = transform.position.x - obsticle.position.x;
             float directionCantMove = blockingDirection > 0 ? -1 : 1;
-            if(directionCantMove == direction)
+            if(directionCantMove != direction)
             {
-                canMove = false;
+                isBlocked = false;
             }
         }
-        if (canMove)
+        if (!isBlocked || canJumpOver)
         {
             move = new Vector2(direction, move.y);
+            return true;
         }
+        return false;
     }
 }

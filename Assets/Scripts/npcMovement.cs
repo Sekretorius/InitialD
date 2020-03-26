@@ -11,10 +11,9 @@ public class npcMovement : MovementControler
     private float timer;
     private float x;
 
-    void Start()
+    new void Start()
     {
-        rgbd = GetComponent<Rigidbody2D>();
-        anim = GetComponentInChildren<Animator>();
+        base.Start();
         right = transform.position.x + right;
         left = transform.position.x - left;
         timer = 3;
@@ -25,7 +24,10 @@ public class npcMovement : MovementControler
         Idle();
         move.x = x;
     }
-
+    protected override void ComputeAnimation()
+    {
+        Turn(x);
+    }
     void Idle()
     {
         Random random = new Random();
@@ -38,8 +40,6 @@ public class npcMovement : MovementControler
             x = -1;
         else if (left >= transform.position.x)
             x = 1;
-
         timer -= Time.deltaTime;
     }
-
 }

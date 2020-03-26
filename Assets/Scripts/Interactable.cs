@@ -6,31 +6,43 @@ public class Interactable : MonoBehaviour
 {
 
     public bool isInteractable { get; private set; }
+    protected Transform interactingObject;
 
-    // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         isInteractable = false;
     }
-
-    //void Update()
-    //{
-    //    OnEvent();
-    //}
-
+    private void Update()
+    {
+        OnEvent();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
+        {
             isInteractable = true;
+            interactingObject = collision.transform;
+        }
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            isInteractable = true;
+            interactingObject = collision.transform;
+        }
+    }
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Player")
+        {
             isInteractable = false;
+        }
     }
 
-    public virtual void OnEvent()
+    protected virtual void OnEvent()
     {
         if (isInteractable && Input.GetKey(KeyCode.E))
             gameObject.GetComponent<SpriteRenderer>().color = Color.green;

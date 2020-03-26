@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerControler : MovementControler
 {
     public bool isHiden = false;
-    private bool canMove = true;
     protected override void ComputeMovement()
     {
         if (canMove)
@@ -19,15 +18,27 @@ public class PlayerControler : MovementControler
             else
             {
                 jump = false;
-            }
+            }   
         }
     }
-    public void FreezeMovement()
+    protected override void ComputeAnimation()
     {
-        canMove = canMove == true ? false : true;
+        Turn(move.x);
+        if (move.x != 0 && anim != null)
+        {
+            anim.SetBool("IsWalking", true);
+        }
+        else if (anim != null)
+        {
+            anim.SetBool("IsWalking", false);
+        }
     }
-    public void Hide()
+    public void FreezeMovement(bool isFrozen)
     {
-        isHiden = isHiden == true ? false : true;
+        canMove = isFrozen;
+    }
+    public void Hide(bool hide)
+    {
+        isHiden = hide;
     }
 }

@@ -21,9 +21,9 @@ TagManager:
   - Wall
   - Player
   - Enemy
-  - 
-  - 
-  - 
+  - PickedObject
+  - NPC
+  - PickedUp
   - 
   - 
   - 
