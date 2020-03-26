@@ -86,7 +86,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StopDialogue()
     {
-        Debug.Log("End of Conversation");
+       // Debug.Log("End of Conversation");
         Chat = false;
         boxPlayer.SetActive(false);
         boxNPC.SetActive(false);
@@ -98,7 +98,7 @@ public class DialogueManager : MonoBehaviour
         Player = player;
         this.NPC = NPC;
         Chat = true;
-        Debug.Log("Conversation started");
+       // Debug.Log("Conversation started");
         sentences.Clear();
         responses.Clear();
 

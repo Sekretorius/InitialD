@@ -10,6 +10,7 @@ public class Interactable : MonoBehaviour
 
     protected void Start()
     {
+        
         isInteractable = false;
     }
     private void Update()
