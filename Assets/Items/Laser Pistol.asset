@@ -15,6 +15,7 @@ MonoBehaviour:
   Name: 
   Description: 
   Icon: {fileID: 0}
-  Damage: 0
-  FireRate: 0
-  BulletSpeed: 0
+  Damage: 2
+  FireRate: 10
+  BulletSpeed: 0.5
+  ChargeSpeed: 20

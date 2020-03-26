@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b7fa78b5f596041853a3985180d524, type: 3}
   m_Name: Jump Boots
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
-  Icon: {fileID: 0}
-  Slot: 0
+  Name: Boots
+  Description: Makes you jumpy
+  Icon: {fileID: 2702854785660567061, guid: 8d0fd58ad4371724395e42a792ff1ff2, type: 3}
+  Slot: 1
   Health: 0
-  JumpSpeed: 0
+  JumpSpeed: 10
   MovementSpeed: 0
   RollSpeed: 0
   Dankness: 0

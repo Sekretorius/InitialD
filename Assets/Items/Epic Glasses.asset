@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b7fa78b5f596041853a3985180d524, type: 3}
   m_Name: Epic Glasses
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
-  Icon: {fileID: 0}
-  Slot: 0
+  Name: Sunglasses
+  Description: Makes you epic
+  Icon: {fileID: 21300000, guid: 75813d2d3d0fb194fa56df166b267b0e, type: 3}
+  Slot: 3
   Health: 0
   JumpSpeed: 0
   MovementSpeed: 0
   RollSpeed: 0
-  Dankness: 0
+  Dankness: 69

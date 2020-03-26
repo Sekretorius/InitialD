@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Red Key
   m_EditorClassIdentifier: 
   Name: 
+  Description: 
   Icon: {fileID: 0}

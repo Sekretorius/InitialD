@@ -15,9 +15,9 @@ MonoBehaviour:
   Name: 
   Description: 
   Icon: {fileID: 0}
-  Health: 0
+  Health: 25
   JumpSpeed: 0
-  MovementSpeed: 0
+  MovementSpeed: 10
   RollSpeed: 0
   Dankness: 0
-  Duration: 0
+  Duration: 5000
