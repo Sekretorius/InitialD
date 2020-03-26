@@ -13,6 +13,11 @@ public class Interactable : MonoBehaviour
         isInteractable = false;
     }
 
+    //void Update()
+    //{
+    //    OnEvent();
+    //}
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
