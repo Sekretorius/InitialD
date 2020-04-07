@@ -12,6 +12,7 @@ public class Enterable : Interactable
 
     private bool fade;
     private bool fadeOut;
+    public bool isEntering { get; private set; }
 
     private Vector3 position;
 
@@ -34,7 +35,7 @@ public class Enterable : Interactable
 
     protected override void OnEvent()
     {
-        if (isInteractable && Input.GetKeyDown(KeyCode.E))
+        if (isInteractable && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button2)))
             fade = true;
         StartFade(); // fading animation
     }
@@ -48,6 +49,7 @@ public class Enterable : Interactable
     {
         if (fade)
         {
+            isEntering = false;
             position = Player.transform.position;
             Player.GetComponent<PlayerControler>().FreezeMovement(false);
             fadeOut = true;
@@ -56,6 +58,7 @@ public class Enterable : Interactable
         }
         if (fadeOut && Fade.done)
         {
+            isEntering = true;
             Player.GetComponent<PlayerControler>().FreezeMovement(true);
             fadeOut = false;
             Teleport();

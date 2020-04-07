@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-
     public bool isInteractable { get; private set; }
-    protected Transform interactingObject;
+    public Transform interactingObject;
 
     protected void Start()
     {
-        
+        interactingObject = null;
         isInteractable = false;
     }
     private void Update()
@@ -30,7 +29,10 @@ public class Interactable : MonoBehaviour
         if (collision.tag == "Player")
         {
             isInteractable = true;
-            interactingObject = collision.transform;
+            if (interactingObject == null)
+            {
+                interactingObject = collision.transform;
+            }
         }
     }
 

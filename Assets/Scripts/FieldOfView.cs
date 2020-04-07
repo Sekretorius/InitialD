@@ -18,7 +18,7 @@ public class FieldOfView : MonoBehaviour
     private void Start()
     {
         movement = GetComponentInParent<EnemyMovement>();
-        layerMask = LayerMask.GetMask("Ground", "Player", "Wall");
+        layerMask = ~LayerMask.GetMask("NPC");
         offSetX += transform.localScale.x / 2;
     }
     void FixedUpdate()

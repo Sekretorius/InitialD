@@ -11,7 +11,7 @@ public class PlayerControler : MovementControler
         {
             move.x = Input.GetAxisRaw("Horizontal");
 
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Joystick1Button1))
             {
                 jump = true;
             }
