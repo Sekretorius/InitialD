@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public class PickableItem : MonoBehaviour
 {
+    public Item item;
     public bool IsInteractable { get; private set; }
     public Transform interactingObject;
 
@@ -47,13 +48,30 @@ public class Interactable : MonoBehaviour
 
     protected virtual void OnEvent()
     {
-        if (IsInteractable && Input.GetKey(KeyCode.E) && gameObject.CompareTag("Interact"))
-            gameObject.GetComponent<SpriteRenderer>().color = Color.green;
-
+        if (IsInteractable && Input.GetKey(KeyCode.E) && gameObject.CompareTag("PickableItem"))
+        {
+            var sript = GameObject.Find("Inventory").GetComponent<Inventory>();
+           if( sript.Add(item))
+                Destroy(gameObject);
+        }
     }
 
     public void SetFalse()
     {
         IsInteractable = false;
     }
+
+
+    private void OnValidate()
+    {
+        var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        if (item != null && item.Icon != null)
+        {
+            spriteRenderer.sprite = item.Icon;
+        }
+
+
+    }
 }
+
+   

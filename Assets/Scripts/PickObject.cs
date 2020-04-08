@@ -190,7 +190,7 @@ public class PickObject : Interactable
     }
     public bool Reach()
     {
-        if (isInteractable && interactingObject != null)
+        if (IsInteractable && interactingObject != null)
         {
             if (interactingObject.TryGetComponent(out PlayerControler controler))
             {

@@ -9,6 +9,7 @@ TagManager:
   - NPC
   - Object
   - NPC_Ignored
+  - PickableItem
   layers:
   - Default
   - TransparentFX

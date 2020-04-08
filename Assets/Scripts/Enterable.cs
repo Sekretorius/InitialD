@@ -35,7 +35,7 @@ public class Enterable : Interactable
 
     protected override void OnEvent()
     {
-        if (isInteractable && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button2)))
+        if (IsInteractable && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button2)))
             fade = true;
         StartFade(); // fading animation
     }
