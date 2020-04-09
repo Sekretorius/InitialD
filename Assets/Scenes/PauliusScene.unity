@@ -305,8 +305,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62598397}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.6, y: 41.5, z: 0}
-  m_LocalScale: {x: 1, y: 1.0254881, z: 1}
+  m_LocalPosition: {x: -28.851, y: 38.718, z: 0}
+  m_LocalScale: {x: 3.103884, y: 0.626, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
@@ -864,8 +864,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195494869}
   m_LocalRotation: {x: -0, y: -0.0035714784, z: -0, w: 0.9999936}
-  m_LocalPosition: {x: -32.6, y: 39.28, z: -0}
-  m_LocalScale: {x: 5.0232043, y: 0.8899758, z: 1}
+  m_LocalPosition: {x: -33.57, y: 39.471, z: 0}
+  m_LocalScale: {x: 5.0232043, y: -0.19683515, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 21
@@ -2296,8 +2296,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949638834}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -32.5, y: 36.303, z: 0}
-  m_LocalScale: {x: 1, y: 0.41224623, z: 1}
+  m_LocalPosition: {x: -13.9, y: 12.8, z: 0}
+  m_LocalScale: {x: 4.396, y: 0.41224623, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
@@ -2929,8 +2929,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 8.431098
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -3658,7 +3658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430595318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28.15, y: 53.99, z: 0}
+  m_LocalPosition: {x: -28.19, y: 50.61, z: 0}
   m_LocalScale: {x: 11.92674, y: 19.13301, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4508,7 +4508,8 @@ GameObject:
   - component: {fileID: 1831786424}
   - component: {fileID: 1831786423}
   - component: {fileID: 1831786422}
-  m_Layer: 0
+  - component: {fileID: 1831786425}
+  m_Layer: 8
   m_Name: Office_ground (3)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -4605,6 +4606,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1831786425
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831786421}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1855592589
 GameObject:
   m_ObjectHideFlags: 0
@@ -5497,6 +5519,7 @@ GameObject:
   - component: {fileID: 2132356110}
   - component: {fileID: 2132356109}
   - component: {fileID: 2132356108}
+  - component: {fileID: 2132356111}
   m_Layer: 0
   m_Name: Office_ground (1)
   m_TagString: Ground
@@ -5594,3 +5617,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &2132356111
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132356107}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

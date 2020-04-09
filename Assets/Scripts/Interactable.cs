@@ -12,7 +12,7 @@ public class Interactable : MonoBehaviour
         interactingObject = null;
         IsInteractable = false;
     }
-    private void Update()
+    private void FixedUpdate()
     {
         OnEvent();
     }
