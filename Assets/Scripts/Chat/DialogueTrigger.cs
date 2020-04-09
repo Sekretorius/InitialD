@@ -8,12 +8,20 @@ public class DialogueTrigger : MonoBehaviour
     public GameObject Player;
     public List<Dialogue> dialogues;
     public bool repeat;
-    public int importance;
+    public bool mission;
+    public int id;
 
     public void OnTriggerDialogue()
     {
         NPC = gameObject;
         FindObjectOfType<DialogueManager>().StartDialogue(GetDialogue(), Player, NPC);
+        gameObject.GetComponent<ShowUI>().Disappear();
+    }
+
+    public void OnInteraction()
+    {
+        NPC = gameObject;
+        FindObjectOfType<DialogueManager>().StartInteractions(Player, NPC, mission);
         gameObject.GetComponent<ShowUI>().Disappear();
     }
 

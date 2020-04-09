@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    public Button yes_btn;
-    public Button no_btn;
+    public GameObject boxTalk;
+    public GameObject boxQuestion;
 
     public GameObject boxPlayer;
     public GameObject boxNPC;
@@ -28,23 +28,75 @@ public class DialogueManager : MonoBehaviour
     //public GameObject Camera;
 
     public bool Chat { get; private set; }
+    public bool Interacted { get; private set; }
+    public bool Mission { get; private set; }
 
     // Start is called before the first frame update
     void Start()
     {
         boxPlayer.SetActive(true);
         boxNPC.SetActive(true);
+
         sentences = new Queue<string>();
         responses = new Queue<string>();
         turn = false;
         Chat = false;
+        Interacted = false;
+        Mission = false;
         dialogueTextNPC = boxNPC.GetComponentInChildren<Text>();
         dialogueTextPlayer = boxPlayer.GetComponentInChildren<Text>();
     }
 
     void Update()
     {
+        ShowInteractions();
         SetBoxPositions();
+    }
+
+    public void StartInteractions(GameObject player, GameObject npc, bool mission)
+    {
+        boxTalk.SetActive(true);
+        boxQuestion.SetActive(true);
+        Player = player;
+        this.NPC = npc;
+        Interacted = true;
+        Mission = mission;
+    }
+
+    public void ShowInteractions()
+    {
+        if (Interacted && Mission == true)
+        {
+            //SetTalkBox(0.5f);
+            SetQuestionBox(0.1f);
+        }
+        else if (Interacted)
+        {
+            SetTalkBox(0);
+        }
+    }
+
+    public void DisableInteractions()
+    {
+        boxTalk.SetActive(false);
+        boxQuestion.SetActive(false);
+        Interacted = false;
+    }
+
+    public void SetTalkBox(float offset)
+    {
+        float top = 50f;
+        top = boxTalk.GetComponent<SpriteRenderer>().bounds.size.y;
+        Vector3 position = new Vector3(NPC.transform.position.x - offset, NPC.transform.position.y + top + 0.9f, 0);
+        boxTalk.GetComponent<Transform>().position = position;
+    }
+
+    public void SetQuestionBox(float offset)
+    {
+        float top = 10f;
+        top = boxQuestion.GetComponent<SpriteRenderer>().bounds.size.y;
+        Vector3 position = new Vector3(NPC.transform.position.x - offset, NPC.transform.position.y + top + 1f, 0);
+        boxQuestion.GetComponent<Transform>().position = position;
     }
 
     public void SetBoxPositions()
@@ -95,6 +147,10 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue, GameObject player, GameObject NPC)
     {
+        DisableInteractions();
+        Interacted = false;
+        //Mission = false;
+
         Player = player;
         this.NPC = NPC;
         Chat = true;
@@ -121,6 +177,11 @@ public class DialogueManager : MonoBehaviour
             StopDialogue();
             NPC.GetComponent<DialogueTrigger>().RemoveDialogue();
             NPC.GetComponent<Collider2D>().tag = "NPC_Ignored";
+            if (Mission)
+            {
+                GameObject.Find("caseManager").GetComponent<StoryLineManager>().setCase(NPC.GetComponent<DialogueTrigger>().id);
+                Mission = false;
+            }
             return;
         }
         if (turn || sentences.Count == 0)

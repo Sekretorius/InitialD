@@ -33,6 +33,7 @@ public class StoryLineManager : MonoBehaviour
                 @case = c;
                 break;
             }
+        ShowOnScreen();
     }
 
     private void OnEvent()
@@ -52,7 +53,7 @@ public class StoryLineManager : MonoBehaviour
 
     void Start()
     {
-        setCase(0);
+      //  setCase(0);
         position = prefab.transform.position;
         prefab.SetActive(false);
         caseObject.SetActive(false);
@@ -87,7 +88,8 @@ public class StoryLineManager : MonoBehaviour
             caseName.text = "NO CURRENT CASES";
             GameObject temp = Instantiate(prefab);
             temp.SetActive(true);
-            temp.GetComponent<Text>().text = "DO NOTHING 0/1 •";
+            //temp.GetComponent<Text>().text = "DO NOTHING 0/1 •";
+            temp.GetComponent<Text>().text = "";
             temp.transform.position = tempPosition;
             tempPosition = new Vector3(tempPosition.x, tempPosition.y - 20, tempPosition.z);
             temp.transform.SetParent(caseObject.transform);
