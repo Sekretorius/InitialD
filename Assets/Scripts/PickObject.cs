@@ -45,7 +45,7 @@ public class PickObject : Interactable
         }
         spriteWidth = sprite.bounds.size.x / 2;
         spriteHeight = sprite.bounds.size.y / 2;
-        colliderDimensions = new Vector2(sprite.bounds.size.x, sprite.bounds.size.y);
+        colliderDimensions = new Vector2(collider.bounds.size.x, collider.bounds.size.y);
         rgbd = GetComponent<Rigidbody2D>();
     }
     protected override void OnEvent()
@@ -69,21 +69,7 @@ public class PickObject : Interactable
                 else
                 {
                     isBlocked = CheckCeiling(interactibleCollider, gameObject, colliderDimensions, offsetY);
-                    if (!isBlocked)
-                    {
-                        float objectDeltaY = interactingObject.position.y + interactibleCollider.bounds.size.y / 2;
-                        float objectOffsetDeltaY = objectDeltaY + spriteHeight + offsetY;
-                        if (!collidedHorizontaly)
-                        {
-                            transform.position = new Vector2(interactingObject.position.x, objectOffsetDeltaY);
-                            transform.eulerAngles = new Vector3(0, 0, 0);
-                        }
-                        else
-                        {
-                            transform.position = new Vector2(transform.position.x, objectOffsetDeltaY);
-                        }
-                    }
-                    else
+                    if (isBlocked)
                     {
                         Dismount();
                         isThrowing = false;
@@ -101,7 +87,6 @@ public class PickObject : Interactable
                 if (isPickable && !isBeingCarried)
                 {
                     isBlocked = CheckCeiling(interactibleCollider, gameObject, colliderDimensions, offsetY);
-
                     if (!isBlocked)
                     {
                         float objectDeltaY = interactingObject.position.y + interactibleCollider.bounds.size.y / 2;
@@ -130,19 +115,18 @@ public class PickObject : Interactable
     {
         float objectDeltaY = fromObject.transform.position.y + fromObject.bounds.size.y / 2;
         float objectOffsetDeltaY = objectDeltaY + colliderDimensions.y / 2 + offset;
-        Vector2 sizeCol = new Vector2(colliderDimensions.x, colliderDimensions.y);
         float offsetDistance = objectOffsetDeltaY - fromObject.transform.position.y;
-        RaycastHit2D[] results = Physics2D.BoxCastAll(fromObject.transform.position, sizeCol, 0, Vector2.up, offsetDistance);
+        Vector2 newColliderDimensions = new Vector2(colliderDimensions.x - 0.2f, colliderDimensions.y);
+        Vector2 point = new Vector2(fromObject.transform.position.x, objectOffsetDeltaY);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(point, newColliderDimensions, 0);
+
         bool isBlocking = false;
-        foreach(RaycastHit2D result in results)
+        foreach (Collider2D collider in colliders)
         {
-            if (result)
+            if (collider != null && collider.gameObject != objectToCheck)
             {
-                if(result.collider.gameObject != objectToCheck)
-                {
-                    isBlocking = true;
-                    break;
-                }
+                isBlocking = true;
+                break;
             }
         }
         if (!isBlocking)
@@ -166,7 +150,8 @@ public class PickObject : Interactable
     }
     private void Dismount()
     {
-        rgbd.gravityScale = 1;
+        rgbd.isKinematic = false;
+        transform.parent = null;
         isThrowing = true;
         isBeingCarried = false;
         playerControler.isHolding = false;
@@ -175,7 +160,8 @@ public class PickObject : Interactable
     }
     private void BecomeCaried(float positionY)
     {
-        rgbd.gravityScale = 0;
+        transform.parent = interactingObject;
+        rgbd.isKinematic = true;
         if (TryGetComponent(out MovementControler controller))
         {
             controller.NullifyMovement(true);
@@ -199,7 +185,7 @@ public class PickObject : Interactable
                     Vector3 interactingObjectOffset = interactibleCollider.bounds.center;
 
                     Vector2 targetDirection = transform.position - interactingObjectOffset;
-                    
+
                     RaycastHit2D hit = Physics2D.Raycast(interactingObjectOffset, targetDirection);
                     if (hit.collider.gameObject != gameObject)
                     {
@@ -209,7 +195,7 @@ public class PickObject : Interactable
                     float interactiveBottomY = interactingObject.position.y - interactibleCollider.bounds.size.y / 2;
                     float pickableUpperY = transform.position.y + collider.bounds.size.y / 2;
                     float diff = pickableUpperY - interactiveBottomY - 0.1f;
-                    if(diff <= 0)
+                    if (diff <= 0)
                     {
                         isBellow = true;
                     }
@@ -219,11 +205,11 @@ public class PickObject : Interactable
                     }
                     float distance = Mathf.Abs(interactingObject.position.x - transform.position.x);
                     float width = spriteWidth * 2;
-                    
+
                     if (distance > width)
                     {
                         float objectDirection = (interactingObject.position.x - transform.position.x) < 0 ? -1 : 1;
-                        if(objectDirection == interactingObject.right.x)
+                        if (objectDirection == interactingObject.right.x)
                         {
                             return false;
                         }
@@ -281,11 +267,11 @@ public class PickObject : Interactable
                 {
                     collidedHorizontaly = true;
                 }
-                else if(isBeingCarried)
+                else if (isBeingCarried)
                 {
                     float targetDirection = (interactingObject.position.x - transform.position.x) > 0 ? -1 : 1;
                     Vector2 interactingVelocity = interactingObject.GetComponent<Rigidbody2D>().velocity;
-                    float blockingDirection = (collision.transform.position.x - interactingVelocity.x) > 0 ? -1: 1;
+                    float blockingDirection = (collision.transform.position.x - interactingVelocity.x) > 0 ? -1 : 1;
                     if (targetDirection == blockingDirection)
                     {
                         collidedHorizontaly = true;
