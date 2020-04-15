@@ -63,7 +63,7 @@ public class EnemyMovement : MovementControler
                     MoveTowardsTarget(target.position);
                 }
             }
-            if (isBlocked && obsticle != null && canJumpOver) // kliūties peršokimas
+            if (IsBlocked && obsticle != null && canJumpOver) // kliūties peršokimas
             {
                 jump = true;
             }
@@ -75,7 +75,7 @@ public class EnemyMovement : MovementControler
     }
     protected override void ComputeAnimation()
     {
-        Turn(move.x);
+        Turn(move.x, 0);
         if (move.x != 0 && anim != null)
         {
             anim.SetBool("IsWalking", true);
@@ -125,16 +125,16 @@ public class EnemyMovement : MovementControler
         {
             direction = 0;
         }
-        if (isBlocked && obsticle != null && !canJumpOver)
+        if (IsBlocked && obsticle != null && !canJumpOver)
         {
             float blockingDirection = transform.position.x - obsticle.position.x;
             float directionCantMove = blockingDirection > 0 ? -1 : 1;
             if(directionCantMove != direction)
             {
-                isBlocked = false;
+                IsBlocked = false;
             }
         }
-        if (!isBlocked || canJumpOver)
+        if (!IsBlocked || canJumpOver)
         {
             move = new Vector2(direction, move.y);
             return true;

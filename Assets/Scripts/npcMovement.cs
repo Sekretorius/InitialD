@@ -26,7 +26,7 @@ public class npcMovement : MovementControler
     }
     protected override void ComputeAnimation()
     {
-        Turn(x);
+        Turn(x, 0);
     }
     void Idle()
     {

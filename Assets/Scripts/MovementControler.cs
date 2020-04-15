@@ -6,10 +6,16 @@ using System.Linq;
 public abstract class MovementControler : MonoBehaviour
 {
     public float speed = 10f;
+    public float crawlSpeed = 7F;
     public float JumpTakeOffSpeed = 30f;
     public float movementSmoothing = .05f;
     public float gravityModifier = 6f;
+    public float slideSpeedModifier = 2f; 
+    public float minSlideSpeed = 5f;
+    public float SlideDrag = 0.15f;
+
     protected Animator anim;
+    protected BoxCollider2D boxCollider;
     protected float minGroungNormalY = 0.65f;
     protected Vector2 targetVelocity;
     protected Vector2 move;
@@ -17,16 +23,29 @@ public abstract class MovementControler : MonoBehaviour
     protected bool ground = false;
     protected Vector3 velocity = Vector2.zero;
     protected bool jump = false;
-    protected bool isBlocked = false;
+    protected bool IsBlocked = false;
     protected Transform obsticle = null;
     protected bool canJumpOver = false;
+    protected bool IsSliding = false;
+    protected float slideDirection;
+    protected float slideSpeedX;
+    protected float minSlopeNomal = 0.95F;
 
+    protected float slopeAngle = 0;
+    protected Vector2 slopeNormal = Vector2.one;
+    protected bool IsBlockedByCeilling = false;
+
+    protected bool IsJumping = false;
+    protected bool IsCrawling = false;
     public bool isHolding = false;
     public bool canCarrie = true;
     public float inpickableTimmer = 0.15f;
-    private float timerToPick;
+    protected float timerToPick;
     protected Transform closestPickable;
     protected float distanceToPickable = -1;
+    protected bool slope = false;
+    protected Vector2 colliderDimensions;
+
 
     protected bool canMove = true;
 
@@ -37,6 +56,8 @@ public abstract class MovementControler : MonoBehaviour
         timerToPick = inpickableTimmer;
         rgbd = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
+        boxCollider = GetComponent<BoxCollider2D>();
+        colliderDimensions = boxCollider.bounds.size;
     }
     private void FixedUpdate()
     {
@@ -44,9 +65,11 @@ public abstract class MovementControler : MonoBehaviour
         {
             if (!nullifiedImput)
             {
+                IsBlockedByCeilling = CheckCeiling();
                 ComputeMovement();
-                ComputeAnimation();
                 Movement();
+                AlignWithGround();
+                ComputeAnimation();
             }
         }
         else
@@ -56,23 +79,58 @@ public abstract class MovementControler : MonoBehaviour
                 rgbd = rig;
             }
         }
-        PickTimmer();
+        CanHold();
         move = Vector2.zero;
         ground = false;
     }
     abstract protected void ComputeMovement();
     abstract protected void ComputeAnimation();
+
     public void Movement()
     {
-        targetVelocity = new Vector2(move.x * speed, rgbd.velocity.y);
-        rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, movementSmoothing);
-
+        if (IsBlockedByCeilling && ground)
+        {
+            IsCrawling = true;
+        }
+        if (IsSliding && slideSpeedX != 0 && Input.GetAxisRaw("Horizontal") == slideDirection)
+        {
+            CheckSlope();
+            Vector2 slideVelocity = new Vector2(slideSpeedX, rgbd.velocity.y);
+            rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, slideVelocity, ref velocity, movementSmoothing);
+            targetVelocity = new Vector2(rgbd.velocity.x, rgbd.velocity.y);
+            slideSpeedX -= SlideDrag * Mathf.Abs(slopeNormal.y) * slideDirection;
+            if (!slope)
+            {
+                
+            }
+            if (Mathf.Abs(slideSpeedX) <= minSlideSpeed || IsBlocked)
+            {
+                slideSpeedX = 0;
+            }
+        }
+        else
+        {
+            Turn(move.x, 0);
+            IsSliding = false;
+        }
+        if (IsCrawling)
+        {
+            targetVelocity = new Vector2(move.x * crawlSpeed, rgbd.velocity.y);
+            rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, movementSmoothing);
+        }
+        if (!IsSliding && !IsCrawling)
+        {
+            targetVelocity = new Vector2(move.x * speed, rgbd.velocity.y);
+            rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, movementSmoothing);
+        }
         if (jump && ground)
         {
+            IsJumping = true;
             targetVelocity = new Vector2(rgbd.velocity.x, JumpTakeOffSpeed);
         }
         else if (!jump)
         {
+            IsJumping = false;
             if (rgbd.velocity.y > 0)
             {
                 targetVelocity = new Vector2(rgbd.velocity.x, rgbd.velocity.y * .5f);
@@ -85,6 +143,79 @@ public abstract class MovementControler : MonoBehaviour
             rgbd.velocity += Physics2D.gravity * gravityModifier * Time.fixedDeltaTime;
         }
     }
+    private void CheckSlope()
+    {
+        RaycastHit2D[] resultsFromBack = new RaycastHit2D[15];
+        Vector2 currentColliderDimensions = boxCollider.bounds.size;
+        float deltaOffsetX = transform.position.x - currentColliderDimensions.x / 2 * 3;
+        float distanceToTarget = Vector2.Distance(transform.position, new Vector2(deltaOffsetX, transform.position.y));
+        boxCollider.Cast(-transform.right, resultsFromBack, distanceToTarget);
+        foreach (RaycastHit2D result in resultsFromBack)
+        {
+            if (ground && result)
+            {
+                if (result.collider.gameObject != gameObject)
+                {
+                    if (result.normal.y < minSlopeNomal)
+                    {
+                        slope = true;
+                        slopeNormal = new Vector2(slopeNormal.x, result.normal.y);
+                        slopeAngle = result.collider.transform.eulerAngles.z;
+                        return;
+                    }
+                }
+            }
+            slopeNormal = Vector2.one;
+            slope = false;
+        }
+    }
+    private void AlignWithGround()
+    {
+        if ((IsCrawling || IsSliding) && !IsJumping) {
+            RaycastHit2D[] resultsFromBellow = new RaycastHit2D[15];
+            Vector2 currentColliderDimensions = boxCollider.bounds.size;
+            float deltaOffsetY = transform.position.y - currentColliderDimensions.y / 2 * 3;
+            float distanceToTarget = Vector2.Distance(transform.position, new Vector2(transform.position.x, deltaOffsetY));
+            boxCollider.Cast(-transform.up, resultsFromBellow, distanceToTarget);
+            foreach (RaycastHit2D result in resultsFromBellow)
+            {
+                if (result)
+                {
+                    if (result.collider.gameObject != gameObject)
+                    {
+                        float rotateAngle = Mathf.Abs(result.transform.eulerAngles.z);
+                        float fixedAngle = rotateAngle > 180 ? 360 - rotateAngle : rotateAngle;
+                        Turn(move.x, fixedAngle * transform.right.x);
+                        return;
+                    }
+                }
+            }
+        }
+        else
+        {
+            Turn(move.x, 0);
+        }
+    }
+    public bool CheckCeiling()
+    {
+        float deltaOffsetY = boxCollider.bounds.center.y - boxCollider.bounds.size.y / 2;
+        Vector2 castOrigin = new Vector2(transform.position.x, deltaOffsetY);
+        Vector2 fixedDimensions = new Vector2(colliderDimensions.x, colliderDimensions.x);
+        LayerMask mask = ~LayerMask.GetMask("Player", "PickableObject");
+        RaycastHit2D[] results = Physics2D.BoxCastAll(castOrigin, fixedDimensions, 0, Vector2.up, colliderDimensions.y + 0.3f, mask);
+        foreach (RaycastHit2D result in results)
+        {
+            if (result && result.collider.gameObject != gameObject)
+            {
+                if (result.normal.y < 0)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         foreach(ContactPoint2D contact in collision.contacts)
@@ -95,27 +226,38 @@ public abstract class MovementControler : MonoBehaviour
             }
             else if(collision.collider.tag != "Player" && collision.collider.tag != "NPC")
             {
-                isBlocked = true;
+                IsBlocked = true;
                 obsticle = collision.collider.transform;
+            }
+            else
+            {
+                slideSpeedX = 0;
             }
             if (collision.collider.tag == "Player" && gameObject.tag == "NPC_Ignored")
             {
-                isBlocked = false;
+                IsBlocked = false;
                 Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<Collider2D>());
             }
 
         }
     }
-    private void PickTimmer()
+    private void CanHold()
     {
-        if(timerToPick <= 0)
+        if (IsSliding || IsCrawling)
         {
-            canCarrie = true;
-            timerToPick = inpickableTimmer;
+            canCarrie = false;
         }
-        if (!canCarrie)
+        else
         {
-            timerToPick -= Time.fixedDeltaTime;
+            if (timerToPick <= 0)
+            {
+                canCarrie = true;
+                timerToPick = inpickableTimmer;
+            }
+            if (!canCarrie)
+            {
+                timerToPick -= Time.fixedDeltaTime;
+            }
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
@@ -125,10 +267,11 @@ public abstract class MovementControler : MonoBehaviour
             if (contact.normal.y > minGroungNormalY)
             {
                 ground = true;
+                IsJumping = false;
             }
             else
             {
-                isBlocked = true;
+                IsBlocked = true;
                 obsticle = collision.collider.transform;
                 if(collision.collider.tag != "Player" && collision.collider.tag != "NPC"){
                     float obsticleHeight = 0;
@@ -163,18 +306,22 @@ public abstract class MovementControler : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         ground = false;
-        isBlocked = false;
+        IsBlocked = false;
         obsticle = null;
     }
-    protected void Turn(float dir)
+    protected void Turn(float dir, float angle)
     {
         if (dir > 0)
         {
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            transform.eulerAngles = new Vector3(0, 0, angle);
         }
         else if (dir < 0)
         {
-            transform.eulerAngles = new Vector3(0, 180, 0);
+            transform.eulerAngles = new Vector3(0, 180, angle);
+        }
+        else
+        {
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, angle);
         }
     }
     public void SetGroundState(bool grounded)
@@ -195,17 +342,19 @@ public abstract class MovementControler : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out PickObject script) && gameObject.tag == "Player")
+        if (collision.TryGetComponent(out PickObject script) && gameObject.tag == "Player")
         {
             bool reachable = false;
             Vector2 targetDirection = collision.transform.position - transform.position;
+            float distanceToTarget = Vector2.Distance(collision.transform.position, transform.position);
             Vector2 colliderDimensions1 = script.colliderDimensions;
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDirection);
+            LayerMask mask = ~LayerMask.GetMask("Player");
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDirection, distanceToTarget, mask);
             if (hit)
             {
                 if(hit.collider.gameObject == collision.gameObject)
                 {
-                    bool cantPick = PickObject.CheckCeiling(GetComponent<CapsuleCollider2D>(), collision.gameObject,colliderDimensions1, 0.3f);
+                    bool cantPick = PickObject.CheckCeiling(GetComponent<BoxCollider2D>(), collision.gameObject,colliderDimensions1, 0.3f);
                     if (!cantPick)
                     {
                         reachable = true;
@@ -223,7 +372,7 @@ public abstract class MovementControler : MonoBehaviour
                 else
                 {
                     Vector2 colliderDimensions2 = closestPickable.GetComponent<PickObject>().colliderDimensions;
-                    bool cantPick = PickObject.CheckCeiling(GetComponent<CapsuleCollider2D>(), closestPickable.gameObject, colliderDimensions2, 0.3f);
+                    bool cantPick = PickObject.CheckCeiling(GetComponent<BoxCollider2D>(), closestPickable.gameObject, colliderDimensions2, 0.3f);
                     if (cantPick)
                     {
                         closestPickable = collision.transform;

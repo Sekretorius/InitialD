@@ -16,9 +16,9 @@ public class PickObject : Interactable
     private Vector3 velocity = Vector3.zero;
     private SpriteRenderer sprite;
     private PlayerControler playerControler;
-    private CapsuleCollider2D interactibleCollider;
+    private BoxCollider2D interactibleCollider;
     private string ignoreWithTag = "";
-    private float offsetY = 0.3f;
+    private float offsetY = 0.38f;
     private float additionalForce = 0;
     private float ThrowDirection = 0;
     private float minGroungNormalY = 0.65f;
@@ -53,10 +53,10 @@ public class PickObject : Interactable
         if (interactingObject != null)
         {
             playerControler = interactingObject.GetComponent<PlayerControler>();
-            interactibleCollider = interactingObject.GetComponent<CapsuleCollider2D>();
+            interactibleCollider = interactingObject.GetComponent<BoxCollider2D>();
             if (isBeingCarried)
             {
-                if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyUp(KeyCode.LeftShift))
+                if (Input.GetKeyDown(KeyCode.Joystick1Button2) || !Input.GetKey(KeyCode.LeftShift))
                 {
                     Dismount();
                     ThrowDirection = interactingObject.right.x;
@@ -77,6 +77,7 @@ public class PickObject : Interactable
                 }
             }
             bool isPickable = Reach();
+            
             if (isPickable && isBellow)
             {
                 isPickable = Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S);
@@ -123,7 +124,7 @@ public class PickObject : Interactable
         bool isBlocking = false;
         foreach (Collider2D collider in colliders)
         {
-            if (collider != null && collider.gameObject != objectToCheck)
+            if (collider != null && collider.gameObject != objectToCheck && collider.gameObject != fromObject.gameObject)
             {
                 isBlocking = true;
                 break;
@@ -137,7 +138,7 @@ public class PickObject : Interactable
             {
                 if (hit)
                 {
-                    if (hit.collider.gameObject != objectToCheck)
+                    if (hit.collider.gameObject != objectToCheck && hit.collider.gameObject != fromObject.gameObject)
                     {
                         isInBetween = true;
                         break;
@@ -162,6 +163,7 @@ public class PickObject : Interactable
     {
         transform.parent = interactingObject;
         rgbd.isKinematic = true;
+        rgbd.AddTorque(0);
         if (TryGetComponent(out MovementControler controller))
         {
             controller.NullifyMovement(true);
@@ -187,7 +189,7 @@ public class PickObject : Interactable
                     Vector2 targetDirection = transform.position - interactingObjectOffset;
 
                     RaycastHit2D hit = Physics2D.Raycast(interactingObjectOffset, targetDirection);
-                    if (hit.collider.gameObject != gameObject)
+                    if (hit.collider.gameObject != gameObject && hit.collider.gameObject != interactingObject.gameObject)
                     {
                         return false;
                     }
@@ -197,6 +199,7 @@ public class PickObject : Interactable
                     float diff = pickableUpperY - interactiveBottomY - 0.1f;
                     if (diff <= 0)
                     {
+                        
                         isBellow = true;
                     }
                     else
@@ -220,6 +223,7 @@ public class PickObject : Interactable
                     return false;
                 }
             }
+
             return controler.PickableClosestToPlayer(transform);
         }
         return false;
