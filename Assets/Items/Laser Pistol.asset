@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55cdfd48af9d2b848b654c5c0a4addc5, type: 3}
   m_Name: Laser Pistol
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Gun_1
   Description: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 8825122022161924940, guid: b7645846ffad98441b686f373dc584ab, type: 3}
   Damage: 2
   FireRate: 10
   BulletSpeed: 0.5

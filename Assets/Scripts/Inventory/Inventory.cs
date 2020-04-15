@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+   // [SerializeField] List<Item> items;
     [SerializeField] List<Item> items;
     [SerializeField] int selection=1;
     [SerializeField] ItemSlot[] itemSlots;
@@ -72,6 +73,17 @@ public class Inventory : MonoBehaviour
     }
 
     public bool Remove()
+    {
+        if (itemSlots[selection - 1].Item != null)
+        {
+            items.Remove(itemSlots[selection - 1].Item);
+            RefreshUI();
+            return true;
+        }
+        return false;
+    }
+
+    public bool Spawn()
     {
         if (itemSlots[selection - 1].Item != null)
         {
