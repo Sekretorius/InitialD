@@ -12,15 +12,17 @@ public class Goal
     public void Increment(int amount)
     {
         current = Mathf.Min(current + amount, count);
-        if(current >= count)
+        GameObject.Find("caseManager").GetComponent<StoryLineManager>().GoalUpdate();
+        if (current >= count)
         {
             completed = true;
             Debug.Log("Goal was compleated!");
         }      
     }
 
-    public string getDescription()
+    public virtual string getDescription()
     {
         return description + " " + current + "/" + count;
     }
+
 }

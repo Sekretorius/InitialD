@@ -9,7 +9,6 @@ public class DialogueTrigger : MonoBehaviour
     public List<Dialogue> dialogues;
     public bool repeat;
     public bool mission;
-    public int id;
 
     public void OnTriggerDialogue()
     {

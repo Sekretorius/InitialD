@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ReachGoal : Goal
 {
+    public ReachGoal(string description)
+    {
+        this.description = description;
+    }
 
     public ReachGoal(string description, int current, int count)
     {

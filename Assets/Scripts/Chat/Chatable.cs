@@ -11,12 +11,11 @@ public class Chatable : Interactable
         OnEvent();
     }
     protected override void OnEvent()
-    {
-        if (IsInteractable && Input.GetKeyDown(KeyCode.E) && manager.Chat == false)      
-            gameObject.GetComponent<DialogueTrigger>().OnInteraction();
-        
+    {      
         if (IsInteractable && Input.GetKeyDown(KeyCode.T) && manager.Chat == false)
             gameObject.GetComponent<DialogueTrigger>().OnTriggerDialogue();
+        else if (IsInteractable && manager.Chat == false)
+            gameObject.GetComponent<DialogueTrigger>().OnInteraction();
         else if (manager.Chat == true && IsInteractable && Input.GetKeyDown(KeyCode.T))
             manager.DisplayDialogue();
     }
@@ -27,6 +26,7 @@ public class Chatable : Interactable
         {
             SetFalse();
             manager.StopDialogue();
+            FindObjectOfType<DialogueManager>().DisableInteractions();
         }
     }
 

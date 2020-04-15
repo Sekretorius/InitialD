@@ -27,6 +27,8 @@ public class DialogueManager : MonoBehaviour
     private Text dialogueTextPlayer;
     //public GameObject Camera;
 
+    public int CaseId { get; private set; }
+
     public bool Chat { get; private set; }
     public bool Interacted { get; private set; }
     public bool Mission { get; private set; }
@@ -89,6 +91,9 @@ public class DialogueManager : MonoBehaviour
         top = boxTalk.GetComponent<SpriteRenderer>().bounds.size.y;
         Vector3 position = new Vector3(NPC.transform.position.x - offset, NPC.transform.position.y + top + 0.9f, 0);
         boxTalk.GetComponent<Transform>().position = position;
+    
+        float delta = 3f - Mathf.Abs(NPC.transform.position.x - Player.transform.position.x);
+        boxTalk.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, delta);
     }
 
     public void SetQuestionBox(float offset)
@@ -97,6 +102,9 @@ public class DialogueManager : MonoBehaviour
         top = boxQuestion.GetComponent<SpriteRenderer>().bounds.size.y;
         Vector3 position = new Vector3(NPC.transform.position.x - offset, NPC.transform.position.y + top + 1f, 0);
         boxQuestion.GetComponent<Transform>().position = position;
+
+        float delta = 3f - Mathf.Abs(NPC.transform.position.x - Player.transform.position.x);
+        boxQuestion.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, delta);
     }
 
     public void SetBoxPositions()
@@ -140,6 +148,7 @@ public class DialogueManager : MonoBehaviour
     {
        // Debug.Log("End of Conversation");
         Chat = false;
+        CaseId = 0;
         boxPlayer.SetActive(false);
         boxNPC.SetActive(false);
     }
@@ -147,6 +156,10 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue, GameObject player, GameObject NPC)
     {
+        if (dialogue.CaseId != 0)
+            CaseId = dialogue.CaseId;
+        else
+            CaseId = 0;
         DisableInteractions();
         Interacted = false;
         //Mission = false;
@@ -174,14 +187,13 @@ public class DialogueManager : MonoBehaviour
     {
         if(sentences.Count == 0 && responses.Count == 0)
         {
+            if (CaseId != 0)
+            {
+                GameObject.Find("caseManager").GetComponent<StoryLineManager>().SetCase(CaseId);
+            }
+            NPC.GetComponent<Collider2D>().tag = "NPC_Ignored";
             StopDialogue();
             NPC.GetComponent<DialogueTrigger>().RemoveDialogue();
-            NPC.GetComponent<Collider2D>().tag = "NPC_Ignored";
-            if (Mission)
-            {
-                GameObject.Find("caseManager").GetComponent<StoryLineManager>().setCase(NPC.GetComponent<DialogueTrigger>().id);
-                Mission = false;
-            }
             return;
         }
         if (turn || sentences.Count == 0)

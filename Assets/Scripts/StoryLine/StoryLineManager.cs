@@ -25,14 +25,17 @@ public class StoryLineManager : MonoBehaviour
         OnEvent();
     }
 
-    public void setCase(int id)
+    public void SetCase(int id)
     {
         foreach (Case c in caseManager.GetComponents<Case>())
+        {
             if (c.id == id)
             {
+                c.Begin = true;
                 @case = c;
                 break;
             }
+        }
         ShowOnScreen();
     }
 
@@ -51,6 +54,13 @@ public class StoryLineManager : MonoBehaviour
             }
     }
 
+    public void GoalUpdate()
+    {
+        int count = 0;
+        foreach (GameObject goal in list)
+            goal.GetComponent<Text>().text = @case.Goals[count++].getDescription();
+    }
+
     void Start()
     {
       //  setCase(0);
@@ -65,7 +75,10 @@ public class StoryLineManager : MonoBehaviour
     {
         tempPosition = position;
         foreach (GameObject obj in list)
+        {
             Destroy(obj);
+            list = new List<GameObject>();
+        }
 
         if (@case != null)
         {
@@ -96,7 +109,6 @@ public class StoryLineManager : MonoBehaviour
             temp.transform.localScale = new Vector3(1, 1, 1);
             list.Add(temp);
         }
-
     }
 
     

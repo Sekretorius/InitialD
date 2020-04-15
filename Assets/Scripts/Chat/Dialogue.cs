@@ -8,9 +8,11 @@ public class Dialogue
 {
     public bool isPlayerFirst; // Is the player gonna talk first.
     public int priority; // Is the player gonna talk first.
+    public int CaseId;
 
     [TextArea(1,100)]
     public string[] sentences;
     [TextArea(1, 100)]
     public string[] responses;
+
 }
