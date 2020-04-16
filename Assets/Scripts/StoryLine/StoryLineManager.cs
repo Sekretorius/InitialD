@@ -108,6 +108,7 @@ public class StoryLineManager : MonoBehaviour
             temp.transform.SetParent(caseObject.transform);
             temp.transform.localScale = new Vector3(1, 1, 1);
             list.Add(temp);
+            active = false;
         }
     }
 

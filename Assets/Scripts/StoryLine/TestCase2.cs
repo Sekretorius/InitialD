@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class TestCase2 : Case
 {
-    public GameObject player;
-    public GameObject NPC;
-
     public Collider2D First;
     public Collider2D Second;
-
-    public Dialogue RewardSpeach;
 
     public bool FirstGoal;
     public bool SecondGoal;
@@ -24,23 +19,37 @@ public class TestCase2 : Case
         Goals[1] = new ReachGoal("EXIT YOUR OFFICE",0,1);
         EndGoalText = "GO BACK TO THE NPC";
         completed = false;
-
         FirstGoal = false;
         SecondGoal = false;
-
         Accepted = false;
+
+        RewardSpeach = new Dialogue(
+            new string[] { "HERE YOU GO LAD",
+                            },
+            new string[] { "THANKS, I GUESS",
+                            },
+            false, 1, 2
+        );
+
+        BusySpeach = new Dialogue(
+            new string[] { "YOU LOOK BUSY, MAYBE NEXT TIME",
+                    },
+            new string[] { "...",
+                    },
+            false, 1, 2
+        );
+
     }
 
     public override void OnEvent()
     {
         Enter();
         Exit();
-        GiveRewards();
     }
 
     public void Enter()
     {
-        if (player.GetComponent<CapsuleCollider2D>().IsTouching(First) && completed == false && FirstGoal == false && Begin)
+        if (Player.GetComponent<Collider2D>().IsTouching(First) && completed == false && FirstGoal == false && Begin)
         {
             GetComponentInParent<StoryLineManager>().GoalUpdate();
             Goals[0].Increment(1);
@@ -50,7 +59,7 @@ public class TestCase2 : Case
 
     public void Exit()
     {
-        if (player.GetComponent<CapsuleCollider2D>().IsTouching(Second) && completed == false && Begin && FirstGoal && SecondGoal == false)
+        if (Player.GetComponent<Collider2D>().IsTouching(Second) && completed == false && Begin && FirstGoal && SecondGoal == false)
         {
             GetComponentInParent<StoryLineManager>().GoalUpdate();
             Goals[1].Increment(1);
@@ -59,18 +68,18 @@ public class TestCase2 : Case
         }
     }
 
-    public override void GiveRewards()
-    {
-        if (player.GetComponent<CapsuleCollider2D>().IsTouching(NPC.GetComponent<Collider2D>()) && completed && Accepted == false)
-        {
-            FindObjectOfType<DialogueManager>().StartDialogue(RewardSpeach, player, NPC);
-            Accepted = true;
-        }
-        else if (FindObjectOfType<DialogueManager>().Chat == false && completed && Accepted)
-        {
-            base.GiveRewards();
-        }
-    }
+    //public override void GiveRewards()
+    //{
+    //    if (player.GetComponent<Collider2D>().IsTouching(NPC.GetComponent<Collider2D>()) && completed && Accepted == false)
+    //    {
+    //        FindObjectOfType<DialogueManager>().StartDialogue(RewardSpeach, player, NPC);
+    //        Accepted = true;
+    //    }
+    //    else if (FindObjectOfType<DialogueManager>().Chat == false && completed && Accepted)
+    //    {
+    //        base.GiveRewards();
+    //    }
+    //}
 
 
 

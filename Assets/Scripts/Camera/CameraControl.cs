@@ -32,12 +32,12 @@ public class CameraControl : MonoBehaviour
         transform.position = player.transform.position + stockPosition +
             mousePosition;
 
-        if (Input.GetButton("Fire1") && Camera.main.orthographicSize != zoomSize)
+        if (Input.GetButton("Fire2") && Camera.main.orthographicSize != zoomSize)
         {
             ZoomIn();
         }
 
-        else if (!Input.GetButton("Fire1") && Camera.main.orthographicSize != stockSize)
+        else if (!Input.GetButton("Fire2") && Camera.main.orthographicSize != stockSize)
         {
             ZoomOut();
         }
