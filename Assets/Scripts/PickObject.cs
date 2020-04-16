@@ -35,7 +35,7 @@ public class PickObject : Interactable
     {
         base.Start();
         collider = GetComponent<Collider2D>();
-        if (tag == "NPC")
+        if (CompareTag("NPC"))
         {
             sprite = GetComponentInChildren<SpriteRenderer>();
         }
@@ -247,7 +247,7 @@ public class PickObject : Interactable
         {
             if (contact.normal.y > minGroungNormalY)
             {
-                if (collision.gameObject.tag != ignoreWithTag && !isBeingCarried)
+                if (!collision.gameObject.CompareTag(ignoreWithTag) && !isBeingCarried)
                 {
                     ground = true;
                     if (isThrowing)
@@ -267,7 +267,7 @@ public class PickObject : Interactable
             }
             else
             {
-                if (isThrowing && collision.collider.tag != "NPC")
+                if (isThrowing && !collision.collider.CompareTag("NPC"))
                 {
                     collidedHorizontaly = true;
                 }

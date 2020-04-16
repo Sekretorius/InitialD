@@ -224,7 +224,7 @@ public abstract class MovementControler : MonoBehaviour
             {
                 ground = true;
             }
-            else if(collision.collider.tag != "Player" && collision.collider.tag != "NPC")
+            else if(!collision.collider.CompareTag("Player") && !collision.collider.CompareTag("NPC"))
             {
                 IsBlocked = true;
                 obsticle = collision.collider.transform;
@@ -233,7 +233,7 @@ public abstract class MovementControler : MonoBehaviour
             {
                 slideSpeedX = 0;
             }
-            if (collision.collider.tag == "Player" && gameObject.tag == "NPC_Ignored")
+            if (collision.collider.CompareTag("Player") && gameObject.CompareTag("NPC_Ignored"))
             {
                 IsBlocked = false;
                 Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<Collider2D>());
@@ -273,7 +273,8 @@ public abstract class MovementControler : MonoBehaviour
             {
                 IsBlocked = true;
                 obsticle = collision.collider.transform;
-                if(collision.collider.tag != "Player" && collision.collider.tag != "NPC"){
+                if(!collision.collider.CompareTag("Player") && !collision.collider.CompareTag("NPC"))
+                {
                     float obsticleHeight = 0;
                     float height = 0;
                     if(obsticle.TryGetComponent(out Collider2D obsticleCollider))
@@ -342,7 +343,7 @@ public abstract class MovementControler : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out PickObject script) && gameObject.tag == "Player")
+        if (collision.TryGetComponent(out PickObject script) && gameObject.CompareTag("Player"))
         {
             bool reachable = false;
             Vector2 targetDirection = collision.transform.position - transform.position;
