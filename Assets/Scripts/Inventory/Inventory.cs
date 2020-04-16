@@ -29,7 +29,7 @@ public class Inventory : MonoBehaviour
             else selection = itemSlots.Length;
             RefreshUI();
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetButtonDown("Discard"))
             Remove();
     }
 

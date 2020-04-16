@@ -23,9 +23,9 @@ public class Chatable : Interactable
             storyManager.@case.GiveRewards();
             storyManager.@case.Destroy();
         }
-        else if (IsInteractable && Input.GetKeyDown(KeyCode.T) && manager.Chat == false && storyManager.active && storyManager.@case.completed == false && storyManager.@case.IsTouchingNPC())
+        else if (IsInteractable && Input.GetButtonDown("Chat") && manager.Chat == false && storyManager.active && storyManager.@case.completed == false && storyManager.@case.IsTouchingNPC())
             storyManager.@case.Busy();
-        else if (IsInteractable && Input.GetKeyDown(KeyCode.T) && manager.Chat == false)
+        else if (IsInteractable && Input.GetButtonDown("Chat") && manager.Chat == false)
             gameObject.GetComponent<DialogueTrigger>().OnTriggerDialogue();
         else if (IsInteractable && manager.Chat == false)
             gameObject.GetComponent<DialogueTrigger>().OnInteraction();

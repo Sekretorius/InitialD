@@ -41,7 +41,7 @@ public class FieldOfView : MonoBehaviour
 
             if (hit.collider != null)
             {
-                if (hit.collider.tag == "Player" && !nearTarget)
+                if (hit.collider.CompareTag("Player") && !nearTarget)
                 {
                     PlayerControler controler = hit.collider.gameObject.GetComponent<PlayerControler>();
                     if (!controler.isHiden)
