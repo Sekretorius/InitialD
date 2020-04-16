@@ -11,7 +11,7 @@ public class PlayerControler : MovementControler
         if (canMove)
         {
             move.x = Input.GetAxisRaw("Horizontal");
-            if (Input.GetKeyDown(KeyCode.S) && !IsSliding && move.x != 0)
+            if (Input.GetButtonDown("Crouch") && !IsSliding && move.x != 0)
             {
                 IsSliding = true;
                 slideDirection = move.x > 0 ? 1 : -1;

@@ -80,9 +80,9 @@ public class PickObject : Interactable
             
             if (isPickable && isBellow)
             {
-                isPickable = Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S);
+                isPickable = Input.GetButton("Crouch");
             }
-            if (isPickable && (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.Joystick1Button2)) && interactingObject != null)
+            if (isPickable && (Input.GetButtonDown("Pickup") && interactingObject != null))
             {
                 additionalForce = 0;
                 if (isPickable && !isBeingCarried)

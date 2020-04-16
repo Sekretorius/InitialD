@@ -47,7 +47,7 @@ public class Interactable : MonoBehaviour
 
     protected virtual void OnEvent()
     {
-        if (IsInteractable && Input.GetKey(KeyCode.E) && gameObject.CompareTag("Interact"))
+        if (IsInteractable && Input.GetButton("Interact") && gameObject.CompareTag("Interact"))
             gameObject.GetComponent<SpriteRenderer>().color = Color.green;
 
     }

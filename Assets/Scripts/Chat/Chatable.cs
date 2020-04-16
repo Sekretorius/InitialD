@@ -12,7 +12,7 @@ public class Chatable : Interactable
     }
     protected override void OnEvent()
     {      
-        if (IsInteractable && Input.GetKeyDown(KeyCode.T) && manager.Chat == false)
+        if (IsInteractable && Input.GetButtonDown("Chat") && manager.Chat == false)
             gameObject.GetComponent<DialogueTrigger>().OnTriggerDialogue();
         else if (IsInteractable && manager.Chat == false)
             gameObject.GetComponent<DialogueTrigger>().OnInteraction();
