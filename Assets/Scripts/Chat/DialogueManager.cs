@@ -27,6 +27,8 @@ public class DialogueManager : MonoBehaviour
     private Text dialogueTextPlayer;
     //public GameObject Camera;
 
+    public Case @case { get; private set; }
+
     public int CaseId { get; private set; }
 
     public bool Chat { get; private set; }
@@ -156,10 +158,10 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue, GameObject player, GameObject NPC)
     {
-        if (dialogue.CaseId != 0)
-            CaseId = dialogue.CaseId;
+        if (dialogue.Case != null)
+            @case = dialogue.Case;
         else
-            CaseId = 0;
+            @case = null;
         DisableInteractions();
         Interacted = false;
         //Mission = false;
@@ -187,10 +189,8 @@ public class DialogueManager : MonoBehaviour
     {
         if(sentences.Count == 0 && responses.Count == 0)
         {
-            if (CaseId != 0)
-            {
-                GameObject.Find("caseManager").GetComponent<StoryLineManager>().SetCase(CaseId);
-            }
+            if (@case != null)
+                GameObject.Find("caseManager").GetComponent<StoryLineManager>().SetCase(@case);
             NPC.GetComponent<Collider2D>().tag = "NPC_Ignored";
             StopDialogue();
             NPC.GetComponent<DialogueTrigger>().RemoveDialogue();

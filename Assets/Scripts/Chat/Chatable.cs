@@ -18,12 +18,12 @@ public class Chatable : Interactable
     }
     protected override void OnEvent()
     {
-        if (IsInteractable && manager.Chat == false && storyManager.active && storyManager.@case.completed && storyManager.@case.IsTouchingNPC() && storyManager.@case.Accepted == false)
+        if (IsInteractable && manager.Chat == false && storyManager.onMission && storyManager.@case.completed && storyManager.@case.IsTouchingNPC() && storyManager.@case.Accepted == false)
         {
             storyManager.@case.GiveRewards();
             storyManager.@case.Destroy();
         }
-        else if (IsInteractable && Input.GetButtonDown("Chat") && manager.Chat == false && storyManager.active && storyManager.@case.completed == false && storyManager.@case.IsTouchingNPC())
+        else if (IsInteractable && Input.GetButtonDown("Chat") && manager.Chat == false && storyManager.onMission && storyManager.@case.completed == false && storyManager.@case.IsTouchingNPC())
             storyManager.@case.Busy();
         else if (IsInteractable && Input.GetButtonDown("Chat") && manager.Chat == false)
             gameObject.GetComponent<DialogueTrigger>().OnTriggerDialogue();
@@ -36,7 +36,7 @@ public class Chatable : Interactable
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && storyManager.active && storyManager.@case.IsTouchingNPC() && storyManager.@case.completed)
+        if (collision.CompareTag("Player") && storyManager.onMission && storyManager.@case.IsTouchingNPC() && storyManager.@case.completed)
         {
             Debug.Log("Mission exited");
             storyManager.@case.Destroy();
@@ -44,7 +44,7 @@ public class Chatable : Interactable
             manager.StopDialogue();
             FindObjectOfType<DialogueManager>().DisableInteractions();
         }
-        else if (collision.tag == "Player")
+        else if (collision.CompareTag("Player"))
         {
             SetFalse();
             manager.StopDialogue();

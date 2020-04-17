@@ -13,7 +13,6 @@ public class TestCase : Case
     void Awake()
     {
         caseName = "HOME, SWEET HOME";
-        id = 1;
         Goals = new ReachGoal[1];
         Goals[0] = new ReachGoal("LEAVE THE OFFICE",0,1);
         EndGoalText = "GO BACK TO THE NPC";

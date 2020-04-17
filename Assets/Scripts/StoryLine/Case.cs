@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class Case : MonoBehaviour   
 {
-    public GameObject Player { get; private set; }
     public StoryLineManager Manager { get; private set; }
-    public DialogueManager dialogueManager { get; private set; }
-    public Inventory Inv { get; private set; }
 
     public GameObject NPC;
     public List<Item> rewards;
-    public int id { get; set; }
+    public int CashReward { get; set; }
     public string caseName { get; set; }
     public bool completed { get; set; }
     public bool Begin { get; set; }
@@ -24,10 +21,7 @@ public class Case : MonoBehaviour
 
     private void OnValidate()
     {
-        Player = GameObject.FindWithTag("Player");
         Manager = GetComponentInParent<StoryLineManager>();
-        dialogueManager = FindObjectOfType<DialogueManager>();
-        Inv = FindObjectOfType<Inventory>();
     }
 
     void Update()
@@ -53,7 +47,7 @@ public class Case : MonoBehaviour
 
             update[count] = new EndGoal(EndGoalText);
             Goals = update;
-            GetComponentInParent<StoryLineManager>().ShowOnScreen();
+            Manager.ShowOnScreen();
           //  Destroy(this);
         }
     }
@@ -65,26 +59,36 @@ public class Case : MonoBehaviour
 
     public void Destroy()
     {
-        GetComponentInParent<StoryLineManager>().@case = null;
-        GetComponentInParent<StoryLineManager>().ShowOnScreen();
+        Manager.@case = null;
+        Manager.ShowOnScreen();
+        int count = 0;
+        foreach (Dialogue d in NPC.GetComponent<DialogueTrigger>().dialogues)
+        {
+            if (this == d.Case)
+                NPC.GetComponent<DialogueTrigger>().dialogues.RemoveAt(count);
+            count++;
+        }
         Destroy(this);
     }
 
     public void Busy()
     {
-        dialogueManager.StartDialogue(BusySpeach, Player, NPC);
+        Manager.dialogueManager.StartDialogue(BusySpeach, Manager.Player, NPC);
     }
 
     public virtual void GiveRewards() {
-        dialogueManager.StartDialogue(RewardSpeach, Player, NPC);
+        Manager.dialogueManager.StartDialogue(RewardSpeach, Manager.Player, NPC);
         foreach(Item item in rewards)
-            Inv.Add(item);
+            Manager.Inv.Add(item);
+        if (CashReward > 0)
+            Manager.Cash.Add(CashReward);
         Accepted = true;
+        Manager.onMission = false;
     }
 
     public bool IsTouchingNPC()
     {
-        return Player.GetComponent<Collider2D>().IsTouching(NPC.GetComponent<Collider2D>());
+        return Manager.Player.GetComponent<Collider2D>().IsTouching(NPC.GetComponent<Collider2D>());
     }
 
     public bool Check()

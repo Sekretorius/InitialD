@@ -13,7 +13,6 @@ public class TestCase2 : Case
     void Awake()
     {
         caseName = "OFFICE HUNT";
-        id = 2;
         Goals = new ReachGoal[2];
         Goals[0] = new ReachGoal("REACH YOUR OFFCE",0,1);
         Goals[1] = new ReachGoal("EXIT YOUR OFFICE",0,1);
@@ -22,13 +21,14 @@ public class TestCase2 : Case
         FirstGoal = false;
         SecondGoal = false;
         Accepted = false;
+        CashReward = 25;
 
         RewardSpeach = new Dialogue(
             new string[] { "HERE YOU GO LAD",
                             },
             new string[] { "THANKS, I GUESS",
                             },
-            false, 1, 2
+            false, 1, null
         );
 
         BusySpeach = new Dialogue(
@@ -36,7 +36,7 @@ public class TestCase2 : Case
                     },
             new string[] { "...",
                     },
-            false, 1, 2
+            false, 1, null
         );
 
     }
@@ -49,9 +49,9 @@ public class TestCase2 : Case
 
     public void Enter()
     {
-        if (Player.GetComponent<Collider2D>().IsTouching(First) && completed == false && FirstGoal == false && Begin)
+        if (Manager.Player.GetComponent<Collider2D>().IsTouching(First) && completed == false && FirstGoal == false && Begin)
         {
-            GetComponentInParent<StoryLineManager>().GoalUpdate();
+            Manager.GoalUpdate();
             Goals[0].Increment(1);
             FirstGoal = true;
         }
@@ -59,9 +59,9 @@ public class TestCase2 : Case
 
     public void Exit()
     {
-        if (Player.GetComponent<Collider2D>().IsTouching(Second) && completed == false && Begin && FirstGoal && SecondGoal == false)
+        if (Manager.Player.GetComponent<Collider2D>().IsTouching(Second) && completed == false && Begin && FirstGoal && SecondGoal == false)
         {
-            GetComponentInParent<StoryLineManager>().GoalUpdate();
+            Manager.GoalUpdate();
             Goals[1].Increment(1);
             SecondGoal = false;
             Complete();

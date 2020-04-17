@@ -6,35 +6,55 @@ using UnityEngine.UI;
 public class StoryLineManager : MonoBehaviour
 {
     public Case @case;
-    public GameObject caseManager;
 
+    public GameObject Player { get; private set; }
+    public DialogueManager dialogueManager { get; private set; }
+    public Inventory Inv { get; private set; }
+    public MoneySystem Cash { get; private set; }
+
+    public GameObject caseManager;
 
     public Text caseName;
     public GameObject caseObject;
 
     public GameObject prefab;
 
+    public bool onMission;
     public bool active;
 
     private Vector3 position;
     private Vector3 tempPosition;
     private List<GameObject> list = new List<GameObject>();
 
+    private void OnValidate()
+    {
+        Player = GameObject.FindWithTag("Player");
+        dialogueManager = FindObjectOfType<DialogueManager>();
+        Inv = FindObjectOfType<Inventory>();
+        Cash = FindObjectOfType<MoneySystem>();
+    }
+
     void Update()
     {
         OnEvent();
     }
 
-    public void SetCase(int id)
+    public void SetCase(Case c)
     {
-        foreach (Case c in caseManager.GetComponents<Case>())
+        //foreach (Case c in caseManager.GetComponents<Case>())
+        //{
+        //    if (c.id == id)
+        //    {
+        //        c.Begin = true;
+        //        @case = c;
+        //        break;
+        //    }
+        //}
+        if (c != null)
         {
-            if (c.id == id)
-            {
-                c.Begin = true;
-                @case = c;
-                break;
-            }
+            c.Begin = true;
+            @case = c;
+            onMission = true;
         }
         ShowOnScreen();
     }
@@ -69,6 +89,7 @@ public class StoryLineManager : MonoBehaviour
         caseObject.SetActive(false);
         active = false;
         ShowOnScreen();
+        onMission = false;
     }
 
     public void ShowOnScreen()
@@ -108,7 +129,6 @@ public class StoryLineManager : MonoBehaviour
             temp.transform.SetParent(caseObject.transform);
             temp.transform.localScale = new Vector3(1, 1, 1);
             list.Add(temp);
-            active = false;
         }
     }
 

@@ -8,18 +8,18 @@ public class Dialogue
 {
     public bool isPlayerFirst; // Is the player gonna talk first.
     public int priority; // Is the player gonna talk first.
-    public int CaseId;
+    public Case Case;
 
     [TextArea(1,100)]
     public string[] sentences;
     [TextArea(1, 100)]
     public string[] responses;
 
-    public Dialogue(string[] sentences, string[] responses, bool isPlayerFirst, int priority, int CaseId)
+    public Dialogue(string[] sentences, string[] responses, bool isPlayerFirst, int priority, Case Case)
     {
         this.isPlayerFirst = isPlayerFirst;
         this.priority = priority;
-        this.CaseId = CaseId;
+        this.Case = Case;
         this.sentences = sentences;
         this.responses = responses;
     }
