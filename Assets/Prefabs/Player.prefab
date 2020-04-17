@@ -102,10 +102,6 @@ MonoBehaviour:
   slideSpeedModifier: 3
   minSlideSpeed: 5
   SlideDrag: 0.15
-  ground: 0
-  IsSliding: 0
-  slopeAngle: 0
-  IsCrawling: 0
   isHolding: 0
   canCarrie: 1
   inpickableTimmer: 0.1

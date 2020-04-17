@@ -17,7 +17,7 @@ public class PickObject : Interactable
     private SpriteRenderer sprite;
     private PlayerControler playerControler;
     private BoxCollider2D interactibleCollider;
-    private string ignoreWithTag = "";
+    private string ignoreWithTag = "Player";
     private float offsetY = 0.38f;
     private float additionalForce = 0;
     private float ThrowDirection = 0;
@@ -243,50 +243,50 @@ public class PickObject : Interactable
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        foreach (ContactPoint2D contact in collision.contacts)
-        {
-            if (contact.normal.y > minGroungNormalY)
+            foreach (ContactPoint2D contact in collision.contacts)
             {
-                if (!collision.gameObject.CompareTag(ignoreWithTag) && !isBeingCarried)
+                if (contact.normal.y > minGroungNormalY)
                 {
-                    ground = true;
-                    if (isThrowing)
+                    if (!collision.gameObject.CompareTag(ignoreWithTag) && !isBeingCarried) // 
                     {
-                        isThrowing = false;
-                        collidedHorizontaly = false;
+                        ground = true;
+                        if (isThrowing)
+                        {
+                            isThrowing = false;
+                            collidedHorizontaly = false;
+                        }
+                        if (TryGetComponent(out MovementControler controller))
+                        {
+                            controller.NullifyMovement(false);
+                        }
                     }
-                    if (TryGetComponent(out MovementControler controller))
+                    else
                     {
-                        controller.NullifyMovement(false);
+                        rgbd.velocity = new Vector2(rgbd.velocity.x, rgbd.velocity.y);
                     }
                 }
                 else
                 {
-                    rgbd.velocity = new Vector2(rgbd.velocity.x, rgbd.velocity.y);
-                }
-            }
-            else
-            {
-                if (isThrowing && !collision.collider.CompareTag("NPC"))
-                {
-                    collidedHorizontaly = true;
-                }
-                else if (isBeingCarried)
-                {
-                    float targetDirection = (interactingObject.position.x - transform.position.x) > 0 ? -1 : 1;
-                    Vector2 interactingVelocity = interactingObject.GetComponent<Rigidbody2D>().velocity;
-                    float blockingDirection = (collision.transform.position.x - interactingVelocity.x) > 0 ? -1 : 1;
-                    if (targetDirection == blockingDirection)
+                    if (isThrowing && !collision.collider.CompareTag("NPC"))
                     {
                         collidedHorizontaly = true;
                     }
-                    else
+                    else if (isBeingCarried)
                     {
-                        collidedHorizontaly = false;
+                        float targetDirection = (interactingObject.position.x - transform.position.x) > 0 ? -1 : 1;
+                        Vector2 interactingVelocity = interactingObject.GetComponent<Rigidbody2D>().velocity;
+                        float blockingDirection = (collision.transform.position.x - interactingVelocity.x) > 0 ? -1 : 1;
+                        if (targetDirection == blockingDirection)
+                        {
+                            collidedHorizontaly = true;
+                        }
+                        else
+                        {
+                            collidedHorizontaly = false;
+                        }
                     }
                 }
             }
-        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {

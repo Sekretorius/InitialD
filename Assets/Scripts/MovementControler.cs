@@ -12,7 +12,7 @@ public abstract class MovementControler : MonoBehaviour
     public float gravityModifier = 6f;
     public float slideSpeedModifier = 2f; 
     public float minSlideSpeed = 5f;
-    public float SlideDrag = 0.15f;
+    public float slideDrag = 0.15f;
 
     protected Animator anim;
     protected BoxCollider2D boxCollider;
@@ -32,7 +32,7 @@ public abstract class MovementControler : MonoBehaviour
     protected float minSlopeNomal = 0.95F;
 
     protected float slopeAngle = 0;
-    protected Vector2 slopeNormal = Vector2.one;
+    public Vector2 slopeNormal = Vector2.zero;
     protected bool IsBlockedByCeilling = false;
 
     protected bool IsJumping = false;
@@ -45,7 +45,7 @@ public abstract class MovementControler : MonoBehaviour
     protected float distanceToPickable = -1;
     protected bool slope = false;
     protected Vector2 colliderDimensions;
-
+    public Vector2 facingNormal;
 
     protected bool canMove = true;
 
@@ -58,6 +58,7 @@ public abstract class MovementControler : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
         colliderDimensions = boxCollider.bounds.size;
+        facingNormal = transform.up;
     }
     private void FixedUpdate()
     {
@@ -66,9 +67,9 @@ public abstract class MovementControler : MonoBehaviour
             if (!nullifiedImput)
             {
                 IsBlockedByCeilling = CheckCeiling();
+                CheckSlope();
                 ComputeMovement();
                 Movement();
-                AlignWithGround();
                 ComputeAnimation();
             }
         }
@@ -94,14 +95,14 @@ public abstract class MovementControler : MonoBehaviour
         }
         if (IsSliding && slideSpeedX != 0 && Input.GetAxisRaw("Horizontal") == slideDirection)
         {
-            CheckSlope();
             Vector2 slideVelocity = new Vector2(slideSpeedX, rgbd.velocity.y);
             rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, slideVelocity, ref velocity, movementSmoothing);
             targetVelocity = new Vector2(rgbd.velocity.x, rgbd.velocity.y);
-            slideSpeedX -= SlideDrag * Mathf.Abs(slopeNormal.y) * slideDirection;
-            if (!slope)
+            float slopeDirection = slopeNormal.x > 0 ? 1 : -1;
+            
+            if (slideDirection != slopeDirection || !slope)
             {
-                
+                slideSpeedX -= slideDrag * slideDirection;
             }
             if (Mathf.Abs(slideSpeedX) <= minSlideSpeed || IsBlocked)
             {
@@ -110,7 +111,6 @@ public abstract class MovementControler : MonoBehaviour
         }
         else
         {
-            Turn(move.x, 0);
             IsSliding = false;
         }
         if (IsCrawling)
@@ -120,8 +120,13 @@ public abstract class MovementControler : MonoBehaviour
         }
         if (!IsSliding && !IsCrawling)
         {
+            Turn(move.x, 0);
             targetVelocity = new Vector2(move.x * speed, rgbd.velocity.y);
             rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, movementSmoothing);
+        }
+        else
+        {
+            AlignWithGround();
         }
         if (jump && ground)
         {
@@ -147,53 +152,35 @@ public abstract class MovementControler : MonoBehaviour
     {
         RaycastHit2D[] resultsFromBack = new RaycastHit2D[15];
         Vector2 currentColliderDimensions = boxCollider.bounds.size;
-        float deltaOffsetX = transform.position.x - currentColliderDimensions.x / 2 * 3;
-        float distanceToTarget = Vector2.Distance(transform.position, new Vector2(deltaOffsetX, transform.position.y));
-        boxCollider.Cast(-transform.right, resultsFromBack, distanceToTarget);
+        float deltaOffsetY = transform.position.y - currentColliderDimensions.y / 2 * 3;
+        float distanceToTarget = Vector2.Distance(transform.position, new Vector2(transform.position.x, deltaOffsetY));
+        boxCollider.Cast(-transform.up, resultsFromBack, distanceToTarget);
         foreach (RaycastHit2D result in resultsFromBack)
         {
             if (ground && result)
             {
                 if (result.collider.gameObject != gameObject)
                 {
-                    if (result.normal.y < minSlopeNomal)
+                    if (result.normal.y > 0.65)
                     {
                         slope = true;
-                        slopeNormal = new Vector2(slopeNormal.x, result.normal.y);
+                        slopeNormal = result.normal;
                         slopeAngle = result.collider.transform.eulerAngles.z;
                         return;
                     }
                 }
             }
-            slopeNormal = Vector2.one;
+            slopeNormal = Vector2.zero;
             slope = false;
         }
     }
     private void AlignWithGround()
     {
-        if ((IsCrawling || IsSliding) && !IsJumping) {
-            RaycastHit2D[] resultsFromBellow = new RaycastHit2D[15];
-            Vector2 currentColliderDimensions = boxCollider.bounds.size;
-            float deltaOffsetY = transform.position.y - currentColliderDimensions.y / 2 * 3;
-            float distanceToTarget = Vector2.Distance(transform.position, new Vector2(transform.position.x, deltaOffsetY));
-            boxCollider.Cast(-transform.up, resultsFromBellow, distanceToTarget);
-            foreach (RaycastHit2D result in resultsFromBellow)
-            {
-                if (result)
-                {
-                    if (result.collider.gameObject != gameObject)
-                    {
-                        float rotateAngle = Mathf.Abs(result.transform.eulerAngles.z);
-                        float fixedAngle = rotateAngle > 180 ? 360 - rotateAngle : rotateAngle;
-                        Turn(move.x, fixedAngle * transform.right.x);
-                        return;
-                    }
-                }
-            }
-        }
-        else
+        facingNormal = slopeNormal;
+        transform.up = Vector2.Lerp(transform.up, slopeNormal, 0.7f);
+        if (move.x != 0)
         {
-            Turn(move.x, 0);
+            Turn(move.x, transform.eulerAngles.z * move.x);
         }
     }
     public bool CheckCeiling()
@@ -202,7 +189,7 @@ public abstract class MovementControler : MonoBehaviour
         Vector2 castOrigin = new Vector2(transform.position.x, deltaOffsetY);
         Vector2 fixedDimensions = new Vector2(colliderDimensions.x, colliderDimensions.x);
         LayerMask mask = ~LayerMask.GetMask("Player", "PickableObject");
-        RaycastHit2D[] results = Physics2D.BoxCastAll(castOrigin, fixedDimensions, 0, Vector2.up, colliderDimensions.y + 0.3f, mask);
+        RaycastHit2D[] results = Physics2D.BoxCastAll(castOrigin, fixedDimensions, 0, Vector2.up, colliderDimensions.y + 0.5f, mask);
         foreach (RaycastHit2D result in results)
         {
             if (result && result.collider.gameObject != gameObject)
