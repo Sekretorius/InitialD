@@ -6,11 +6,6 @@ public class Chatable : Interactable
 {
     private DialogueManager manager;
     private StoryLineManager storyManager;
-    // Update is called once per frame
-    void Update()
-    {
-        OnEvent();
-    }
     private void OnValidate()
     {
         storyManager = FindObjectOfType<StoryLineManager>();

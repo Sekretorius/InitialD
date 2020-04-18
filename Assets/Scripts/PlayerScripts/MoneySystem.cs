@@ -19,15 +19,15 @@ public class MoneySystem : MonoBehaviour
 
     public void Add(int amount)
     {
+        UpdateMoney(amount);
         CashAdd.GetComponent<Text>().text ="+ " + amount;
-        Cash += amount;
-        UpdateMoney();
+
     }
 
-    private void UpdateMoney()
+    private void UpdateMoney(int amount)
     {
         StartCoroutine(FadeTextToZeroAlpha(FadeSpeed, CashAdd));
-        CashText.GetComponent<Text>().text = Cash + " $";
+        StartCoroutine(CoolCashAnimation(amount, CashText));       
     }
 
     public IEnumerator FadeTextToZeroAlpha(float t, Text i)
@@ -38,6 +38,26 @@ public class MoneySystem : MonoBehaviour
             i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a - (Time.deltaTime / t));
             yield return null;
         }
+    }
+
+    public IEnumerator CoolCashAnimation(int amount, Text i)
+    {
+        int temp = Cash;
+        float time = 5;
+       
+        float x = 1;    
+        for (int t = 2; t <= amount; t++)
+            x += t;
+        x = time / x;
+
+        int count = 0;
+        while (temp <= Cash + amount)
+        {
+            CashText.GetComponent<Text>().text = temp + " $";
+            temp += 1;
+            yield return new WaitForSeconds(count++ * x);
+        }
+        Cash += amount;
     }
 
 }
