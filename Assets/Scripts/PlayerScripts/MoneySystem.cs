@@ -75,7 +75,7 @@ public class MoneySystem : MonoBehaviour
     {
         int temp = Cash;
         int CashTemp = Cash;
-        float time = 5;
+        float time = 4;
        
         float x = 1;    
         for (int t = 2; t <= amount; t++)
@@ -98,7 +98,7 @@ public class MoneySystem : MonoBehaviour
         amount = -1 * amount;
         int temp = Cash;
         int CashTemp = Cash;
-        float time = 5;
+        float time = 4;
 
         float x = 1;
         for (int t = 2; t <= amount; t++)

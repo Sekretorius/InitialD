@@ -8,13 +8,15 @@ public class Vendingable : Interactable
     public int cost;
     public int uses;
 
-    private MoneySystem System;
+    private MoneySystem MSystem;
+    private HealthSystem HSystem;
     private Text text;
 
 
     private void OnValidate()
     {
-        System = FindObjectOfType<MoneySystem>();
+        MSystem = FindObjectOfType<MoneySystem>();
+        HSystem = FindObjectOfType<HealthSystem>();
         text = GetComponentInChildren<Canvas>().GetComponentInChildren<Text>();
     }
 
@@ -22,13 +24,26 @@ public class Vendingable : Interactable
     {
         if (IsInteractable && Input.GetKeyDown(KeyCode.E) && uses > 0)
         {
-            uses--;
-            System.Add(cost);
-            // Health increase logic
-            if (uses > 0)
-                text.text = "PRESS E TO USE";
+            if (MSystem.Cash <= 0)
+            {
+                text.text = "TOO BROKE TO USE";
+            }
+            else if(!HSystem.IsFullHealth())
+            {
+                uses--;
+                MSystem.Add(cost);
+                HSystem.Heal(2);
+                // Health increase logic
+                if (uses > 0)
+                    text.text = "PRESS E TO USE";
+                else
+                    text.text = "OUT OF ORDER";
+            }
             else
-                text.text = "OUT OF ORDER";
+            {
+                text.text = "TOO HEALTHY TO USE";
+            }
+
         }
     }
 
