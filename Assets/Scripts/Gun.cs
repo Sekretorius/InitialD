@@ -7,10 +7,11 @@ public class Gun : MonoBehaviour
 	public Transform firePoint;
 	public GameObject bulletPrefab;
 	public int damage;
+    private GameObject player;
 	private void Start()
 	{
-		firePoint = GameObject.FindGameObjectWithTag("Player").transform;
-		bulletPrefab.GetComponent<Bullet>().damage = damage;
+        player = GameObject.FindGameObjectWithTag("Player");
+        bulletPrefab.GetComponent<Bullet>().damage = damage;
 	}
 
 	// Update is called once per frame
@@ -18,8 +19,25 @@ public class Gun : MonoBehaviour
 	{
 		if (Input.GetButtonDown("Fire1"))
 		{
-			Shoot();
-		}
+            if (player.TryGetComponent(out PlayerControler controler))
+            {
+                Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                float targetDirection = (target.x - player.transform.position.x) > 0 ? 1 : -1;
+                controler.Turn(targetDirection, 0);
+                if (controler.Shoot())
+                {
+                    if(targetDirection > 0)
+                    {
+                        firePoint = GameObject.Find("ShootPointRight").transform;
+                    }
+                    else
+                    {
+                        firePoint = GameObject.Find("ShootPointLeft").transform;
+                    }
+                    Shoot();
+                }
+            }
+        }
 	}
 
 	void Shoot()

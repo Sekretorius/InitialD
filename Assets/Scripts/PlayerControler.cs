@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerControler : MovementControler
 {
     public bool isHiden = false;
-    private bool isShooting = false;
+    private bool IsShooting = false;
     protected override void ComputeMovement()
     {
         if (canMove)
@@ -33,10 +33,6 @@ public class PlayerControler : MovementControler
             else
             {
                 jump = false;
-            }
-            if (Input.GetMouseButtonDown(0))
-            {
-                isShooting = true;
             }
         }
     }
@@ -95,15 +91,21 @@ public class PlayerControler : MovementControler
         {
             anim.SetBool("IsJumping", false);
         }
-        if (isShooting)
+        if (IsShooting && anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot_1"))
         {
-            anim.SetBool("IsShooting", true);
-            isShooting = false;
-        }
-        else
-        {
+            IsShooting = false;
             anim.SetBool("IsShooting", false);
         }
+    }
+    public bool Shoot()
+    {
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot_1"))
+        {
+            anim.SetBool("IsShooting", true);
+            IsShooting = true;
+            return true;
+        }
+        return false;
     }
     public void FreezeMovement(bool isFrozen)
     {

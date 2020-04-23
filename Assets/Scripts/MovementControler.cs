@@ -247,32 +247,13 @@ public abstract class MovementControler : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, 30);
             }
         }
-
-        
-        //if (hitLeft && hitRight)
-        //{
-        //    
-        //}
-        //float angle = Vector2.Angle(Vector2.up, transform.up);
-        //if ((!hitLeft || !hitRight) && angle < 30 && ground)
-        //{
-        //    rgbd.freezeRotation = false;
-        //}
-        //else if((!hitLeft || !hitRight))
-        //{
-        //    rgbd.freezeRotation = true;
-        //}
-        //if(angle > 70)
-        //{
-        //    transform.eulerAngles = new Vector3(0, 0, 0);
-        //}
     }
     Vector3 RotatePointAroundPivot(Vector3 point, Vector3 pivot, Vector3 angles)
     {
-        Vector3 dir = point - pivot; // get point direction relative to pivot
-        dir = Quaternion.Euler(angles) * dir; // rotate it
-        point = dir + pivot; // calculate rotated point
-        return point; // return it
+        Vector3 dir = point - pivot;
+        dir = Quaternion.Euler(angles) * dir; 
+        point = dir + pivot;
+        return point; 
     }
 
     private void CheckSlope()
@@ -295,7 +276,7 @@ public abstract class MovementControler : MonoBehaviour
                     }
                 }
             }
-        }
+        } 
     }
     public bool CheckCeiling()
     {
@@ -415,8 +396,9 @@ public abstract class MovementControler : MonoBehaviour
         IsBlocked = false;
         obsticle = null;
     }
-    protected void Turn(float dir, float angle)
+    public void Turn(float dir, float angle)
     {
+        facingDirection = dir;
         if (dir > 0)
         {
             GetComponentInChildren<SpriteRenderer>().flipX = false;
