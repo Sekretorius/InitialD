@@ -48,11 +48,11 @@ public class PickableItem : MonoBehaviour
 
     protected virtual void OnEvent()
     {
-        if (IsInteractable && Input.GetButton("Interact") && gameObject.CompareTag("PickableItem"))
+        if (IsInteractable && Input.GetButtonDown("Interact") && gameObject.CompareTag("PickableItem"))
         {
             var sript = GameObject.Find("Inventory").GetComponent<Inventory>();
            if( sript.Add(item))
-                Destroy(gameObject);
+                Destroy(this.gameObject);
         }
     }
 

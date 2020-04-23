@@ -9,6 +9,7 @@ public class Item : ScriptableObject
     public string Name;
     public string Description;
     public Sprite Icon;
+    public string Tag;
 
     //public class Weapon : Item
     //{

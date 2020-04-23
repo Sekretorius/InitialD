@@ -6,6 +6,12 @@ public class Gun : MonoBehaviour
 {
 	public Transform firePoint;
 	public GameObject bulletPrefab;
+	public int damage;
+	private void Start()
+	{
+		firePoint = GameObject.FindGameObjectWithTag("Player").transform;
+		bulletPrefab.GetComponent<Bullet>().damage = damage;
+	}
 
 	// Update is called once per frame
 	void Update()

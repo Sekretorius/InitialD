@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55cdfd48af9d2b848b654c5c0a4addc5, type: 3}
-  m_Name: Laser Pistol
+  m_Name: other gun
   m_EditorClassIdentifier: 
   Name: 
   Description: 
-  Icon: {fileID: 8825122022161924940, guid: b7645846ffad98441b686f373dc584ab, type: 3}
+  Icon: {fileID: 2079473961197929941, guid: b3775f5add09e8a488b95cab543ca308, type: 3}
   Tag: Gun
-  Damage: 2
+  Damage: 0
   FireRate: 10
   BulletSpeed: 0.5
   ChargeSpeed: 20

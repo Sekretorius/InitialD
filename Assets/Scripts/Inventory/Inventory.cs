@@ -9,25 +9,32 @@ public class Inventory : MonoBehaviour
     [SerializeField] List<Item> items;
     [SerializeField] int selection=1;
     [SerializeField] ItemSlot[] itemSlots;
-
+    [SerializeField] GameObject Player;
+    public GameObject GunTemplate;
+    private void Start()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player");
+    }
     private void Update()
     {
         var d = Input.GetAxis("Mouse ScrollWheel");
-        if (d > 0f)
+        if (d < 0f)
         {
             // scroll up
             if (selection != itemSlots.Length)
                 selection++;
             else selection = 1;
             RefreshUI();
+            UpdateGun();
         }
-        else if (d < 0f)
+        else if (d > 0f)
         {
             // scroll down
             if (selection != 1)
                 selection--;
             else selection = itemSlots.Length;
             RefreshUI();
+            UpdateGun();
         }
         if (Input.GetButtonDown("Discard"))
             Remove();
@@ -61,12 +68,39 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    void UpdateGun()
+    {
+        if(items.Count==0)
+            Destroy(GameObject.Find("GunTemplate(Clone)"));
+
+
+        for (int i = 1; i <= items.Count; i++)
+        {
+            if (itemSlots[i - 1].Item.Tag == "Gun" && i != selection)
+            {
+                Destroy(GameObject.Find("GunTemplate(Clone)"));
+            }
+        }
+        //print(itemSlots[selection-1].Item.Tag);
+        if (itemSlots[selection - 1].Item!=null)
+            if( itemSlots[selection-1].Item.Tag == "Gun")
+        {
+                WeaponItem gunItem = (WeaponItem)itemSlots[selection - 1].Item;
+           var gun = Instantiate(GunTemplate, Player.transform); //spawn gun
+            gun.transform.SetParent(Player.transform); // assign gun to player
+            gun.GetComponent<SpriteRenderer>().sprite = itemSlots[selection - 1].GetComponent<Image>().sprite; //assign sprite
+            gun.GetComponent<Gun>().damage = gunItem.Damage;
+         }
+
+    }
+
     public bool Add(Item item)
     {
         if (items.Count < itemSlots.Length)
         {
             items.Add(item);
             RefreshUI();
+            UpdateGun();
             return true;
         }
         return false;
@@ -78,12 +112,13 @@ public class Inventory : MonoBehaviour
         {
             items.Remove(itemSlots[selection - 1].Item);
             RefreshUI();
+            UpdateGun();
             return true;
         }
         return false;
     }
 
-    public bool Spawn()
+   /* public bool Spawn()
     {
         if (itemSlots[selection - 1].Item != null)
         {
@@ -92,5 +127,5 @@ public class Inventory : MonoBehaviour
             return true;
         }
         return false;
-    }
+    }*/
 }
