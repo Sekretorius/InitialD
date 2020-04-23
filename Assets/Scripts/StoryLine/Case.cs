@@ -14,8 +14,8 @@ public class Case : MonoBehaviour
     public bool Begin { get; set; }
     public bool Accepted { get; set; }
 
-    public Dialogue RewardSpeach { get; set; }
-    public Dialogue BusySpeach { get; set; }
+    public Dialogue RewardSpeach;
+    public Dialogue BusySpeach;
     public string EndGoalText { get;set; }
     public Goal[] Goals;
 

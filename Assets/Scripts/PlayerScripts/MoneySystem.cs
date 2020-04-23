@@ -35,7 +35,6 @@ public class MoneySystem : MonoBehaviour
         if(active == true)
         {
             StopAllCoroutines();
-            Debug.Log("Worked");
         }
         if(amount > 0)
             CashAdd.GetComponent<Text>().text ="+ " + amount;

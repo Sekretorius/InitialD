@@ -16,7 +16,7 @@ public class Vendingable : Interactable
     private void OnValidate()
     {
         MSystem = FindObjectOfType<MoneySystem>();
-        HSystem = FindObjectOfType<HealthSystem>();
+        HSystem = GameObject.Find("PlayerStats").GetComponent<HealthSystem>();
         text = GetComponentInChildren<Canvas>().GetComponentInChildren<Text>();
     }
 

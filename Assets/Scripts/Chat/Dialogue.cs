@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
-public class Dialogue
+public class Dialogue : MonoBehaviour
 {
     public bool isPlayerFirst; // Is the player gonna talk first.
     public int priority; // Is the player gonna talk first.

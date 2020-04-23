@@ -29,18 +29,30 @@ public class Bullet : MonoBehaviour
 	{
 		if (hitInfo.CompareTag("Enemy"))
 		{
-			//print("AT LEAST IT WORKS");
-			Enemy enemy = hitInfo.GetComponent<Enemy>();
+           // Transform target = hitInfo.GetComponentInChildren<Transform>();                     
+            //print("AT LEAST IT WORKS");
+            HealthSystem enemy = hitInfo.GetComponent<HealthSystem>();
 			if (enemy != null)
 			{
-				enemy.TakeDamage(damage);
+                enemy.Damage(damage);
 			}
 			Destroy(gameObject);
 		}
 		//Instantiate(impactEffect, transform.position, transform.rotation); efektai poggers
 
 	}
-	IEnumerator BulletTimeOut()
+
+
+
+    IEnumerator Damage(SpriteRenderer renderer)
+    {
+        renderer.color = new Color(1, 0, 0, 1);
+        yield return new WaitForSecondsRealtime(1f);
+        Debug.Log("reached");
+        renderer.color = new Color(1, 1, 1, 1);
+    }
+
+    IEnumerator BulletTimeOut()
 	{
 		print("pew");
 		yield return new WaitForSecondsRealtime(lifetime);

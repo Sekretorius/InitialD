@@ -6,14 +6,17 @@ using UnityEngine;
 public class HealthSystem : MonoBehaviour
 {
     public event EventHandler OnChanged;
+    public SpriteRenderer sprite;
+
 
     public int hearts;
 
     private List<Heart> heartList;
 
-    void Start()
+    void Awake()
     {
         SetHearts(hearts);
+        sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     public void SetHearts(int heartAmount)
@@ -51,9 +54,28 @@ public class HealthSystem : MonoBehaviour
             damage -= amount;
         }
 
+        if (heartList[0].GetFragmentAmount() == 0)
+        {
+            gameObject.SetActive(false);
+            Destroy(this);
+        }
+        else
+            StartCoroutine(DamageFade(0.5f, GetComponentInChildren<SpriteRenderer>()));
+
         if (OnChanged != null)
             OnChanged(this, EventArgs.Empty);
     }
+
+    public IEnumerator DamageFade(float t, SpriteRenderer i)
+    {
+        i.color = new Color(1, 0, 0, 1);
+        while (i.color.b < 1)
+        {
+            i.color = new Color(i.color.r, i.color.g + (Time.deltaTime / t), i.color.b + (Time.deltaTime / t), i.color.a);
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
 
     public void Heal(int amount)
     {

@@ -23,21 +23,21 @@ public class TestCase2 : Case
         Accepted = false;
         CashReward = 25;
 
-        RewardSpeach = new Dialogue(
-            new string[] { "HERE YOU GO LAD",
-                            },
-            new string[] { "THANKS, I GUESS",
-                            },
-            false, 1, null
-        );
+        //RewardSpeach = new Dialogue(
+        //    new string[] { "HERE YOU GO LAD",
+        //                    },
+        //    new string[] { "THANKS, I GUESS",
+        //                    },
+        //    false, 1, null
+        //);
 
-        BusySpeach = new Dialogue(
-            new string[] { "YOU LOOK BUSY, MAYBE NEXT TIME",
-                    },
-            new string[] { "...",
-                    },
-            false, 1, null
-        );
+        //BusySpeach = new Dialogue(
+        //    new string[] { "YOU LOOK BUSY, MAYBE NEXT TIME",
+        //            },
+        //    new string[] { "...",
+        //            },
+        //    false, 1, null
+        //);
 
     }
 
