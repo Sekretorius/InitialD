@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 public abstract class MovementControler : MonoBehaviour
 {
@@ -10,7 +8,7 @@ public abstract class MovementControler : MonoBehaviour
     public float JumpTakeOffSpeed = 30f;
     public float movementSmoothing = .05f;
     public float gravityModifier = 6f;
-    public float slideSpeedModifier = 2f; 
+    public float slideSpeedModifier = 2f;
     public float minSlideSpeed = 5f;
     public float slideDrag = 0.15f;
 
@@ -20,7 +18,7 @@ public abstract class MovementControler : MonoBehaviour
     protected Vector2 targetVelocity;
     protected Vector2 move;
     protected Rigidbody2D rgbd;
-    protected bool ground = false;
+    public bool ground = false;
     protected Vector3 velocity = Vector2.zero;
     protected bool jump = false;
     protected bool IsBlocked = false;
@@ -29,14 +27,14 @@ public abstract class MovementControler : MonoBehaviour
     protected bool IsSliding = false;
     protected float slideDirection;
     protected float slideSpeedX;
-    protected float minSlopeNomal = 0.95F;
+    protected float minSlopeNomal = 0.9F;
 
     protected float slopeAngle = 0;
-    public Vector2 slopeNormal = Vector2.zero;
+    protected Vector2 groundNormal = Vector2.zero;
     protected bool IsBlockedByCeilling = false;
 
     protected bool IsJumping = false;
-    protected bool IsCrawling = false;
+    public bool IsCrawling = false;
     public bool isHolding = false;
     public bool canCarrie = true;
     public float inpickableTimmer = 0.15f;
@@ -45,11 +43,16 @@ public abstract class MovementControler : MonoBehaviour
     protected float distanceToPickable = -1;
     protected bool slope = false;
     protected Vector2 colliderDimensions;
-    public Vector2 facingNormal;
+    public float facingDirection;
+    protected Vector2 normalToFace;
+    protected float angle;
+    protected float lostBalanceDirection = 0;
 
     protected bool canMove = true;
 
     protected bool nullifiedImput = false;
+
+    public List<ContactPoint2D> collisions = new List<ContactPoint2D>();
 
     protected void Start()
     {
@@ -58,7 +61,6 @@ public abstract class MovementControler : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
         colliderDimensions = boxCollider.bounds.size;
-        facingNormal = transform.up;
     }
     private void FixedUpdate()
     {
@@ -89,6 +91,10 @@ public abstract class MovementControler : MonoBehaviour
 
     public void Movement()
     {
+        if (move.x != 0)
+        {
+            facingDirection = move.x;
+        }
         if (IsBlockedByCeilling && ground)
         {
             IsCrawling = true;
@@ -98,11 +104,15 @@ public abstract class MovementControler : MonoBehaviour
             Vector2 slideVelocity = new Vector2(slideSpeedX, rgbd.velocity.y);
             rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, slideVelocity, ref velocity, movementSmoothing);
             targetVelocity = new Vector2(rgbd.velocity.x, rgbd.velocity.y);
-            float slopeDirection = slopeNormal.x > 0 ? 1 : -1;
-            
+            float slopeDirection = groundNormal.x > 0 ? 1 : -1;
+
             if (slideDirection != slopeDirection || !slope)
             {
-                slideSpeedX -= slideDrag * slideDirection;
+                slideSpeedX -= slideDrag * slideDirection - (rgbd.velocity.x * 0.001f);
+            }
+            else
+            {
+                slideSpeedX += 0.01f * slideDirection;
             }
             if (Mathf.Abs(slideSpeedX) <= minSlideSpeed || IsBlocked)
             {
@@ -118,20 +128,30 @@ public abstract class MovementControler : MonoBehaviour
             targetVelocity = new Vector2(move.x * crawlSpeed, rgbd.velocity.y);
             rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, movementSmoothing);
         }
-        if (!IsSliding && !IsCrawling)
+        if ((!IsSliding && !IsCrawling) || IsJumping)
         {
-            Turn(move.x, 0);
+            Turn(facingDirection, 0);
+            rgbd.freezeRotation = true;
+            transform.eulerAngles = new Vector3(0, 0, 0);
             targetVelocity = new Vector2(move.x * speed, rgbd.velocity.y);
             rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, movementSmoothing);
         }
-        else
+        else if (!IsJumping)
         {
+            Turn(facingDirection, transform.eulerAngles.z);
             AlignWithGround();
         }
         if (jump && ground)
         {
             IsJumping = true;
-            targetVelocity = new Vector2(rgbd.velocity.x, JumpTakeOffSpeed);
+            if (!IsCrawling && !IsSliding)
+            {
+                targetVelocity = new Vector2(rgbd.velocity.x, JumpTakeOffSpeed);
+            }
+            else if (IsCrawling || IsSliding)
+            {
+                targetVelocity = new Vector2(rgbd.velocity.x, JumpTakeOffSpeed / 1.5f);
+            }
         }
         else if (!jump)
         {
@@ -143,44 +163,138 @@ public abstract class MovementControler : MonoBehaviour
         }
         rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, movementSmoothing);
 
-        if (!ground)
+        if (!ground|| IsSliding)
         {
             rgbd.velocity += Physics2D.gravity * gravityModifier * Time.fixedDeltaTime;
         }
     }
+    private void AlignWithGround()
+    {
+        LayerMask mask = ~LayerMask.GetMask("Player", "NPC", "Enemy");
+        RaycastHit2D[] hitResults = new RaycastHit2D[15];
+        ContactFilter2D contactFilter2D = new ContactFilter2D();
+        contactFilter2D.SetLayerMask(mask);
+        boxCollider.Cast(-transform.up, contactFilter2D, hitResults, 2f);
+        bool nearGround = false;
+        Vector2 nearGroundNormal = Vector2.zero;
+        foreach(RaycastHit2D result in hitResults)
+        {
+            if(result && result.collider.gameObject != gameObject)
+            {
+                if(result.normal.y > 0.25f)
+                {
+                    nearGround = true;
+                    nearGroundNormal = result.normal;
+                    break;
+                }
+            }
+        }
+        if (nearGround)
+        {
+            Transform bcTransform = boxCollider.transform;
+
+            Vector3 worldPosition = bcTransform.TransformPoint(0, 0, 0);
+
+            Vector2 size = boxCollider.bounds.size / 2;
+
+            Vector3 corner1 = new Vector2(-size.x, -size.y);
+            Vector3 corner2 = new Vector2(size.x, -size.y);
+
+            corner1 = RotatePointAroundPivot(corner1, Vector3.zero, bcTransform.eulerAngles);
+            corner2 = RotatePointAroundPivot(corner2, Vector3.zero, bcTransform.eulerAngles);
+
+            corner1 = worldPosition + corner1;
+            corner2 = worldPosition + corner2;
+
+            RaycastHit2D hitLeft = Physics2D.Raycast(corner1, -Vector2.up, 10f, mask);
+            RaycastHit2D hitRight = Physics2D.Raycast(corner2, -Vector2.up, 10f, mask);
+            ContactPoint2D[] points = new ContactPoint2D[15];
+            int contactCount = boxCollider.GetContacts(points);
+            bool canRotateByContacts = true;
+            if (hitLeft && hitLeft.normal.y > 0.25f)
+            {
+                float distanceLeft = Vector2.Distance(corner1, hitLeft.point);
+                if (distanceLeft > 2f)
+                {
+                    canRotateByContacts = false;
+                }
+            }
+            if (hitRight && hitRight.normal.y > 0.25f)
+            {
+                float distanceRight = Vector2.Distance(corner2, hitRight.point);
+                if (distanceRight > 2f)
+                {
+                    canRotateByContacts = false;
+                }
+            }
+            if(hitRight && hitLeft && canRotateByContacts)
+            {
+                Vector2 targetVector = hitRight.point - hitLeft.point;
+                Vector2 perpendicularVector = Vector2.Perpendicular(targetVector);
+                transform.up = perpendicularVector;
+            }
+            if (contactCount == 1 && !canRotateByContacts)
+            {
+                transform.up = nearGroundNormal;
+            }
+        }
+        else
+        {
+            rgbd.freezeRotation = false;
+            float angle = Vector2.Angle(transform.up, Vector2.up);
+            if(angle > 30)
+            {
+                transform.eulerAngles = new Vector3(0, 0, 30);
+            }
+        }
+
+        
+        //if (hitLeft && hitRight)
+        //{
+        //    
+        //}
+        //float angle = Vector2.Angle(Vector2.up, transform.up);
+        //if ((!hitLeft || !hitRight) && angle < 30 && ground)
+        //{
+        //    rgbd.freezeRotation = false;
+        //}
+        //else if((!hitLeft || !hitRight))
+        //{
+        //    rgbd.freezeRotation = true;
+        //}
+        //if(angle > 70)
+        //{
+        //    transform.eulerAngles = new Vector3(0, 0, 0);
+        //}
+    }
+    Vector3 RotatePointAroundPivot(Vector3 point, Vector3 pivot, Vector3 angles)
+    {
+        Vector3 dir = point - pivot; // get point direction relative to pivot
+        dir = Quaternion.Euler(angles) * dir; // rotate it
+        point = dir + pivot; // calculate rotated point
+        return point; // return it
+    }
+
     private void CheckSlope()
     {
         RaycastHit2D[] resultsFromBack = new RaycastHit2D[15];
         Vector2 currentColliderDimensions = boxCollider.bounds.size;
         float deltaOffsetY = transform.position.y - currentColliderDimensions.y / 2 * 3;
         float distanceToTarget = Vector2.Distance(transform.position, new Vector2(transform.position.x, deltaOffsetY));
-        boxCollider.Cast(-transform.up, resultsFromBack, distanceToTarget);
+        boxCollider.Cast(-transform.up, resultsFromBack, distanceToTarget, true);
+        slope = false;
         foreach (RaycastHit2D result in resultsFromBack)
         {
             if (ground && result)
             {
                 if (result.collider.gameObject != gameObject)
                 {
-                    if (result.normal.y > 0.65)
+                    if (result.normal.y > minGroungNormalY && result.normal.y < minSlopeNomal)
                     {
                         slope = true;
-                        slopeNormal = result.normal;
-                        slopeAngle = result.collider.transform.eulerAngles.z;
-                        return;
                     }
                 }
             }
-            slopeNormal = Vector2.zero;
-            slope = false;
-        }
-    }
-    private void AlignWithGround()
-    {
-        facingNormal = slopeNormal;
-        transform.up = Vector2.Lerp(transform.up, slopeNormal, 0.7f);
-        if (move.x != 0)
-        {
-            Turn(move.x, transform.eulerAngles.z * move.x);
         }
     }
     public bool CheckCeiling()
@@ -188,7 +302,7 @@ public abstract class MovementControler : MonoBehaviour
         float deltaOffsetY = boxCollider.bounds.center.y - boxCollider.bounds.size.y / 2;
         Vector2 castOrigin = new Vector2(transform.position.x, deltaOffsetY);
         Vector2 fixedDimensions = new Vector2(colliderDimensions.x, colliderDimensions.x);
-        LayerMask mask = ~LayerMask.GetMask("Player", "PickableObject");
+        LayerMask mask = ~LayerMask.GetMask("Player", "PickableObject", "NPC", "Enemy");
         RaycastHit2D[] results = Physics2D.BoxCastAll(castOrigin, fixedDimensions, 0, Vector2.up, colliderDimensions.y + 0.5f, mask);
         foreach (RaycastHit2D result in results)
         {
@@ -205,13 +319,15 @@ public abstract class MovementControler : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        foreach(ContactPoint2D contact in collision.contacts)
+        foreach (ContactPoint2D contact in collision.contacts)
         {
             if (contact.normal.y > minGroungNormalY)
             {
+                groundNormal = contact.normal;
                 ground = true;
+                IsJumping = false;
             }
-            else if(!collision.collider.CompareTag("Player") && !collision.collider.CompareTag("NPC"))
+            else if (!collision.collider.CompareTag("Player") && !collision.collider.CompareTag("NPC"))
             {
                 IsBlocked = true;
                 obsticle = collision.collider.transform;
@@ -253,6 +369,7 @@ public abstract class MovementControler : MonoBehaviour
         {
             if (contact.normal.y > minGroungNormalY)
             {
+                groundNormal = contact.normal;
                 ground = true;
                 IsJumping = false;
             }
@@ -260,15 +377,15 @@ public abstract class MovementControler : MonoBehaviour
             {
                 IsBlocked = true;
                 obsticle = collision.collider.transform;
-                if(!collision.collider.CompareTag("Player") && !collision.collider.CompareTag("NPC"))
+                if (!collision.collider.CompareTag("Player") && !collision.collider.CompareTag("NPC"))
                 {
                     float obsticleHeight = 0;
                     float height = 0;
-                    if(obsticle.TryGetComponent(out Collider2D obsticleCollider))
+                    if (obsticle.TryGetComponent(out Collider2D obsticleCollider))
                     {
                         obsticleHeight = obsticleCollider.bounds.size.y;
                     }
-                    if(TryGetComponent(out Collider2D collider))
+                    if (TryGetComponent(out Collider2D collider))
                     {
                         height = collider.bounds.size.y;
                     }
@@ -293,6 +410,7 @@ public abstract class MovementControler : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
+        groundNormal = Vector2.zero;
         ground = false;
         IsBlocked = false;
         obsticle = null;
@@ -301,20 +419,16 @@ public abstract class MovementControler : MonoBehaviour
     {
         if (dir > 0)
         {
-            transform.eulerAngles = new Vector3(0, 0, angle);
+            GetComponentInChildren<SpriteRenderer>().flipX = false;
         }
         else if (dir < 0)
         {
-            transform.eulerAngles = new Vector3(0, 180, angle);
-        }
-        else
-        {
-            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, angle);
+            GetComponentInChildren<SpriteRenderer>().flipX = true;
         }
     }
     public void SetGroundState(bool grounded)
     {
-        ground = grounded; 
+        ground = grounded;
     }
     public void NullifyMovement(bool state)
     {
@@ -322,7 +436,7 @@ public abstract class MovementControler : MonoBehaviour
     }
     public bool PickableClosestToPlayer(Transform pos)
     {
-        if(pos == closestPickable)
+        if (pos == closestPickable)
         {
             return true;
         }
@@ -340,9 +454,9 @@ public abstract class MovementControler : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDirection, distanceToTarget, mask);
             if (hit)
             {
-                if(hit.collider.gameObject == collision.gameObject)
+                if (hit.collider.gameObject == collision.gameObject)
                 {
-                    bool cantPick = PickObject.CheckCeiling(GetComponent<BoxCollider2D>(), collision.gameObject,colliderDimensions1, 0.3f);
+                    bool cantPick = PickObject.CheckCeiling(GetComponent<BoxCollider2D>(), collision.gameObject, colliderDimensions1, 0.3f);
                     if (!cantPick)
                     {
                         reachable = true;
@@ -366,7 +480,7 @@ public abstract class MovementControler : MonoBehaviour
                         closestPickable = collision.transform;
                         distanceToPickable = distance;
                     }
-                    else if(distanceToPickable > distance && !isHolding)
+                    else if (distanceToPickable > distance && !isHolding)
                     {
                         closestPickable = collision.transform;
                         distanceToPickable = distance;

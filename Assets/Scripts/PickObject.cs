@@ -59,7 +59,8 @@ public class PickObject : Interactable
                 if (Input.GetKeyDown(KeyCode.Joystick1Button2) || !Input.GetKey(KeyCode.LeftShift))
                 {
                     Dismount();
-                    ThrowDirection = interactingObject.right.x;
+                    
+                    ThrowDirection = playerControler.facingDirection;
                     ignoreWithTag = interactingObject.gameObject.tag;
                     additionalForce += interactingObject.GetComponent<Rigidbody2D>().velocity.x;
                     Vector2 targetVelocity = new Vector2(rgbd.velocity.x, throwUpSpeed);
