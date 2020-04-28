@@ -32,7 +32,7 @@ public class HeartVisual : MonoBehaviour
         {
             HealthSystem.Heart heart = heartList[i];
             CreateHeartImage(heartAnchoredPosition).SetHeartFragments(heart.GetFragmentAmount());
-            heartAnchoredPosition += new Vector2(25, 0);
+            heartAnchoredPosition += new Vector2(30, 0);
         }
 
         healthSystem.OnChanged += healthSystem_OnChanged;

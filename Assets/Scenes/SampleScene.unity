@@ -7014,11 +7014,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerFirst: 0
   priority: 0
-  Case: {fileID: 0}
+  Case: {fileID: 2032054891}
   sentences:
-  - 
+  - ...
   responses:
-  - 
+  - ...
 --- !u!1 &1453506022
 GameObject:
   m_ObjectHideFlags: 0
@@ -8517,6 +8517,8 @@ MonoBehaviour:
   NPC: {fileID: 2123437399}
   rewards:
   - {fileID: 11400000, guid: 86f639430d1b56949a93f5d331e1704a, type: 2}
+  RewardSpeach: {fileID: 1546551261}
+  BusySpeach: {fileID: 1546551261}
   First: {fileID: 764299709}
   Second: {fileID: 104637408}
   FirstGoal: 0
@@ -8807,8 +8809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1713170808}
   dialogues:
-  - {fileID: 1546551261}
-  - {fileID: 0}
+  - {fileID: 1439587849}
   repeat: 0
   mission: 0
 --- !u!212 &2123437404
