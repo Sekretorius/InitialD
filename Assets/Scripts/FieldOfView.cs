@@ -14,11 +14,12 @@ public class FieldOfView : MonoBehaviour
     private EnemyMovement movement;
     private bool nearTarget = false;
     private Transform target;
+    private float viewDirection = 1;
 
     private void Start()
     {
         movement = GetComponentInParent<EnemyMovement>();
-        layerMask = ~LayerMask.GetMask("NPC");
+        layerMask = ~LayerMask.GetMask("NPC", "Enemy");
         offSetX += transform.localScale.x / 2;
     }
     void FixedUpdate()
@@ -32,12 +33,16 @@ public class FieldOfView : MonoBehaviour
         }
         for (int i = 0; i < rayCount; i++)
         {
+            if(movement.facingDirection != 0)
+            {
+                viewDirection = movement.facingDirection;
+            }
             float angle = -startAngle + i; 
-            Vector2 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad) * transform.right.x, Mathf.Sin(angle * Mathf.Deg2Rad));
+            Vector2 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad) * viewDirection, Mathf.Sin(angle * Mathf.Deg2Rad));
             
-            RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + offSetX * transform.right.x, transform.position.y + offSetY), direction, viewDistance, layerMask);
+            RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + offSetX * viewDirection, transform.position.y + offSetY), direction, viewDistance, layerMask);
             float hitDistance = hit.distance == 0 ? viewDistance : hit.distance;
-            Debug.DrawRay(new Vector2(transform.position.x + offSetX * transform.right.x, transform.position.y + offSetY), direction * hitDistance, Color.red);
+            Debug.DrawRay(new Vector2(transform.position.x + offSetX * viewDirection, transform.position.y + offSetY), direction * hitDistance, Color.red);
 
             if (hit.collider != null)
             {

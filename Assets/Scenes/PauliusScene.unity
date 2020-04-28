@@ -1184,12 +1184,14 @@ MonoBehaviour:
   gravityModifier: 10
   slideSpeedModifier: 10
   minSlideSpeed: 0.5
-  slideDrag: 0.15
+  slideDragForce: 15
   ground: 0
+  slideSpeedX: 0
   IsCrawling: 0
   isHolding: 0
   canCarrie: 1
   inpickableTimmer: 1
+  slope: 0
   facingDirection: 0
   right: 5
   left: 1
@@ -1306,22 +1308,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 2099198631}
   dialogues:
-  - isPlayerFirst: 0
-    priority: 1
-    Case: {fileID: 0}
-    sentences:
-    - HEY, KID
-    - WANT SUM GOOD STUFF?
-    responses:
-    - WHAT DO YOU WANT?
-    - HELL YEAH BROTHER
-  - isPlayerFirst: 1
-    priority: 2
-    Case: {fileID: 0}
-    sentences:
-    - ITS NOT MY FIRST TIME
-    responses:
-    - FIRST TIME CHECK
+  - {fileID: 0}
+  - {fileID: 0}
   repeat: 1
   mission: 0
 --- !u!212 &231195850
@@ -5168,12 +5156,14 @@ MonoBehaviour:
   gravityModifier: 6
   slideSpeedModifier: 10
   minSlideSpeed: 0.5
-  slideDrag: 0.15
+  slideDragForce: 15
   ground: 0
+  slideSpeedX: 0
   IsCrawling: 0
   isHolding: 0
   canCarrie: 1
   inpickableTimmer: 1
+  slope: 0
   facingDirection: 0
   foundTarget: 1
   canJump: 0
@@ -5926,12 +5916,14 @@ MonoBehaviour:
   gravityModifier: 6
   slideSpeedModifier: 10
   minSlideSpeed: 0.5
-  slideDrag: 0.15
+  slideDragForce: 15
   ground: 0
+  slideSpeedX: 0
   IsCrawling: 0
   isHolding: 0
   canCarrie: 1
   inpickableTimmer: 1
+  slope: 0
   facingDirection: 0
   foundTarget: 1
   canJump: 0
@@ -6429,6 +6421,16 @@ PrefabInstance:
         type: 3}
       propertyPath: Box.height
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2367362022330013728, guid: 8caffe55afda4b5439c816e8097182e0,
+        type: 3}
+      propertyPath: slideSpeedModifier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2367362022330013728, guid: 8caffe55afda4b5439c816e8097182e0,
+        type: 3}
+      propertyPath: slideDragForce
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2367362022330013730, guid: 8caffe55afda4b5439c816e8097182e0,
         type: 3}

@@ -11,6 +11,7 @@ TagManager:
   - NPC_Ignored
   - PickableItem
   - Enemy
+  - ShootPoint
   layers:
   - Default
   - TransparentFX

@@ -3,14 +3,14 @@ using UnityEngine;
 
 public abstract class MovementControler : MonoBehaviour
 {
-    public float speed = 10f;
-    public float crawlSpeed = 7F;
-    public float JumpTakeOffSpeed = 30f;
-    public float movementSmoothing = .05f;
-    public float gravityModifier = 6f;
-    public float slideSpeedModifier = 2f;
-    public float minSlideSpeed = 5f;
-    public float slideDrag = 0.15f;
+    [SerializeField] protected float speed = 10f;
+    [SerializeField] protected float crawlSpeed = 5f;
+    [SerializeField] protected float JumpTakeOffSpeed = 40f;
+    [SerializeField] protected float movementSmoothing = 0.05f;
+    [SerializeField] protected float gravityModifier = 6f;
+    [SerializeField] protected float slideSpeed = 8f;
+    [SerializeField] protected float minSlideSpeed = 5f;
+    [SerializeField] protected float slideDragForce = 15f;
 
     protected Animator anim;
     protected BoxCollider2D boxCollider;
@@ -22,12 +22,14 @@ public abstract class MovementControler : MonoBehaviour
     protected Vector3 velocity = Vector2.zero;
     protected bool jump = false;
     protected bool IsBlocked = false;
+    protected bool hasCollided = false;
     protected Transform obsticle = null;
     protected bool canJumpOver = false;
     protected bool IsSliding = false;
     protected float slideDirection;
-    protected float slideSpeedX;
-    protected float minSlopeNomal = 0.9F;
+    public float slideSpeedX;
+    protected float minSlopeNomal = 0.25F;
+    protected Vector2 slopeNormal = Vector2.zero;
 
     protected float slopeAngle = 0;
     protected Vector2 groundNormal = Vector2.zero;
@@ -41,7 +43,7 @@ public abstract class MovementControler : MonoBehaviour
     protected float timerToPick;
     protected Transform closestPickable;
     protected float distanceToPickable = -1;
-    protected bool slope = false;
+    public bool slope = false;
     protected Vector2 colliderDimensions;
     public float facingDirection;
     protected Vector2 normalToFace;
@@ -51,6 +53,7 @@ public abstract class MovementControler : MonoBehaviour
     protected bool canMove = true;
 
     protected bool nullifiedImput = false;
+    protected float currentAngle = 0;
 
     public List<ContactPoint2D> collisions = new List<ContactPoint2D>();
 
@@ -99,22 +102,29 @@ public abstract class MovementControler : MonoBehaviour
         {
             IsCrawling = true;
         }
+        if(IsSliding || IsCrawling)
+        {
+            //rgbd.gravityScale = 10f;
+        }
+        else
+        {
+            rgbd.gravityScale = 1f;
+        }
         if (IsSliding && slideSpeedX != 0 && Input.GetAxisRaw("Horizontal") == slideDirection)
         {
-            Vector2 slideVelocity = new Vector2(slideSpeedX, rgbd.velocity.y);
+            Vector2 slideVelocity = new Vector2(slideSpeedX * slideDirection, rgbd.velocity.y);
             rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, slideVelocity, ref velocity, movementSmoothing);
             targetVelocity = new Vector2(rgbd.velocity.x, rgbd.velocity.y);
-            float slopeDirection = groundNormal.x > 0 ? 1 : -1;
-
+            float slopeDirection = slopeNormal.x > 0 ? 1 : -1;
             if (slideDirection != slopeDirection || !slope)
             {
-                slideSpeedX -= slideDrag * slideDirection - (rgbd.velocity.x * 0.001f);
+                slideSpeedX -= slideDragForce * Time.fixedDeltaTime;
             }
             else
             {
-                slideSpeedX += 0.01f * slideDirection;
+                slideSpeedX += 0.01f;
             }
-            if (Mathf.Abs(slideSpeedX) <= minSlideSpeed || IsBlocked)
+            if (hasCollided || slideSpeedX <= 1f)
             {
                 slideSpeedX = 0;
             }
@@ -163,7 +173,7 @@ public abstract class MovementControler : MonoBehaviour
         }
         rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, movementSmoothing);
 
-        if (!ground|| IsSliding)
+        if (!ground)
         {
             rgbd.velocity += Physics2D.gravity * gravityModifier * Time.fixedDeltaTime;
         }
@@ -174,7 +184,7 @@ public abstract class MovementControler : MonoBehaviour
         RaycastHit2D[] hitResults = new RaycastHit2D[15];
         ContactFilter2D contactFilter2D = new ContactFilter2D();
         contactFilter2D.SetLayerMask(mask);
-        boxCollider.Cast(-transform.up, contactFilter2D, hitResults, 2f);
+        boxCollider.Cast(-Vector2.up, contactFilter2D, hitResults, 2f);
         bool nearGround = false;
         Vector2 nearGroundNormal = Vector2.zero;
         foreach(RaycastHit2D result in hitResults)
@@ -183,8 +193,8 @@ public abstract class MovementControler : MonoBehaviour
             {
                 if(result.normal.y > 0.25f)
                 {
-                    nearGround = true;
                     nearGroundNormal = result.normal;
+                    nearGround = true;
                     break;
                 }
             }
@@ -199,21 +209,36 @@ public abstract class MovementControler : MonoBehaviour
 
             Vector3 corner1 = new Vector2(-size.x, -size.y);
             Vector3 corner2 = new Vector2(size.x, -size.y);
+            Vector3 corner3 = new Vector2(0, -size.y);
 
             corner1 = RotatePointAroundPivot(corner1, Vector3.zero, bcTransform.eulerAngles);
             corner2 = RotatePointAroundPivot(corner2, Vector3.zero, bcTransform.eulerAngles);
+            corner3 = RotatePointAroundPivot(corner2, Vector3.zero, bcTransform.eulerAngles);
 
             corner1 = worldPosition + corner1;
             corner2 = worldPosition + corner2;
+            corner3 = worldPosition + corner3;
 
             RaycastHit2D hitLeft = Physics2D.Raycast(corner1, -Vector2.up, 10f, mask);
             RaycastHit2D hitRight = Physics2D.Raycast(corner2, -Vector2.up, 10f, mask);
+            RaycastHit2D hitCenter = Physics2D.Raycast(corner3, -Vector2.up, 10f, mask);
+
             ContactPoint2D[] points = new ContactPoint2D[15];
             int contactCount = boxCollider.GetContacts(points);
             bool canRotateByContacts = true;
+            float distanceLeft = Vector2.Distance(corner1, hitLeft.point);
+            float distanceRight = Vector2.Distance(corner2, hitRight.point);
+            rgbd.freezeRotation = false;
+            if (!hitLeft && !hitCenter && facingDirection == -1)
+            {
+                rgbd.AddForceAtPosition(-Vector2.up * 10, corner1);
+            }
+            if (!hitRight && !hitCenter && facingDirection == 1)
+            {
+                rgbd.AddForceAtPosition(-Vector2.up * 10, corner2);
+            }
             if (hitLeft && hitLeft.normal.y > 0.25f)
             {
-                float distanceLeft = Vector2.Distance(corner1, hitLeft.point);
                 if (distanceLeft > 2f)
                 {
                     canRotateByContacts = false;
@@ -221,30 +246,55 @@ public abstract class MovementControler : MonoBehaviour
             }
             if (hitRight && hitRight.normal.y > 0.25f)
             {
-                float distanceRight = Vector2.Distance(corner2, hitRight.point);
                 if (distanceRight > 2f)
                 {
                     canRotateByContacts = false;
                 }
             }
-            if(hitRight && hitLeft && canRotateByContacts)
+            rgbd.freezeRotation = true;
+
+            if (hitRight && hitLeft && canRotateByContacts)
             {
-                Vector2 targetVector = hitRight.point - hitLeft.point;
-                Vector2 perpendicularVector = Vector2.Perpendicular(targetVector);
-                transform.up = perpendicularVector;
+                Debug.Log(0);
+                if (distanceLeft >= distanceRight)
+                {
+                    rgbd.AddForceAtPosition(-Vector2.up * 50, corner1);
+                }
+                else
+                {
+                    rgbd.AddForceAtPosition(-Vector2.up * 50, corner2);
+                }
+                rgbd.freezeRotation = false;
             }
-            if (contactCount == 1 && !canRotateByContacts)
+            float angle = Vector2.Angle(transform.up, Vector2.up);
+            if (!canRotateByContacts && angle > 60)
             {
-                transform.up = nearGroundNormal;
+                transform.eulerAngles = new Vector3(0, 0, 0);
             }
+
+            //-----------------------
+            //if (ground && !canRotateByContacts && angle < 60)
+            //{
+            //    if (hitLeft && hitRight)
+            //    {
+            //        if (distanceLeft >= distanceRight)
+            //        {
+            //            transform.up = hitRight.normal;
+            //        }
+            //        else
+            //        {
+            //            transform.up = hitLeft.normal;
+            //        }
+            //    }
+            //}
         }
         else
         {
-            rgbd.freezeRotation = false;
             float angle = Vector2.Angle(transform.up, Vector2.up);
+            rgbd.gravityScale = 1f;
             if(angle > 30)
             {
-                transform.eulerAngles = new Vector3(0, 0, 30);
+                rgbd.freezeRotation = true;
             }
         }
     }
@@ -256,23 +306,31 @@ public abstract class MovementControler : MonoBehaviour
         return point; 
     }
 
-    private void CheckSlope()
+    private void CheckSlope() // taisyti
     {
         RaycastHit2D[] resultsFromBack = new RaycastHit2D[15];
         Vector2 currentColliderDimensions = boxCollider.bounds.size;
         float deltaOffsetY = transform.position.y - currentColliderDimensions.y / 2 * 3;
         float distanceToTarget = Vector2.Distance(transform.position, new Vector2(transform.position.x, deltaOffsetY));
-        boxCollider.Cast(-transform.up, resultsFromBack, distanceToTarget, true);
+        boxCollider.Cast(-transform.up, resultsFromBack, currentColliderDimensions.y, true);
         slope = false;
         foreach (RaycastHit2D result in resultsFromBack)
         {
-            if (ground && result)
+            if (result)
             {
                 if (result.collider.gameObject != gameObject)
                 {
-                    if (result.normal.y > minGroungNormalY && result.normal.y < minSlopeNomal)
+                    if (result.normal.y > minSlopeNomal && result.normal.y < 0.9f) // && result.normal.y < minSlopeNomal
                     {
+                       
                         slope = true;
+                        slopeNormal = result.normal;
+                        return;
+                    }
+                    else
+                    {
+                        slope = false;
+                        slopeNormal = Vector2.zero;
                     }
                 }
             }
@@ -348,6 +406,10 @@ public abstract class MovementControler : MonoBehaviour
     {
         foreach (ContactPoint2D contact in collision.contacts)
         {
+            if(contact.normal.y < minSlopeNomal)
+            {
+                hasCollided = true;
+            }
             if (contact.normal.y > minGroungNormalY)
             {
                 groundNormal = contact.normal;
@@ -395,17 +457,21 @@ public abstract class MovementControler : MonoBehaviour
         ground = false;
         IsBlocked = false;
         obsticle = null;
+        hasCollided = false;
     }
     public void Turn(float dir, float angle)
     {
-        facingDirection = dir;
-        if (dir > 0)
+        if (dir != 0)
         {
-            GetComponentInChildren<SpriteRenderer>().flipX = false;
-        }
-        else if (dir < 0)
-        {
-            GetComponentInChildren<SpriteRenderer>().flipX = true;
+            facingDirection = dir;
+            if (dir > 0)
+            {
+                GetComponentInChildren<SpriteRenderer>().flipX = false;
+            }
+            else if (dir < 0)
+            {
+                GetComponentInChildren<SpriteRenderer>().flipX = true;
+            }
         }
     }
     public void SetGroundState(bool grounded)

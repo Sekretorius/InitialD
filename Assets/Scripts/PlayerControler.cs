@@ -11,13 +11,14 @@ public class PlayerControler : MovementControler
         if (canMove)
         {
             move.x = Input.GetAxisRaw("Horizontal");
-            if (Input.GetButtonDown("Crouch") && !IsSliding && move.x != 0)
+            if (Input.GetKey(KeyCode.S) && !IsSliding && move.x != 0 && !anim.GetCurrentAnimatorStateInfo(0).IsName("Slide") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Slide_standUp") && !IsCrawling) // 
             {
                 IsSliding = true;
+                IsCrawling = true;
                 slideDirection = move.x > 0 ? 1 : -1;
-                slideSpeedX = rgbd.velocity.x + slideSpeedModifier * slideDirection;
+                slideSpeedX = Mathf.Abs(rgbd.velocity.x) + slideSpeed;
             }
-            if(Input.GetKey(KeyCode.S) && !isHolding)
+            if((Input.GetKey(KeyCode.S) && !IsSliding && move.x == 0))
             {
                 IsCrawling = true;
             }
