@@ -98,13 +98,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   crawlSpeed: 5
-  JumpTakeOffSpeed: 40
+  JumpTakeOffSpeed: 60
   movementSmoothing: 0.05
   gravityModifier: 6
-  slideSpeedModifier: 3
+  slideSpeed: 4
   minSlideSpeed: 5
-  slideDrag: 0.15
-  ground: 0
+  slideDragForce: 15
+  slideSpeedX: 0
   IsCrawling: 0
   isHolding: 0
   canCarrie: 1

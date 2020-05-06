@@ -11,14 +11,15 @@ public class PlayerControler : MovementControler
         if (canMove)
         {
             move.x = Input.GetAxisRaw("Horizontal");
-            if (Input.GetKey(KeyCode.S) && !IsSliding && move.x != 0 && !anim.GetCurrentAnimatorStateInfo(0).IsName("Slide") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Slide_standUp") && !IsCrawling) // 
+            move.y = Input.GetAxisRaw("Vertical");
+            if (Input.GetKey(KeyCode.S) && !IsSliding && move.x != 0 && !anim.GetCurrentAnimatorStateInfo(0).IsName("Slide") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Slide_standUp") && !IsCrawling && !IsClimbing && !isHolding) // 
             {
                 IsSliding = true;
                 IsCrawling = true;
                 slideDirection = move.x > 0 ? 1 : -1;
                 slideSpeedX = Mathf.Abs(rgbd.velocity.x) + slideSpeed;
             }
-            if((Input.GetKey(KeyCode.S) && !IsSliding && move.x == 0))
+            if((Input.GetKey(KeyCode.S) && !IsSliding && move.x == 0) && !IsClimbing && !isHolding)
             {
                 IsCrawling = true;
             }
@@ -43,7 +44,7 @@ public class PlayerControler : MovementControler
         {
             Turn(move.x, 0);
         }
-        if (IsCrawling && !IsSliding)
+        if (IsCrawling && !IsSliding && !IsClimbing)
         {
             if (move.x == 0)
             {
@@ -76,7 +77,7 @@ public class PlayerControler : MovementControler
         {
             anim.SetBool("IsWalking", false);
         }
-        if (IsSliding)
+        if (IsSliding && !IsClimbing)
         {
             anim.SetBool("IsSliding", true);
         }
