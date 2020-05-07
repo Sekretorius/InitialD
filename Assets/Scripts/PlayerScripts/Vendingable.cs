@@ -13,7 +13,7 @@ public class Vendingable : Interactable
     private Text text;
 
 
-    private void OnValidate()
+    protected void Start()
     {
         MSystem = FindObjectOfType<MoneySystem>();
         HSystem = GameObject.Find("PlayerStats").GetComponent<HealthSystem>();
@@ -22,7 +22,7 @@ public class Vendingable : Interactable
 
     protected override void OnEvent()
     {
-        if (IsInteractable && Input.GetKeyDown(KeyCode.E) && uses > 0)
+        if (IsInteractable && Input.GetButtonDown("Interact") && uses > 0)
         {
             if (MSystem.Cash <= 0)
             {

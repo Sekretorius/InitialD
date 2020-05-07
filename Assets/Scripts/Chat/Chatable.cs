@@ -6,7 +6,7 @@ public class Chatable : Interactable
 {
     private DialogueManager manager;
     private StoryLineManager storyManager;
-    private void OnValidate()
+    protected void Start()
     {
         storyManager = FindObjectOfType<StoryLineManager>();
         manager = FindObjectOfType<DialogueManager>();

@@ -1,0 +1,3172 @@
+fileFormatVersion: 2
+guid: bd10626fd649def4aa333256b25c7c4c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7562716900497062
+    second: cavesofgallet_tiles_0
+  - first:
+      213: -7154765599751142846
+    second: cavesofgallet_tiles_1
+  - first:
+      213: 2984065513281883999
+    second: cavesofgallet_tiles_2
+  - first:
+      213: -5776482543493053246
+    second: cavesofgallet_tiles_3
+  - first:
+      213: -4689036416838276420
+    second: cavesofgallet_tiles_4
+  - first:
+      213: 6763240661390704579
+    second: cavesofgallet_tiles_5
+  - first:
+      213: -2470095625695956908
+    second: cavesofgallet_tiles_6
+  - first:
+      213: -5127462019627695297
+    second: cavesofgallet_tiles_7
+  - first:
+      213: -4344611882063969491
+    second: cavesofgallet_tiles_8
+  - first:
+      213: -5241486731584646207
+    second: cavesofgallet_tiles_9
+  - first:
+      213: -7642564045633368294
+    second: cavesofgallet_tiles_10
+  - first:
+      213: 5341771664649972425
+    second: cavesofgallet_tiles_11
+  - first:
+      213: -8984626240020786121
+    second: cavesofgallet_tiles_12
+  - first:
+      213: 3468403038365704019
+    second: cavesofgallet_tiles_13
+  - first:
+      213: -8647835678496758353
+    second: cavesofgallet_tiles_14
+  - first:
+      213: -6943741494004083652
+    second: cavesofgallet_tiles_15
+  - first:
+      213: -5621438423877138259
+    second: cavesofgallet_tiles_16
+  - first:
+      213: 2957006678953861454
+    second: cavesofgallet_tiles_17
+  - first:
+      213: 1688902425720724638
+    second: cavesofgallet_tiles_18
+  - first:
+      213: 2575831949333790474
+    second: cavesofgallet_tiles_19
+  - first:
+      213: -8159859179837654844
+    second: cavesofgallet_tiles_20
+  - first:
+      213: -5298602946799650584
+    second: cavesofgallet_tiles_21
+  - first:
+      213: 4148663246645693630
+    second: cavesofgallet_tiles_22
+  - first:
+      213: 7512328460921431922
+    second: cavesofgallet_tiles_23
+  - first:
+      213: 4390553356983286924
+    second: cavesofgallet_tiles_24
+  - first:
+      213: -7369771624710436046
+    second: cavesofgallet_tiles_25
+  - first:
+      213: 4248983602908502380
+    second: cavesofgallet_tiles_26
+  - first:
+      213: -5790631595918762693
+    second: cavesofgallet_tiles_27
+  - first:
+      213: 1975989737299403888
+    second: cavesofgallet_tiles_28
+  - first:
+      213: -3487899806628404764
+    second: cavesofgallet_tiles_29
+  - first:
+      213: 6472411408730046857
+    second: cavesofgallet_tiles_30
+  - first:
+      213: -8640527018755129667
+    second: cavesofgallet_tiles_31
+  - first:
+      213: 2745358447610106584
+    second: cavesofgallet_tiles_32
+  - first:
+      213: 4106174256796175559
+    second: cavesofgallet_tiles_33
+  - first:
+      213: 455651799181826748
+    second: cavesofgallet_tiles_34
+  - first:
+      213: -979931886528107223
+    second: cavesofgallet_tiles_35
+  - first:
+      213: -5823318198701459015
+    second: cavesofgallet_tiles_36
+  - first:
+      213: 8157468701493994988
+    second: cavesofgallet_tiles_37
+  - first:
+      213: 6495700620726974511
+    second: cavesofgallet_tiles_38
+  - first:
+      213: -3651090005063998609
+    second: cavesofgallet_tiles_39
+  - first:
+      213: -2548289509128969784
+    second: cavesofgallet_tiles_40
+  - first:
+      213: -3771277660260231164
+    second: cavesofgallet_tiles_41
+  - first:
+      213: 5959440611621603138
+    second: cavesofgallet_tiles_42
+  - first:
+      213: 9009148361035846657
+    second: cavesofgallet_tiles_43
+  - first:
+      213: -5232346797914678445
+    second: cavesofgallet_tiles_44
+  - first:
+      213: 4083584718629391062
+    second: cavesofgallet_tiles_45
+  - first:
+      213: -3571394752444297203
+    second: cavesofgallet_tiles_46
+  - first:
+      213: -8385139519096934573
+    second: cavesofgallet_tiles_47
+  - first:
+      213: 5265470058714153636
+    second: cavesofgallet_tiles_48
+  - first:
+      213: 4124757340671491305
+    second: cavesofgallet_tiles_49
+  - first:
+      213: -8594506224176194178
+    second: cavesofgallet_tiles_50
+  - first:
+      213: -219001599958623119
+    second: cavesofgallet_tiles_51
+  - first:
+      213: 3287008341676758806
+    second: cavesofgallet_tiles_52
+  - first:
+      213: 4183170632131052782
+    second: cavesofgallet_tiles_53
+  - first:
+      213: -7275110980902786841
+    second: cavesofgallet_tiles_54
+  - first:
+      213: 5467852283892860602
+    second: cavesofgallet_tiles_55
+  - first:
+      213: -562626001391030763
+    second: cavesofgallet_tiles_56
+  - first:
+      213: -153196855277401480
+    second: cavesofgallet_tiles_57
+  - first:
+      213: -7544925500508078308
+    second: cavesofgallet_tiles_58
+  - first:
+      213: -7518496919059957854
+    second: cavesofgallet_tiles_59
+  - first:
+      213: 1126893008448672215
+    second: cavesofgallet_tiles_60
+  - first:
+      213: -8362812244709571064
+    second: cavesofgallet_tiles_61
+  - first:
+      213: 1568645022834990491
+    second: cavesofgallet_tiles_62
+  - first:
+      213: 8653248307394248823
+    second: cavesofgallet_tiles_63
+  - first:
+      213: 4334547091788832242
+    second: cavesofgallet_tiles_64
+  - first:
+      213: 3347767752931680209
+    second: cavesofgallet_tiles_65
+  - first:
+      213: -3628844686304840078
+    second: cavesofgallet_tiles_66
+  - first:
+      213: 1411845119065793750
+    second: cavesofgallet_tiles_67
+  - first:
+      213: 9198321923583785321
+    second: cavesofgallet_tiles_68
+  - first:
+      213: 9067178444086426468
+    second: cavesofgallet_tiles_69
+  - first:
+      213: -7272874877870570911
+    second: cavesofgallet_tiles_70
+  - first:
+      213: 5623970831201592517
+    second: cavesofgallet_tiles_71
+  - first:
+      213: -7336076203705889676
+    second: cavesofgallet_tiles_72
+  - first:
+      213: -6399410440623667104
+    second: cavesofgallet_tiles_73
+  - first:
+      213: -2040590376970489163
+    second: cavesofgallet_tiles_74
+  - first:
+      213: 2204014457348745492
+    second: cavesofgallet_tiles_75
+  - first:
+      213: -8695525589499867688
+    second: cavesofgallet_tiles_76
+  - first:
+      213: -4331846575891580061
+    second: cavesofgallet_tiles_77
+  - first:
+      213: 2456570742517852966
+    second: cavesofgallet_tiles_78
+  - first:
+      213: 1648560236019240719
+    second: cavesofgallet_tiles_79
+  - first:
+      213: 8946948308623705918
+    second: cavesofgallet_tiles_80
+  - first:
+      213: 1760159970768396179
+    second: cavesofgallet_tiles_81
+  - first:
+      213: -6708270086298583415
+    second: cavesofgallet_tiles_82
+  - first:
+      213: 7158874294309322031
+    second: cavesofgallet_tiles_83
+  - first:
+      213: 7220014579768496375
+    second: cavesofgallet_tiles_84
+  - first:
+      213: 4338463477234358381
+    second: cavesofgallet_tiles_85
+  - first:
+      213: -7002822150578751653
+    second: cavesofgallet_tiles_86
+  - first:
+      213: 5360143977062796744
+    second: cavesofgallet_tiles_87
+  - first:
+      213: -8104427230928924839
+    second: cavesofgallet_tiles_88
+  - first:
+      213: -3587659124615472961
+    second: cavesofgallet_tiles_89
+  - first:
+      213: 7457074360033639951
+    second: cavesofgallet_tiles_90
+  - first:
+      213: 3610398847867291031
+    second: cavesofgallet_tiles_91
+  - first:
+      213: -758695248136942840
+    second: cavesofgallet_tiles_92
+  - first:
+      213: 747536689732877559
+    second: cavesofgallet_tiles_93
+  - first:
+      213: -2784551424656885208
+    second: cavesofgallet_tiles_94
+  - first:
+      213: 551328826944026410
+    second: cavesofgallet_tiles_95
+  - first:
+      213: 7260973383085871547
+    second: cavesofgallet_tiles_96
+  - first:
+      213: -8827404023786916980
+    second: cavesofgallet_tiles_97
+  - first:
+      213: -399590952259714570
+    second: cavesofgallet_tiles_98
+  - first:
+      213: -8230170133038645377
+    second: cavesofgallet_tiles_99
+  - first:
+      213: -6924546228525192475
+    second: cavesofgallet_tiles_100
+  - first:
+      213: -5569703607093166307
+    second: cavesofgallet_tiles_101
+  - first:
+      213: 2016474304315121022
+    second: cavesofgallet_tiles_102
+  - first:
+      213: -4817953818071952108
+    second: cavesofgallet_tiles_103
+  - first:
+      213: -5068577924900705329
+    second: cavesofgallet_tiles_104
+  - first:
+      213: 6019980290490267693
+    second: cavesofgallet_tiles_105
+  - first:
+      213: 3749760056785632929
+    second: cavesofgallet_tiles_106
+  - first:
+      213: 7508454750757073880
+    second: cavesofgallet_tiles_107
+  - first:
+      213: 8708748022329349399
+    second: cavesofgallet_tiles_108
+  - first:
+      213: 1681495592732487219
+    second: cavesofgallet_tiles_109
+  - first:
+      213: -4590092950931019798
+    second: cavesofgallet_tiles_110
+  - first:
+      213: -4190569316640588801
+    second: cavesofgallet_tiles_111
+  - first:
+      213: -2856942028135439381
+    second: cavesofgallet_tiles_112
+  - first:
+      213: 9097176519331690543
+    second: cavesofgallet_tiles_113
+  - first:
+      213: 1449358786336464294
+    second: cavesofgallet_tiles_114
+  - first:
+      213: 6393432100527402132
+    second: cavesofgallet_tiles_115
+  - first:
+      213: 5025299934635618846
+    second: cavesofgallet_tiles_116
+  - first:
+      213: 8029008597490486015
+    second: cavesofgallet_tiles_117
+  - first:
+      213: -6252774846018639508
+    second: cavesofgallet_tiles_118
+  - first:
+      213: 1668632450539252010
+    second: cavesofgallet_tiles_119
+  - first:
+      213: 9194499202967962663
+    second: cavesofgallet_tiles_120
+  - first:
+      213: 186127927838513891
+    second: cavesofgallet_tiles_121
+  - first:
+      213: 935855954429888366
+    second: cavesofgallet_tiles_122
+  - first:
+      213: 8205459634240799945
+    second: cavesofgallet_tiles_123
+  - first:
+      213: 7442880752891998035
+    second: cavesofgallet_tiles_124
+  - first:
+      213: 2116685863171394879
+    second: cavesofgallet_tiles_125
+  - first:
+      213: -2452332719823056201
+    second: cavesofgallet_tiles_126
+  - first:
+      213: 4547078875469858514
+    second: cavesofgallet_tiles_127
+  - first:
+      213: -5935236956043262122
+    second: cavesofgallet_tiles_128
+  - first:
+      213: 7837032396193535020
+    second: cavesofgallet_tiles_129
+  - first:
+      213: 2192952284396693508
+    second: cavesofgallet_tiles_130
+  - first:
+      213: -1648069406355844417
+    second: cavesofgallet_tiles_131
+  - first:
+      213: -4476800232957781347
+    second: cavesofgallet_tiles_132
+  - first:
+      213: 1595610351163786958
+    second: cavesofgallet_tiles_133
+  - first:
+      213: -7729848679812918644
+    second: cavesofgallet_tiles_134
+  - first:
+      213: 2024883592403592904
+    second: cavesofgallet_tiles_135
+  - first:
+      213: -6586721886680735276
+    second: cavesofgallet_tiles_136
+  - first:
+      213: -7884670540538909345
+    second: cavesofgallet_tiles_137
+  - first:
+      213: 5678625050983854221
+    second: cavesofgallet_tiles_138
+  - first:
+      213: 8696870003100140647
+    second: cavesofgallet_tiles_139
+  - first:
+      213: -8505589099587999852
+    second: cavesofgallet_tiles_140
+  - first:
+      213: -2358201786751497401
+    second: cavesofgallet_tiles_141
+  - first:
+      213: -4534426761948534382
+    second: cavesofgallet_tiles_142
+  - first:
+      213: 5490763880490238715
+    second: cavesofgallet_tiles_143
+  - first:
+      213: -278413429565328416
+    second: cavesofgallet_tiles_144
+  - first:
+      213: -6490234950849800559
+    second: cavesofgallet_tiles_145
+  - first:
+      213: 73101817313358915
+    second: cavesofgallet_tiles_146
+  - first:
+      213: -6866932826475324787
+    second: cavesofgallet_tiles_147
+  - first:
+      213: 4894400924900795136
+    second: cavesofgallet_tiles_148
+  - first:
+      213: -2647609478694744624
+    second: cavesofgallet_tiles_149
+  - first:
+      213: -7960065339346004269
+    second: cavesofgallet_tiles_150
+  - first:
+      213: 4488099090558960134
+    second: cavesofgallet_tiles_151
+  - first:
+      213: 1871067521156556029
+    second: cavesofgallet_tiles_152
+  - first:
+      213: -1329575490719240456
+    second: cavesofgallet_tiles_153
+  - first:
+      213: 6005668679078785875
+    second: cavesofgallet_tiles_154
+  - first:
+      213: -3631603560651613107
+    second: cavesofgallet_tiles_155
+  - first:
+      213: -9054110906445689259
+    second: cavesofgallet_tiles_156
+  - first:
+      213: -3663528467880933081
+    second: cavesofgallet_tiles_157
+  - first:
+      213: 1687410631900274875
+    second: cavesofgallet_tiles_158
+  - first:
+      213: 721992920922756241
+    second: cavesofgallet_tiles_159
+  - first:
+      213: 1524472177996569698
+    second: cavesofgallet_tiles_160
+  - first:
+      213: -2899411588107482966
+    second: cavesofgallet_tiles_161
+  - first:
+      213: -6187568087605969417
+    second: cavesofgallet_tiles_162
+  - first:
+      213: 2360845366663729004
+    second: cavesofgallet_tiles_163
+  - first:
+      213: 2812186157951126264
+    second: cavesofgallet_tiles_164
+  - first:
+      213: 2680800948868207864
+    second: cavesofgallet_tiles_165
+  - first:
+      213: -4208752116095701215
+    second: cavesofgallet_tiles_166
+  - first:
+      213: 4404468450138168826
+    second: cavesofgallet_tiles_167
+  - first:
+      213: -1523571605895380332
+    second: cavesofgallet_tiles_168
+  - first:
+      213: -799990573497234287
+    second: cavesofgallet_tiles_169
+  - first:
+      213: -6675747647694453764
+    second: cavesofgallet_tiles_170
+  - first:
+      213: 8967587884625167096
+    second: cavesofgallet_tiles_171
+  - first:
+      213: -5433392200581409199
+    second: cavesofgallet_tiles_172
+  - first:
+      213: -6959742610770039525
+    second: cavesofgallet_tiles_173
+  - first:
+      213: 9013070123965912655
+    second: cavesofgallet_tiles_174
+  - first:
+      213: 6924918058780830402
+    second: cavesofgallet_tiles_175
+  - first:
+      213: -8553088721517610612
+    second: cavesofgallet_tiles_176
+  - first:
+      213: 7766446702864483500
+    second: cavesofgallet_tiles_177
+  - first:
+      213: 4655074758789925063
+    second: cavesofgallet_tiles_178
+  - first:
+      213: 4922044307689730911
+    second: cavesofgallet_tiles_179
+  - first:
+      213: -2279245741003623766
+    second: cavesofgallet_tiles_180
+  - first:
+      213: 2634351039317262370
+    second: cavesofgallet_tiles_181
+  - first:
+      213: 8370957066970157253
+    second: cavesofgallet_tiles_182
+  - first:
+      213: -62349932895368370
+    second: cavesofgallet_tiles_183
+  - first:
+      213: -8184807020330026396
+    second: cavesofgallet_tiles_184
+  - first:
+      213: -6059075014355908167
+    second: cavesofgallet_tiles_185
+  - first:
+      213: -973038313977360456
+    second: cavesofgallet_tiles_186
+  - first:
+      213: 4114246398197724565
+    second: cavesofgallet_tiles_187
+  - first:
+      213: 8994880353386937907
+    second: cavesofgallet_tiles_188
+  - first:
+      213: -815336678212989056
+    second: cavesofgallet_tiles_189
+  - first:
+      213: -7108996129129637790
+    second: cavesofgallet_tiles_190
+  - first:
+      213: 7487733694501114718
+    second: cavesofgallet_tiles_191
+  - first:
+      213: 8323399742044931038
+    second: cavesofgallet_tiles_192
+  - first:
+      213: -6880572546229580048
+    second: cavesofgallet_tiles_193
+  - first:
+      213: 8739681178888996340
+    second: cavesofgallet_tiles_194
+  - first:
+      213: 9027073720368327983
+    second: cavesofgallet_tiles_195
+  - first:
+      213: 2380719764459523191
+    second: cavesofgallet_tiles_196
+  - first:
+      213: 3498858974356097529
+    second: cavesofgallet_tiles_197
+  - first:
+      213: 3935966368231901325
+    second: cavesofgallet_tiles_198
+  - first:
+      213: -8306168564223923423
+    second: cavesofgallet_tiles_199
+  - first:
+      213: -3758777758785420129
+    second: cavesofgallet_tiles_200
+  - first:
+      213: -2471381803497209732
+    second: cavesofgallet_tiles_201
+  - first:
+      213: 1444047736424274885
+    second: cavesofgallet_tiles_202
+  - first:
+      213: -8535303004518433424
+    second: cavesofgallet_tiles_203
+  - first:
+      213: 3558279613224016841
+    second: cavesofgallet_tiles_204
+  - first:
+      213: -1650534764008985653
+    second: cavesofgallet_tiles_205
+  - first:
+      213: -8125486973275031527
+    second: cavesofgallet_tiles_206
+  - first:
+      213: 3096020702981711068
+    second: cavesofgallet_tiles_207
+  - first:
+      213: 9177160585464794842
+    second: cavesofgallet_tiles_208
+  - first:
+      213: 6435460098526833668
+    second: cavesofgallet_tiles_209
+  - first:
+      213: 3852466338375403145
+    second: cavesofgallet_tiles_210
+  - first:
+      213: 4658551967038525709
+    second: cavesofgallet_tiles_211
+  - first:
+      213: -5777598516741224947
+    second: cavesofgallet_tiles_212
+  - first:
+      213: -6491998573265785258
+    second: cavesofgallet_tiles_213
+  - first:
+      213: 6209869399012536759
+    second: cavesofgallet_tiles_214
+  - first:
+      213: -540700089326498297
+    second: cavesofgallet_tiles_215
+  - first:
+      213: -8679929348401190919
+    second: cavesofgallet_tiles_216
+  - first:
+      213: 4285751596738856285
+    second: cavesofgallet_tiles_217
+  - first:
+      213: 2024472751813476643
+    second: cavesofgallet_tiles_218
+  - first:
+      213: -4138206154914513757
+    second: cavesofgallet_tiles_219
+  - first:
+      213: -5792940374129938966
+    second: cavesofgallet_tiles_220
+  - first:
+      213: -1237494682946671337
+    second: cavesofgallet_tiles_221
+  - first:
+      213: -9179061200151475336
+    second: cavesofgallet_tiles_222
+  - first:
+      213: -6756346595141468849
+    second: cavesofgallet_tiles_223
+  - first:
+      213: 5913875945164725876
+    second: cavesofgallet_tiles_224
+  - first:
+      213: 388326162603181270
+    second: cavesofgallet_tiles_225
+  - first:
+      213: 3680155915088264420
+    second: cavesofgallet_tiles_226
+  - first:
+      213: -859232571880772335
+    second: cavesofgallet_tiles_227
+  - first:
+      213: 1680966018153819633
+    second: cavesofgallet_tiles_228
+  - first:
+      213: -5450845918661409743
+    second: cavesofgallet_tiles_229
+  - first:
+      213: 6645554393435486991
+    second: cavesofgallet_tiles_230
+  - first:
+      213: 1399673797594169991
+    second: cavesofgallet_tiles_231
+  - first:
+      213: 3415352459856980335
+    second: cavesofgallet_tiles_232
+  - first:
+      213: -6145507428092718191
+    second: cavesofgallet_tiles_233
+  - first:
+      213: -4520956978670142768
+    second: cavesofgallet_tiles_234
+  - first:
+      213: -5720782712401386213
+    second: cavesofgallet_tiles_235
+  - first:
+      213: 7851418741465541222
+    second: cavesofgallet_tiles_236
+  - first:
+      213: 1315769761042453916
+    second: cavesofgallet_tiles_237
+  - first:
+      213: 1319340659842801466
+    second: cavesofgallet_tiles_238
+  - first:
+      213: 5990856731438486284
+    second: cavesofgallet_tiles_239
+  - first:
+      213: -3884894228634009086
+    second: cavesofgallet_tiles_240
+  - first:
+      213: -6043417462406775126
+    second: cavesofgallet_tiles_241
+  - first:
+      213: -7820662240348735639
+    second: cavesofgallet_tiles_242
+  - first:
+      213: 8336885736780319673
+    second: cavesofgallet_tiles_243
+  - first:
+      213: 8662033210168233757
+    second: cavesofgallet_tiles_244
+  - first:
+      213: -609569726034669210
+    second: cavesofgallet_tiles_245
+  - first:
+      213: -2451151561198223871
+    second: cavesofgallet_tiles_246
+  - first:
+      213: 8792330221982949081
+    second: cavesofgallet_tiles_247
+  - first:
+      213: 3285434694705871448
+    second: cavesofgallet_tiles_248
+  - first:
+      213: -2759646299411336349
+    second: cavesofgallet_tiles_249
+  - first:
+      213: -7078285439088356174
+    second: cavesofgallet_tiles_250
+  - first:
+      213: 8263639884692324538
+    second: cavesofgallet_tiles_251
+  - first:
+      213: -3648181759089635465
+    second: cavesofgallet_tiles_252
+  - first:
+      213: 1828972525520661760
+    second: cavesofgallet_tiles_253
+  - first:
+      213: -5438295660685359066
+    second: cavesofgallet_tiles_254
+  - first:
+      213: -4409466410201407178
+    second: cavesofgallet_tiles_255
+  - first:
+      213: -4544599885166369829
+    second: cavesofgallet_tiles_256
+  - first:
+      213: -3566508196936260040
+    second: cavesofgallet_tiles_257
+  - first:
+      213: -2578119333448495167
+    second: cavesofgallet_tiles_258
+  - first:
+      213: -6527909379984528361
+    second: cavesofgallet_tiles_259
+  - first:
+      213: 8448830588984492214
+    second: cavesofgallet_tiles_260
+  - first:
+      213: 4890115414559803286
+    second: cavesofgallet_tiles_261
+  - first:
+      213: -4686566498197093706
+    second: cavesofgallet_tiles_262
+  - first:
+      213: -8098842600393647809
+    second: cavesofgallet_tiles_263
+  - first:
+      213: -6291766608057930366
+    second: cavesofgallet_tiles_264
+  - first:
+      213: 4757410255162531547
+    second: cavesofgallet_tiles_265
+  - first:
+      213: -3258743885540397741
+    second: cavesofgallet_tiles_266
+  - first:
+      213: 2392051642143597775
+    second: cavesofgallet_tiles_267
+  - first:
+      213: 373245167279651814
+    second: cavesofgallet_tiles_268
+  - first:
+      213: 1281241744135102103
+    second: cavesofgallet_tiles_269
+  - first:
+      213: -319950763183137446
+    second: cavesofgallet_tiles_270
+  - first:
+      213: -5974396993502951967
+    second: cavesofgallet_tiles_271
+  - first:
+      213: 5459828435593694984
+    second: cavesofgallet_tiles_272
+  - first:
+      213: -4904752036830209849
+    second: cavesofgallet_tiles_273
+  - first:
+      213: -2255899046946942432
+    second: cavesofgallet_tiles_274
+  - first:
+      213: -376941114332825369
+    second: cavesofgallet_tiles_275
+  - first:
+      213: -2132037711884434838
+    second: cavesofgallet_tiles_276
+  - first:
+      213: 546107465376903498
+    second: cavesofgallet_tiles_277
+  - first:
+      213: 8828973414570944444
+    second: cavesofgallet_tiles_278
+  - first:
+      213: -2402749887482064912
+    second: cavesofgallet_tiles_279
+  - first:
+      213: 1773743629708810403
+    second: cavesofgallet_tiles_280
+  - first:
+      213: -7735202728409414656
+    second: cavesofgallet_tiles_281
+  - first:
+      213: 2115507481252420233
+    second: cavesofgallet_tiles_282
+  - first:
+      213: -613690610797007972
+    second: cavesofgallet_tiles_283
+  - first:
+      213: -7482809619965981733
+    second: cavesofgallet_tiles_284
+  - first:
+      213: -6192910084489412710
+    second: cavesofgallet_tiles_285
+  - first:
+      213: -685977474778115627
+    second: cavesofgallet_tiles_286
+  - first:
+      213: 3025903438671702607
+    second: cavesofgallet_tiles_287
+  - first:
+      213: 6441695675326243498
+    second: cavesofgallet_tiles_288
+  - first:
+      213: 7240983488722395845
+    second: cavesofgallet_tiles_289
+  - first:
+      213: -7327730789860770893
+    second: cavesofgallet_tiles_290
+  - first:
+      213: 5083593555823301904
+    second: cavesofgallet_tiles_291
+  - first:
+      213: 7613411605510803462
+    second: cavesofgallet_tiles_292
+  - first:
+      213: 8692897426044483442
+    second: cavesofgallet_tiles_293
+  - first:
+      213: 6565767594378678897
+    second: cavesofgallet_tiles_294
+  - first:
+      213: -8970851851265681897
+    second: cavesofgallet_tiles_295
+  - first:
+      213: -6055833482869188471
+    second: cavesofgallet_tiles_296
+  - first:
+      213: 7554508901717765000
+    second: cavesofgallet_tiles_297
+  - first:
+      213: -7695874625842473752
+    second: cavesofgallet_tiles_298
+  - first:
+      213: 4859106366417703085
+    second: cavesofgallet_tiles_299
+  - first:
+      213: 3293574001552906300
+    second: cavesofgallet_tiles_300
+  - first:
+      213: -8195309899142904814
+    second: cavesofgallet_tiles_301
+  - first:
+      213: 2114035780711827860
+    second: cavesofgallet_tiles_302
+  - first:
+      213: 2684654744682382253
+    second: cavesofgallet_tiles_303
+  - first:
+      213: 2967215501389173506
+    second: cavesofgallet_tiles_304
+  - first:
+      213: 5636673674946859974
+    second: cavesofgallet_tiles_305
+  - first:
+      213: 4444942361111803913
+    second: cavesofgallet_tiles_306
+  - first:
+      213: -8607770531391367878
+    second: cavesofgallet_tiles_307
+  - first:
+      213: 8602868522607091305
+    second: cavesofgallet_tiles_308
+  - first:
+      213: 4136884440189698178
+    second: cavesofgallet_tiles_309
+  - first:
+      213: -6339978923865620032
+    second: cavesofgallet_tiles_310
+  - first:
+      213: -4071649463570549064
+    second: cavesofgallet_tiles_311
+  - first:
+      213: -3786459581696911286
+    second: cavesofgallet_tiles_312
+  - first:
+      213: 5174197587228622332
+    second: cavesofgallet_tiles_313
+  - first:
+      213: -7502995752902068316
+    second: cavesofgallet_tiles_314
+  - first:
+      213: -5315779138024156358
+    second: cavesofgallet_tiles_315
+  - first:
+      213: -1713026139362588903
+    second: cavesofgallet_tiles_316
+  - first:
+      213: -1777741543236917356
+    second: cavesofgallet_tiles_317
+  - first:
+      213: 8319592207033965669
+    second: cavesofgallet_tiles_318
+  - first:
+      213: -1495381417963553328
+    second: cavesofgallet_tiles_319
+  - first:
+      213: 5649792013475158095
+    second: cavesofgallet_tiles_320
+  - first:
+      213: -8919057072814340453
+    second: cavesofgallet_tiles_321
+  - first:
+      213: 7539814470496567131
+    second: cavesofgallet_tiles_322
+  - first:
+      213: 6063860698381314282
+    second: cavesofgallet_tiles_323
+  - first:
+      213: 7550732965737679583
+    second: cavesofgallet_tiles_324
+  - first:
+      213: -7576725282708184246
+    second: cavesofgallet_tiles_325
+  - first:
+      213: 5758003283416780426
+    second: cavesofgallet_tiles_326
+  - first:
+      213: -8833294557012389271
+    second: cavesofgallet_tiles_327
+  - first:
+      213: 6587507445145429757
+    second: cavesofgallet_tiles_328
+  - first:
+      213: 4290825706216240906
+    second: cavesofgallet_tiles_329
+  - first:
+      213: 566925124764735642
+    second: cavesofgallet_tiles_330
+  - first:
+      213: 4895875164199821836
+    second: cavesofgallet_tiles_331
+  - first:
+      213: 6837984334070688995
+    second: cavesofgallet_tiles_332
+  - first:
+      213: -1462539756175137966
+    second: cavesofgallet_tiles_333
+  - first:
+      213: 7312390460862916548
+    second: cavesofgallet_tiles_334
+  - first:
+      213: -9012346028973368642
+    second: cavesofgallet_tiles_335
+  - first:
+      213: 1498292056080747183
+    second: cavesofgallet_tiles_336
+  - first:
+      213: -73507151644549858
+    second: cavesofgallet_tiles_337
+  - first:
+      213: 3855628861228464289
+    second: cavesofgallet_tiles_338
+  - first:
+      213: 28962900625485092
+    second: cavesofgallet_tiles_339
+  - first:
+      213: -387456184477382950
+    second: cavesofgallet_tiles_340
+  - first:
+      213: 7280920459277990073
+    second: cavesofgallet_tiles_341
+  - first:
+      213: 2991034010548168072
+    second: cavesofgallet_tiles_342
+  - first:
+      213: -770120806796898170
+    second: cavesofgallet_tiles_343
+  - first:
+      213: 2043497516448621896
+    second: cavesofgallet_tiles_344
+  - first:
+      213: 3027100631678651803
+    second: cavesofgallet_tiles_345
+  - first:
+      213: -1686352886690491093
+    second: cavesofgallet_tiles_346
+  - first:
+      213: 916456869208150666
+    second: cavesofgallet_tiles_347
+  - first:
+      213: -4946767170386181493
+    second: cavesofgallet_tiles_348
+  - first:
+      213: -4389145063278716071
+    second: cavesofgallet_tiles_349
+  - first:
+      213: 6644028236759369121
+    second: cavesofgallet_tiles_350
+  - first:
+      213: 8881206269145598516
+    second: cavesofgallet_tiles_351
+  - first:
+      213: 9106409909413026077
+    second: cavesofgallet_tiles_352
+  - first:
+      213: -7427913373027717229
+    second: cavesofgallet_tiles_353
+  - first:
+      213: 208823365310942904
+    second: cavesofgallet_tiles_354
+  - first:
+      213: 1646535885681289739
+    second: cavesofgallet_tiles_355
+  - first:
+      213: -3791177342115396221
+    second: cavesofgallet_tiles_356
+  - first:
+      213: -8482319795466808237
+    second: cavesofgallet_tiles_357
+  - first:
+      213: 9158756428973310194
+    second: cavesofgallet_tiles_358
+  - first:
+      213: 511323785823641674
+    second: cavesofgallet_tiles_359
+  - first:
+      213: -2802946496209950727
+    second: cavesofgallet_tiles_360
+  - first:
+      213: -2395447879484218567
+    second: cavesofgallet_tiles_361
+  - first:
+      213: -4105252973506392893
+    second: cavesofgallet_tiles_362
+  - first:
+      213: 4978625416497829422
+    second: cavesofgallet_tiles_363
+  - first:
+      213: -5393296554445767721
+    second: cavesofgallet_tiles_364
+  - first:
+      213: -4748175884165762746
+    second: cavesofgallet_tiles_365
+  - first:
+      213: 455871855520547007
+    second: cavesofgallet_tiles_366
+  - first:
+      213: 1877371841257158128
+    second: cavesofgallet_tiles_367
+  - first:
+      213: 2303177949733393531
+    second: cavesofgallet_tiles_368
+  - first:
+      213: 8622126886544305864
+    second: cavesofgallet_tiles_369
+  - first:
+      213: -5520515957107068795
+    second: cavesofgallet_tiles_370
+  - first:
+      213: 1840798635261192190
+    second: cavesofgallet_tiles_371
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a6146e304eda1000800000000000000
+      internalID: 7562716900497062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24206a7389a25bc90800000000000000
+      internalID: -7154765599751142846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f09a926c7896920800000000000000
+      internalID: 2984065513281883999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c40ad75bbfc5dfa0800000000000000
+      internalID: -5776482543493053246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbaeb73f8323deeb0800000000000000
+      internalID: -4689036416838276420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_5
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cfbba06c8bdbdd50800000000000000
+      internalID: 6763240661390704579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45075259d1578bdd0800000000000000
+      internalID: -2470095625695956908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_7
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f33c8c8a57897d8b0800000000000000
+      internalID: -5127462019627695297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d23c2a21386d4b3c0800000000000000
+      internalID: -4344611882063969491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_9
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c359f4969f7247b0800000000000000
+      internalID: -5241486731584646207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_10
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1fc9d61e7820f590800000000000000
+      internalID: -7642564045633368294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_11
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ca65bee609c12a40800000000000000
+      internalID: 5341771664649972425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_12
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73458eb8902305380800000000000000
+      internalID: -8984626240020786121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_13
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35f5cafdf2e322030800000000000000
+      internalID: 3468403038365704019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_14
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa56043c447bcf780800000000000000
+      internalID: -8647835678496758353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_15
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c341fb596efd2af90800000000000000
+      internalID: -6943741494004083652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da842128983acf1b0800000000000000
+      internalID: -5621438423877138259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_17
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e41a08958e5690920800000000000000
+      internalID: 2957006678953861454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_18
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9c1169decf207710800000000000000
+      internalID: 1688902425720724638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_19
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0f7425b2813fb320800000000000000
+      internalID: 2575831949333790474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_20
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c8f0980f4b52ce80800000000000000
+      internalID: -8159859179837654844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_21
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e83b2e61b49776b0800000000000000
+      internalID: -5298602946799650584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_22
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebc09050e33039930800000000000000
+      internalID: 4148663246645693630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_23
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2776745eee6214860800000000000000
+      internalID: 7512328460921431922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8c336a14016eec30800000000000000
+      internalID: 4390553356983286924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_25
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23b816901cf49b990800000000000000
+      internalID: -7369771624710436046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_26
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6912d3231c67fa30800000000000000
+      internalID: 4248983602908502380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_27
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3ddb1c5e3b83afa0800000000000000
+      internalID: -5790631595918762693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_28
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0746c8362302c6b10800000000000000
+      internalID: 1975989737299403888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_29
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e1a2c50b9d789fc0800000000000000
+      internalID: -3487899806628404764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_30
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9814a8942ef92d950800000000000000
+      internalID: 6472411408730046857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_31
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbe7fe6b47ea61880800000000000000
+      internalID: -8640527018755129667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d21bea66f8791620800000000000000
+      internalID: 2745358447610106584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_33
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cc803a2bbf0cf830800000000000000
+      internalID: 4106174256796175559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_34
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cba108fa5ecc25600800000000000000
+      internalID: 455651799181826748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_35
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92de96f14259662f0800000000000000
+      internalID: -979931886528107223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_36
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b9f45893fa6f2fa0800000000000000
+      internalID: -5823318198701459015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_37
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce5aaea5096253170800000000000000
+      internalID: 8157468701493994988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_38
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2837b18c4d552a50800000000000000
+      internalID: 6495700620726974511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_39
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f636e251cf8b45dc0800000000000000
+      internalID: -3651090005063998609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c1638f5138a2acd0800000000000000
+      internalID: -2548289509128969784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_41
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40892d6f2fab9abc0800000000000000
+      internalID: -3771277660260231164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_42
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2470ebb69af24b250800000000000000
+      internalID: 5959440611621603138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_43
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 104955ca3bce60d70800000000000000
+      internalID: 9009148361035846657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_44
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35b94a83f48f267b0800000000000000
+      internalID: -5232346797914678445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_45
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6da4e147aaecba830800000000000000
+      internalID: 4083584718629391062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_46
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d001ddb056bdf6ec0800000000000000
+      internalID: -3571394752444297203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_47
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35f2324a80002ab80800000000000000
+      internalID: -8385139519096934573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a2cc19ee15b21940800000000000000
+      internalID: 5265470058714153636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_49
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ecb86b82f41e3930800000000000000
+      internalID: 4124757340671491305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_50
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7d1810ff1e2ab880800000000000000
+      internalID: -8594506224176194178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_51
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17c59358433f5fcf0800000000000000
+      internalID: -219001599958623119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_52
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6179363ebaccd9d20800000000000000
+      internalID: 3287008341676758806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_53
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee4840bc68b9d0a30800000000000000
+      internalID: 4183170632131052782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_54
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e8eeb9ab1d990b90800000000000000
+      internalID: -7275110980902786841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_55
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab60eb9aea6b1eb40800000000000000
+      internalID: 5467852283892860602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51e60b5f1a62138f0800000000000000
+      internalID: -562626001391030763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_57
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87acb74954cbfddf0800000000000000
+      internalID: -153196855277401480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_58
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1ffd656b3a0b4790800000000000000
+      internalID: -7544925500508078308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_59
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a7ff8603eee8a790800000000000000
+      internalID: -7518496919059957854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_60
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d1547c783783af00800000000000000
+      internalID: 1126893008448672215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_61
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8068cce429251fb80800000000000000
+      internalID: -8362812244709571064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_62
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9d93c45652f4c510800000000000000
+      internalID: 1568645022834990491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_63
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7700c7b1d73861870800000000000000
+      internalID: 8653248307394248823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fd96445d97672c30800000000000000
+      internalID: 4334547091788832242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_65
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1df1008b809a57e20800000000000000
+      internalID: 3347767752931680209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_66
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2767cb7fbf0c3adc0800000000000000
+      internalID: -3628844686304840078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_67
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d429cfc7a1e79310800000000000000
+      internalID: 1411845119065793750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_68
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96936e00e0107af70800000000000000
+      internalID: 9198321923583785321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_69
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46bb9d241c615dd70800000000000000
+      internalID: 9067178444086426468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_70
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16289a8f4de811b90800000000000000
+      internalID: -7272874877870570911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_71
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c4ede48cab5c0e40800000000000000
+      internalID: 5623970831201592517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47c0ae89f85013a90800000000000000
+      internalID: -7336076203705889676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_73
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06843ba1c1ab037a0800000000000000
+      internalID: -6399410440623667104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_74
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b2f7981ddd5ea3e0800000000000000
+      internalID: -2040590376970489163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_75
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 419e81ab87b369e10800000000000000
+      internalID: 2204014457348745492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_76
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dd8a861c89435780800000000000000
+      internalID: -8695525589499867688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_77
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36b7d768d7032e3c0800000000000000
+      internalID: -4331846575891580061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_78
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62be469231e771220800000000000000
+      internalID: 2456570742517852966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_79
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0fc2cadcccd0e610800000000000000
+      internalID: 1648560236019240719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e374c4f6512f92c70800000000000000
+      internalID: 8946948308623705918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_81
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39f138dea285d6810800000000000000
+      internalID: 1760159970768396179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_82
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98e3bc006ef67e2a0800000000000000
+      internalID: -6708270086298583415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_83
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2d7bf7cd3e695360800000000000000
+      internalID: 7158874294309322031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_84
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f01e3cc105a23460800000000000000
+      internalID: 7220014579768496375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_85
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d685f8fdb81553c30800000000000000
+      internalID: 4338463477234358381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_86
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5734894b5af0de90800000000000000
+      internalID: -7002822150578751653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_87
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cd07c14c8e036a40800000000000000
+      internalID: 5360143977062796744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_88
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95f8a706f5a478f80800000000000000
+      internalID: -8104427230928924839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_89
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb81b1ec803163ec0800000000000000
+      internalID: -3587659124615472961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_90
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0e7a750f99dc7760800000000000000
+      internalID: 7457074360033639951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_91
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7950c989f96ba1230800000000000000
+      internalID: 3610398847867291031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cavesofgallet_tiles_92
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80b450a01b29875f0800000000000000
+      internalID: -758695248136942840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
