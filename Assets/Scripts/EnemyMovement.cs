@@ -19,6 +19,7 @@ public class EnemyMovement : MovementControler
     private float turnTimer;
     private float moveTimer;
     private float moveDirection;
+    private bool chasePlayer = false;
 
     new void Start()
     {
@@ -28,9 +29,10 @@ public class EnemyMovement : MovementControler
         moveTimer = time;
         turnTimer = time;
     }   
-    public void SetTarget(Transform targetTransform)
+    public void SetTarget(Transform targetTransform, bool chase)
     {
-        if(targetTransform != null)
+        chasePlayer = chase;
+        if (targetTransform != null)
         {
             isFollowing = true;
         }
@@ -43,6 +45,10 @@ public class EnemyMovement : MovementControler
     protected override void ComputeMovement()
     {
         isNear = false;
+        if (chasePlayer)
+        {
+            isFollowing = true;
+        }
         if (canMove)
         {
             if (target == null || !isFollowing) // kai nėra taikinio

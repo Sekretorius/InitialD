@@ -27,7 +27,7 @@ public class FieldOfView : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, target.position) > minDistance)
             {   
-                movement.SetTarget(null);
+                movement.SetTarget(null, false);
             }
         }
         for (int i = 0; i < rayCount; i++)
@@ -52,7 +52,7 @@ public class FieldOfView : MonoBehaviour
                             if (!controler.isHiden)
                             {
                                 target = hit.collider.gameObject.transform;
-                                movement.SetTarget(target);
+                                movement.SetTarget(target, false);
                             }
                         }
                     }

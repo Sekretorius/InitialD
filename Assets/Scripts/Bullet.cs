@@ -37,6 +37,10 @@ public class Bullet : MonoBehaviour
             HealthSystem enemy = hitInfo.GetComponent<HealthSystem>();
 			if (enemy != null)
 			{
+                if(enemy.TryGetComponent(out EnemyMovement controler))
+                {
+                    controler.SetTarget(player.transform, true);
+                }
                 enemy.Damage(damage);
 			}
 			Destroy(gameObject);
