@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
 	public Transform firePoint;
-	public GameObject bulletPrefab;
+    public GameObject bulletPrefab;
 	public int damage;
     private GameObject player;
 	private void Start()
@@ -28,11 +28,11 @@ public class Gun : MonoBehaviour
                 {
                     if(targetDirection > 0)
                     {
-                        firePoint = GameObject.Find("ShootPointRight").transform;
+                        firePoint = player.transform.Find("ShootPointRight");
                     }
                     else
                     {
-                        firePoint = GameObject.Find("ShootPointLeft").transform;
+                        firePoint = player.transform.Find("ShootPointLeft");
                     }
                     Shoot();
                 }
