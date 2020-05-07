@@ -7,8 +7,9 @@ public class Bullet : MonoBehaviour
 	public float speed = 20f;
 	public int damage = 40;
 	public float lifetime = 1f;
-	//public Rigidbody2D rb;
-	public GameObject impactEffect;
+    public float movementSmoothing = 0.5f;
+    //public Rigidbody2D rb;
+    public GameObject impactEffect;
 	//private object gameobject;
 	[SerializeField] GameObject player;
 
@@ -20,9 +21,11 @@ public class Bullet : MonoBehaviour
 		Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		//Vector2 destination = Vector2.MoveTowards()
 		Rigidbody2D rb = GetComponent<Rigidbody2D>();
-		//rb.velocity = transform.right * speed;
-		rb.velocity = ((target - new Vector2 (player.transform.position.x, player.transform.position.y)).normalized * speed);
-		StartCoroutine(BulletTimeOut());
+        //rb.velocity = transform.right * speed;
+        Vector2 targetVelocity = ((target - new Vector2(player.transform.position.x, player.transform.position.y)).normalized * speed);
+        Vector3 velocity = Vector3.zero;
+        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, movementSmoothing);
+        StartCoroutine(BulletTimeOut());
 	}
 
 	void OnTriggerEnter2D(Collider2D hitInfo)
