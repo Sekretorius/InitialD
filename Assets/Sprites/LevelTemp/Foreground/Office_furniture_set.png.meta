@@ -1,0 +1,1384 @@
+fileFormatVersion: 2
+guid: 21b3a3e06934962428523646f1718c45
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5647327177761823055
+    second: Office_furniture_set_0
+  - first:
+      213: -2098382165268343909
+    second: Office_furniture_set_1
+  - first:
+      213: 2948562267548549667
+    second: Office_furniture_set_2
+  - first:
+      213: 8131771532837215236
+    second: Office_furniture_set_3
+  - first:
+      213: -3355554676511334824
+    second: Office_furniture_set_4
+  - first:
+      213: 2533081262903618022
+    second: Office_furniture_set_5
+  - first:
+      213: -6002584115951606395
+    second: Office_furniture_set_6
+  - first:
+      213: -219078006538219764
+    second: Office_furniture_set_7
+  - first:
+      213: -6974715288761172534
+    second: Office_furniture_set_8
+  - first:
+      213: -7505485171564907905
+    second: Office_furniture_set_9
+  - first:
+      213: 5778978130424941007
+    second: Office_furniture_set_10
+  - first:
+      213: 2057286600479220318
+    second: Office_furniture_set_11
+  - first:
+      213: -3471331164851621783
+    second: Office_furniture_set_12
+  - first:
+      213: 5891900952653380060
+    second: Office_furniture_set_13
+  - first:
+      213: 5542990660833360013
+    second: Office_furniture_set_14
+  - first:
+      213: -3322388460572577501
+    second: Office_furniture_set_15
+  - first:
+      213: -5753977711128264871
+    second: Office_furniture_set_16
+  - first:
+      213: -4546704524830503326
+    second: Office_furniture_set_17
+  - first:
+      213: -4688765498803786291
+    second: Office_furniture_set_18
+  - first:
+      213: -2506910597430712247
+    second: Office_furniture_set_19
+  - first:
+      213: -5064920006972676442
+    second: Office_furniture_set_20
+  - first:
+      213: 3706552333030789212
+    second: Office_furniture_set_21
+  - first:
+      213: 7227083460410219372
+    second: Office_furniture_set_22
+  - first:
+      213: 5031947227286299544
+    second: Office_furniture_set_23
+  - first:
+      213: 173925037498555675
+    second: Office_furniture_set_24
+  - first:
+      213: 2615353406203291654
+    second: Office_furniture_set_25
+  - first:
+      213: -720638298775542440
+    second: Office_furniture_set_26
+  - first:
+      213: 4280464358626915474
+    second: Office_furniture_set_27
+  - first:
+      213: -5868554568868080641
+    second: Office_furniture_set_28
+  - first:
+      213: 5454755130597133252
+    second: Office_furniture_set_29
+  - first:
+      213: -8727661538169153050
+    second: Office_furniture_set_30
+  - first:
+      213: 3950851113374813832
+    second: Office_furniture_set_31
+  - first:
+      213: -6845983058869909018
+    second: Office_furniture_set_32
+  - first:
+      213: 1702961928372198476
+    second: Office_furniture_set_33
+  - first:
+      213: -88176156768330277
+    second: Office_furniture_set_34
+  - first:
+      213: 7285796936712405860
+    second: Office_furniture_set_35
+  - first:
+      213: 5578561828777821216
+    second: Office_furniture_set_36
+  - first:
+      213: 7653095625539488655
+    second: Office_furniture_set_37
+  - first:
+      213: -4637896906181371096
+    second: Office_furniture_set_38
+  - first:
+      213: 8667055346373659214
+    second: Office_furniture_set_39
+  - first:
+      213: 6527723077240858835
+    second: Office_furniture_set_40
+  - first:
+      213: 4346422368223236316
+    second: Office_furniture_set_41
+  - first:
+      213: -7658255618243948746
+    second: Office_furniture_set_42
+  - first:
+      213: -6093376272583418050
+    second: Office_furniture_set_43
+  - first:
+      213: -1486426010971262410
+    second: Office_furniture_set_44
+  - first:
+      213: -6010267330004779851
+    second: Office_furniture_set_45
+  - first:
+      213: -1109733168022136329
+    second: Office_furniture_set_46
+  - first:
+      213: -2517739247968643029
+    second: Office_furniture_set_47
+  - first:
+      213: -1321882768635871455
+    second: Office_furniture_set_48
+  - first:
+      213: -664894670208202613
+    second: Office_furniture_set_49
+  - first:
+      213: -337436353800230200
+    second: Office_furniture_set_50
+  - first:
+      213: -3239961147975935240
+    second: Office_furniture_set_51
+  - first:
+      213: 5550290683548832046
+    second: Office_furniture_set_52
+  - first:
+      213: -133458695011698958
+    second: Office_furniture_set_53
+  - first:
+      213: -1968396650432012217
+    second: Office_furniture_set_54
+  - first:
+      213: -477412964392530417
+    second: Office_furniture_set_55
+  - first:
+      213: 8822687243996813099
+    second: Office_furniture_set_56
+  - first:
+      213: 1706204540265502636
+    second: Office_furniture_set_57
+  - first:
+      213: -5495243876727366377
+    second: Office_furniture_set_58
+  - first:
+      213: -5031335976851390591
+    second: Office_furniture_set_59
+  - first:
+      213: -588898578788453489
+    second: Office_furniture_set_60
+  - first:
+      213: 806429159273201279
+    second: Office_furniture_set_61
+  - first:
+      213: -7811739451269220099
+    second: Office_furniture_set_62
+  - first:
+      213: 8483634294077635260
+    second: Office_furniture_set_63
+  - first:
+      213: 5568600393279914441
+    second: Office_furniture_set_64
+  - first:
+      213: -655499782152318395
+    second: Office_furniture_set_65
+  - first:
+      213: -4132629316336754295
+    second: Office_furniture_set_66
+  - first:
+      213: 9217258681997812313
+    second: Office_furniture_set_67
+  - first:
+      213: 3131941078495833423
+    second: Office_furniture_set_68
+  - first:
+      213: -6523013908578769386
+    second: Office_furniture_set_69
+  - first:
+      213: 3913021492868731538
+    second: Office_furniture_set_70
+  - first:
+      213: 5035288602304311020
+    second: Office_furniture_set_71
+  - first:
+      213: -4357264528345095771
+    second: Office_furniture_set_72
+  - first:
+      213: 3674283503452676309
+    second: Office_furniture_set_73
+  - first:
+      213: 2423575391301117059
+    second: Office_furniture_set_74
+  - first:
+      213: 2005282755274535036
+    second: Office_furniture_set_75
+  - first:
+      213: 901629526363058152
+    second: Office_furniture_set_76
+  - first:
+      213: 2614745703334711405
+    second: Office_furniture_set_77
+  - first:
+      213: 7941011153970177592
+    second: Office_furniture_set_78
+  - first:
+      213: -3438851267560335245
+    second: Office_furniture_set_79
+  - first:
+      213: 1673252030491542678
+    second: Office_furniture_set_80
+  - first:
+      213: -1824237014305787803
+    second: Office_furniture_set_81
+  - first:
+      213: -5329977610933752781
+    second: Office_furniture_set_82
+  - first:
+      213: -1182839584830504569
+    second: Office_furniture_set_83
+  - first:
+      213: 9110063301828835274
+    second: Office_furniture_set_84
+  - first:
+      213: 6743280041801754794
+    second: Office_furniture_set_85
+  - first:
+      213: 4734147361307740076
+    second: Office_furniture_set_86
+  - first:
+      213: -2417493735254110649
+    second: Office_furniture_set_87
+  - first:
+      213: 5598071059464753087
+    second: Office_furniture_set_88
+  - first:
+      213: 404883455908201813
+    second: Office_furniture_set_89
+  - first:
+      213: 663034720216923692
+    second: Office_furniture_set_90
+  - first:
+      213: -659756777456122343
+    second: Office_furniture_set_91
+  - first:
+      213: 5647058760933731923
+    second: Office_furniture_set_92
+  - first:
+      213: 1511355541377874999
+    second: Office_furniture_set_93
+  - first:
+      213: -370921252810630511
+    second: Office_furniture_set_94
+  - first:
+      213: 2842861806259021750
+    second: Office_furniture_set_95
+  - first:
+      213: -4153660905015722673
+    second: Office_furniture_set_96
+  - first:
+      213: 6813827916535937957
+    second: Office_furniture_set_97
+  - first:
+      213: -3127844302072540684
+    second: Office_furniture_set_98
+  - first:
+      213: 7883439447413714577
+    second: Office_furniture_set_99
+  - first:
+      213: 5543219242230469473
+    second: Office_furniture_set_100
+  - first:
+      213: -4952589386218704778
+    second: Office_furniture_set_101
+  - first:
+      213: 5071362865668025319
+    second: Office_furniture_set_102
+  - first:
+      213: 2578282477175629983
+    second: Office_furniture_set_103
+  - first:
+      213: 8011894811519446583
+    second: Office_furniture_set_104
+  - first:
+      213: 5530857405050012466
+    second: Office_furniture_set_105
+  - first:
+      213: -1653878110342086517
+    second: Office_furniture_set_106
+  - first:
+      213: 6129068573193802553
+    second: Office_furniture_set_107
+  - first:
+      213: 820348266581783587
+    second: Office_furniture_set_108
+  - first:
+      213: 6675448698043634918
+    second: Office_furniture_set_109
+  - first:
+      213: 8324539395982224322
+    second: Office_furniture_set_110
+  - first:
+      213: -1217112516281298954
+    second: Office_furniture_set_111
+  - first:
+      213: 2069642875519707822
+    second: Office_furniture_set_112
+  - first:
+      213: -4187103660079064240
+    second: Office_furniture_set_113
+  - first:
+      213: 533087406571512573
+    second: Office_furniture_set_114
+  - first:
+      213: -1943986426107756904
+    second: Office_furniture_set_115
+  - first:
+      213: -3539769731578110584
+    second: Office_furniture_set_116
+  - first:
+      213: -4601847696372094834
+    second: Office_furniture_set_117
+  - first:
+      213: 4755462195072258756
+    second: Office_furniture_set_118
+  - first:
+      213: 5927904076471181261
+    second: Office_furniture_set_119
+  - first:
+      213: -7029342745292429444
+    second: Office_furniture_set_120
+  - first:
+      213: 6969464482686205462
+    second: Office_furniture_set_121
+  - first:
+      213: 7767500572308929746
+    second: Office_furniture_set_122
+  - first:
+      213: -4857679245387245678
+    second: Office_furniture_set_123
+  - first:
+      213: -5964802874506423980
+    second: Office_furniture_set_124
+  - first:
+      213: -2099577409587506770
+    second: Office_furniture_set_125
+  - first:
+      213: -8550683171811190679
+    second: Office_furniture_set_126
+  - first:
+      213: -2990294490642290530
+    second: Office_furniture_set_127
+  - first:
+      213: -9036452241768227553
+    second: Office_furniture_set_128
+  - first:
+      213: 2977190206612363870
+    second: Office_furniture_set_129
+  - first:
+      213: -1032752627405579421
+    second: Office_furniture_set_130
+  - first:
+      213: -5454708828769365123
+    second: Office_furniture_set_131
+  - first:
+      213: 2855179085454823425
+    second: Office_furniture_set_132
+  - first:
+      213: -1103658279548991656
+    second: Office_furniture_set_133
+  - first:
+      213: 3603469654697903850
+    second: Office_furniture_set_134
+  - first:
+      213: 5694520660109369656
+    second: Office_furniture_set_135
+  - first:
+      213: 3088245487273019362
+    second: Office_furniture_set_136
+  - first:
+      213: -4698975158002702300
+    second: Office_furniture_set_137
+  - first:
+      213: 5933001118525979345
+    second: Office_furniture_set_138
+  - first:
+      213: 3476299793050150319
+    second: Office_furniture_set_139
+  - first:
+      213: 899447333823768265
+    second: Office_furniture_set_140
+  - first:
+      213: -937289607759218636
+    second: Office_furniture_set_141
+  - first:
+      213: -8081535024072277239
+    second: Office_furniture_set_142
+  - first:
+      213: 8569212762912205476
+    second: Office_furniture_set_143
+  - first:
+      213: -3365883332706964165
+    second: Office_furniture_set_144
+  - first:
+      213: 6284748306212003992
+    second: Office_furniture_set_145
+  - first:
+      213: 5365336426064930682
+    second: Office_furniture_set_146
+  - first:
+      213: 4230226569208377382
+    second: Office_furniture_set_147
+  - first:
+      213: 897825026972525142
+    second: Office_furniture_set_148
+  - first:
+      213: -6347039375939264789
+    second: Office_furniture_set_149
+  - first:
+      213: -4122284021220453317
+    second: Office_furniture_set_150
+  - first:
+      213: 127862444098749484
+    second: Office_furniture_set_151
+  - first:
+      213: -7917499237922167412
+    second: Office_furniture_set_152
+  - first:
+      213: 6269185858385834075
+    second: Office_furniture_set_153
+  - first:
+      213: -411456877599280150
+    second: Office_furniture_set_154
+  - first:
+      213: 8809728141146727247
+    second: Office_furniture_set_155
+  - first:
+      213: -8330381939007555465
+    second: Office_furniture_set_156
+  - first:
+      213: -1797287330542214732
+    second: Office_furniture_set_157
+  - first:
+      213: -4736487338198858042
+    second: Office_furniture_set_158
+  - first:
+      213: 2797489154017148350
+    second: Office_furniture_set_159
+  - first:
+      213: 8299852062200073443
+    second: Office_furniture_set_160
+  - first:
+      213: -5089043767772784007
+    second: Office_furniture_set_161
+  - first:
+      213: -2176018318777110977
+    second: Office_furniture_set_162
+  - first:
+      213: -3488612648768962945
+    second: Office_furniture_set_163
+  - first:
+      213: -5008711518657551541
+    second: Office_furniture_set_164
+  - first:
+      213: 5242204735359330800
+    second: Office_furniture_set_165
+  - first:
+      213: -1567031261726492639
+    second: Office_furniture_set_166
+  - first:
+      213: -7917511288373465588
+    second: Office_furniture_set_167
+  - first:
+      213: -4790865154644170475
+    second: Office_furniture_set_168
+  - first:
+      213: 1761789169249050673
+    second: Office_furniture_set_169
+  - first:
+      213: -3121719612211968089
+    second: Office_furniture_set_170
+  - first:
+      213: -7086929339084430549
+    second: Office_furniture_set_171
+  - first:
+      213: 1473240029121779185
+    second: Office_furniture_set_172
+  - first:
+      213: 5876492565414795711
+    second: Office_furniture_set_173
+  - first:
+      213: 5783985132499764511
+    second: Office_furniture_set_174
+  - first:
+      213: 8137987204650677488
+    second: Office_furniture_set_175
+  - first:
+      213: -6607307720500284806
+    second: Office_furniture_set_176
+  - first:
+      213: -2466511734299893270
+    second: Office_furniture_set_177
+  - first:
+      213: 1941354905936805400
+    second: Office_furniture_set_178
+  - first:
+      213: -1072907358254505663
+    second: Office_furniture_set_179
+  - first:
+      213: -7480931754053294446
+    second: Office_furniture_set_180
+  - first:
+      213: 1204947334330395331
+    second: Office_furniture_set_181
+  - first:
+      213: -1228927108656195839
+    second: Office_furniture_set_182
+  - first:
+      213: -6550427053919087584
+    second: Office_furniture_set_183
+  - first:
+      213: 4941828768405199281
+    second: Office_furniture_set_184
+  - first:
+      213: 3663974224605144640
+    second: Office_furniture_set_185
+  - first:
+      213: -8222563524865706806
+    second: Office_furniture_set_186
+  - first:
+      213: 7378685384741651966
+    second: Office_furniture_set_187
+  - first:
+      213: 7604832765821054374
+    second: Office_furniture_set_188
+  - first:
+      213: -2422442031846881386
+    second: Office_furniture_set_189
+  - first:
+      213: 5686973403546183254
+    second: Office_furniture_set_190
+  - first:
+      213: 7352974074060277134
+    second: Office_furniture_set_191
+  - first:
+      213: -3464249784763959565
+    second: Office_furniture_set_192
+  - first:
+      213: 948999135294932642
+    second: Office_furniture_set_193
+  - first:
+      213: -6766659396135615407
+    second: Office_furniture_set_194
+  - first:
+      213: 672513741012647433
+    second: Office_furniture_set_195
+  - first:
+      213: 606773915580729472
+    second: Office_furniture_set_196
+  - first:
+      213: -1666783029598618701
+    second: Office_furniture_set_197
+  - first:
+      213: -8372115894108666728
+    second: Office_furniture_set_198
+  - first:
+      213: -8363450094232984661
+    second: Office_furniture_set_199
+  - first:
+      213: 9161571052564176112
+    second: Office_furniture_set_200
+  - first:
+      213: 4693254890775773909
+    second: Office_furniture_set_201
+  - first:
+      213: -4175008453702825655
+    second: Office_furniture_set_202
+  - first:
+      213: -5422355552429911804
+    second: Office_furniture_set_203
+  - first:
+      213: 9188233640724872047
+    second: Office_furniture_set_204
+  - first:
+      213: -881126215438942243
+    second: Office_furniture_set_205
+  - first:
+      213: 7709914159942755003
+    second: Office_furniture_set_206
+  - first:
+      213: -1251669537504140869
+    second: Office_furniture_set_207
+  - first:
+      213: 4565822488815840905
+    second: Office_furniture_set_208
+  - first:
+      213: -2173833236462074050
+    second: Office_furniture_set_209
+  - first:
+      213: 5679351143453368287
+    second: Office_furniture_set_210
+  - first:
+      213: -8375474139284457949
+    second: Office_furniture_set_211
+  - first:
+      213: -9030489532169345076
+    second: Office_furniture_set_212
+  - first:
+      213: 7094548944256460189
+    second: Office_furniture_set_213
+  - first:
+      213: -656556090122311219
+    second: Office_furniture_set_214
+  - first:
+      213: -7123279057354155992
+    second: Office_furniture_set_215
+  - first:
+      213: -4197556240368600732
+    second: Office_furniture_set_0
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Office_furniture_set_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 48
+        width: 35
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 469fa18c6d84fb5c0800000000000000
+      internalID: -4197556240368600732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_1
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 96
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b935a24d98c01e2e0800000000000000
+      internalID: -2098382165268343909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_2
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 80
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3220a5b92c56be820800000000000000
+      internalID: 2948562267548549667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_3
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 48
+        width: 48
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40c5569002bd9d070800000000000000
+      internalID: 8131771532837215236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_4
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 80
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85e142adcccae61d0800000000000000
+      internalID: -3355554676511334824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_5
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 48
+        width: 4
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e9619edcff472320800000000000000
+      internalID: 2533081262903618022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_6
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 48
+        width: 4
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5856d42bc8982bca0800000000000000
+      internalID: -6002584115951606395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 87
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0f403ab6bda5fcf0800000000000000
+      internalID: -219078006538219764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_8
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 98
+        width: 48
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acd77e30665d43f90800000000000000
+      internalID: -6974715288761172534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_9
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 87
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7279e1900927d790800000000000000
+      internalID: -7505485171564907905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_10
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 48
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc9cab4cdfd033050800000000000000
+      internalID: 5778978130424941007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 97
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e522cbe5343fc8c10800000000000000
+      internalID: 2057286600479220318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_12
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 48
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 960b64d82ba53dfc0800000000000000
+      internalID: -3471331164851621783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_13
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 48
+        width: 16
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd9b0b623bc34c150800000000000000
+      internalID: 5891900952653380060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_14
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 48
+        width: 16
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d88b74453a8acec40800000000000000
+      internalID: 5542990660833360013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_15
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 48
+        width: 16
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 321f6b14c4184e1d0800000000000000
+      internalID: -3322388460572577501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95f3fa2f1c3c520b0800000000000000
+      internalID: -5753977711128264871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_17
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26e01daf25cd6e0c0800000000000000
+      internalID: -4546704524830503326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_18
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 0
+        width: 32
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 0, z: 0, w: 22}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcd61b8fe982eeeb0800000000000000
+      internalID: -4688765498803786291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_19
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 25}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 948ea74081aa53dd0800000000000000
+      internalID: -2506910597430712247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_20
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a6ef98b61ac5b9b0800000000000000
+      internalID: -5064920006972676442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_21
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5012bf65b1507330800000000000000
+      internalID: 3706552333030789212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_22
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 10}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6b1ad3dd12cb4460800000000000000
+      internalID: 7227083460410219372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_23
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89369e2c75115d540800000000000000
+      internalID: 5031947227286299544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_25
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 608ead2f01a9b4420800000000000000
+      internalID: 2615353406203291654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_26
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85521fd0947cff5f0800000000000000
+      internalID: -720638298775542440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_28
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 0
+        width: 48
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff35f9966b4be8ea0800000000000000
+      internalID: -5868554568868080641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_29
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 48
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cb4bf704ee23bb40800000000000000
+      internalID: 5454755130597133252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_30
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 0
+        width: 48
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e99699721e11e680800000000000000
+      internalID: -8727661538169153050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_furniture_set_31
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 48
+        width: 16
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e8925b72e34d630800000000000000
+      internalID: 3950851113374813832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

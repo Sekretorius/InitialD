@@ -16,7 +16,7 @@ MonoBehaviour:
   Description: 
   Icon: {fileID: 2079473961197929941, guid: b3775f5add09e8a488b95cab543ca308, type: 3}
   Tag: Gun
-  Damage: 50
+  Damage: 1
   FireRate: 10
-  BulletSpeed: 0.5
+  BulletSpeed: 10
   ChargeSpeed: 20

@@ -41,7 +41,7 @@ public class UIFader : MonoBehaviour
             group.alpha = currentValue;
             if (complete >= 1)
             {
-               // StartCoroutine(FadeCanvasGroup(uiElement, uiElement.alpha, 0, fadeOut));
+                // StartCoroutine(FadeCanvasGroup(uiElement, uiElement.alpha, 0, fadeOut));
                 //  group.alpha = 0f;
                 done = true;
                 break;
