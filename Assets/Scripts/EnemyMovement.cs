@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EnemyMovement : MovementControler
 {
-    private Transform target { get; set; }
-    public bool foundTarget = false;
-    public bool canJump = false;
+    public Transform target;
+    private bool foundTarget = false;
+    private bool canJump = false;
     private bool isFollowing = false;
     private bool isNear = false;
     private float angleOnTimer = 0;
@@ -76,7 +76,15 @@ public class EnemyMovement : MovementControler
     }
     protected override void ComputeAnimation()
     {
-        Turn(move.x, 0);
+        Turn(move.x);
+        if (isFollowing)
+        {
+            anim.SetBool("IsHoldingGun", true);
+        }
+        else
+        {
+            anim.SetBool("IsHoldingGun", false);
+        }
         if (move.x != 0 && anim != null)
         {
             anim.SetBool("IsWalking", true);

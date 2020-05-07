@@ -20,7 +20,6 @@ public class FieldOfView : MonoBehaviour
     {
         movement = GetComponentInParent<EnemyMovement>();
         layerMask = ~LayerMask.GetMask("NPC", "Enemy");
-        //offSetX += transform.localScale.x / 2;
     }
     void FixedUpdate()
     {
@@ -39,20 +38,23 @@ public class FieldOfView : MonoBehaviour
             }
             float angle = -startAngle + i; 
             Vector2 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad) * viewDirection, Mathf.Sin(angle * Mathf.Deg2Rad));
-            
-            RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + offSetX * viewDirection, transform.position.y + offSetY), direction, viewDistance, layerMask);
-            float hitDistance = hit.distance == 0 ? viewDistance : hit.distance;
-            //Debug.DrawRay(new Vector2(transform.position.x + offSetX * viewDirection, transform.position.y + offSetY), direction * hitDistance, Color.red);
-
-            if (hit.collider != null)
+            if (i % 5 == 0)
             {
-                if (hit.collider.CompareTag("Player") && !nearTarget)
+                RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + offSetX * viewDirection, transform.position.y + offSetY), direction, viewDistance, layerMask);
+                //float hitDistance = hit.distance == 0 ? viewDistance : hit.distance;
+                //Debug.DrawRay(new Vector2(transform.position.x + offSetX * viewDirection, transform.position.y + offSetY), direction * hitDistance, Color.red);
+                if (hit.collider != null)
                 {
-                    PlayerControler controler = hit.collider.gameObject.GetComponent<PlayerControler>();
-                    if (!controler.isHiden)
+                    if (hit.collider.CompareTag("Player") && !nearTarget)
                     {
-                        target = hit.collider.gameObject.transform;
-                        movement.SetTarget(target);
+                        if (hit.collider.TryGetComponent(out PlayerControler controler))
+                        {
+                            if (!controler.isHiden)
+                            {
+                                target = hit.collider.gameObject.transform;
+                                movement.SetTarget(target);
+                            }
+                        }
                     }
                 }
             }

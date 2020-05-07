@@ -79,6 +79,10 @@ public class Inventory : MonoBehaviour
             if (itemSlots[i - 1].Item.Tag == "Gun" && i != selection)
             {
                 Destroy(GameObject.Find("GunTemplate(Clone)"));
+                if (Player.TryGetComponent(out PlayerControler controler))
+                {
+                    controler.HoldingGun(false);
+                }
             }
         }
         //print(itemSlots[selection-1].Item.Tag);
@@ -90,6 +94,10 @@ public class Inventory : MonoBehaviour
             gun.transform.SetParent(Player.transform); // assign gun to player
             gun.GetComponent<SpriteRenderer>().sprite = itemSlots[selection - 1].GetComponent<Image>().sprite; //assign sprite
             gun.GetComponent<Gun>().damage = gunItem.Damage;
+                if(Player.TryGetComponent(out PlayerControler controler))
+                {
+                    controler.HoldingGun(true);
+                }
          }
 
     }

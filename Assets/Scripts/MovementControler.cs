@@ -56,7 +56,9 @@ public abstract class MovementControler : MonoBehaviour
     public bool IsClimbing = false;
     public bool IsOnTopOfLadder = false;
     protected PlatformEffector2D ladderEffector = null;
+    protected bool canCrawlSlide = false;
 
+    protected float MaxJumpHeight = 0;
 
     protected void Start()
     {
@@ -66,6 +68,7 @@ public abstract class MovementControler : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         colliderDimensions = boxCollider.bounds.size;
     }
+
     private void FixedUpdate()
     {
         if (rgbd != null)
@@ -142,7 +145,7 @@ public abstract class MovementControler : MonoBehaviour
             if (direction.x != 0 && IsClimbing)
             {
                 targetVelocity = new Vector2(climbSidewaysSpeed * direction.x, targetVelocity.y);
-                Turn(direction.x, 0);
+                Turn(direction.x);
             }
             if (IsClimbing || !ground)
             {
@@ -163,32 +166,35 @@ public abstract class MovementControler : MonoBehaviour
         {
             facingDirection = move.x;
         }
-        if (IsBlockedByCeilling && ground)
+        if (canCrawlSlide)
         {
-            IsCrawling = true;
-        }
-        if (IsSliding && slideSpeedX != 0 && Input.GetAxisRaw("Horizontal") == slideDirection)
-        {
-            Vector2 slideVelocity = new Vector2(slideSpeedX * slideDirection, rgbd.velocity.y);
-            rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, slideVelocity, ref velocity, movementSmoothing);
-            targetVelocity = new Vector2(rgbd.velocity.x, rgbd.velocity.y);
-            float slopeDirection = slopeNormal.x > 0 ? 1 : -1;
-            if (slideDirection != slopeDirection || !slope)
+            if (IsBlockedByCeilling && ground)
             {
-                slideSpeedX -= slideDragForce * Time.fixedDeltaTime;
+                IsCrawling = true;
+            }
+            if (IsSliding && slideSpeedX != 0 && Input.GetAxisRaw("Horizontal") == slideDirection)
+            {
+                Vector2 slideVelocity = new Vector2(slideSpeedX * slideDirection, rgbd.velocity.y);
+                rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, slideVelocity, ref velocity, movementSmoothing);
+                targetVelocity = new Vector2(rgbd.velocity.x, rgbd.velocity.y);
+                float slopeDirection = slopeNormal.x > 0 ? 1 : -1;
+                if (slideDirection != slopeDirection || !slope)
+                {
+                    slideSpeedX -= slideDragForce * Time.fixedDeltaTime;
+                }
+                else
+                {
+                    slideSpeedX += 0.01f;
+                }
+                if (hasCollided || slideSpeedX <= 1f)
+                {
+                    slideSpeedX = 0;
+                }
             }
             else
             {
-                slideSpeedX += 0.01f;
+                IsSliding = false;
             }
-            if (hasCollided || slideSpeedX <= 1f)
-            {
-                slideSpeedX = 0;
-            }
-        }
-        else
-        {
-            IsSliding = false;
         }
         if (IsCrawling && !IsSliding)
         {
@@ -197,7 +203,7 @@ public abstract class MovementControler : MonoBehaviour
         }
         if ((!IsSliding && !IsCrawling) || IsJumping)
         {
-            Turn(facingDirection, 0);
+            Turn(facingDirection);
             rgbd.freezeRotation = true;
             transform.eulerAngles = new Vector3(0, 0, 0);
             targetVelocity = new Vector2(move.x * speed, rgbd.velocity.y);
@@ -205,7 +211,7 @@ public abstract class MovementControler : MonoBehaviour
         }
         else if (!IsJumping)
         {
-            Turn(facingDirection, transform.eulerAngles.z);
+            Turn(facingDirection);
             AlignWithGround();
         }
         if (jump && ground && !IsJumping)
@@ -312,7 +318,6 @@ public abstract class MovementControler : MonoBehaviour
 
             if (hitRight && hitLeft && canRotateByContacts)
             {
-                Debug.Log(0);
                 if (distanceLeft >= distanceRight)
                 {
                     rgbd.AddForceAtPosition(-Vector2.up * 50, corner1);
@@ -352,7 +357,6 @@ public abstract class MovementControler : MonoBehaviour
         RaycastHit2D[] resultsFromBack = new RaycastHit2D[15];
         Vector2 currentColliderDimensions = boxCollider.bounds.size;
         float deltaOffsetY = transform.position.y - currentColliderDimensions.y / 2 * 3;
-        float distanceToTarget = Vector2.Distance(transform.position, new Vector2(transform.position.x, deltaOffsetY));
         boxCollider.Cast(-transform.up, resultsFromBack, currentColliderDimensions.y, true);
         slope = false;
         foreach (RaycastHit2D result in resultsFromBack)
@@ -478,22 +482,30 @@ public abstract class MovementControler : MonoBehaviour
             {
                 IsBlocked = true;
                 obsticle = collision.collider.transform;
-                if (!collision.collider.CompareTag("Player") && !collision.collider.CompareTag("NPC"))
+                if (!collision.collider.CompareTag("Player") && !collision.collider.CompareTag("NPC") && !collision.collider.CompareTag("Enemy"))
                 {
+                    
                     float obsticleHeight = 0;
                     float height = 0;
+                    float colCordY = 0;
                     if (obsticle.TryGetComponent(out Collider2D obsticleCollider))
                     {
                         obsticleHeight = obsticleCollider.bounds.size.y;
+                        colCordY = obsticleCollider.bounds.center.y + obsticleHeight / 2;
+                        if(obsticleCollider is BoxCollider2D)
+                        {
+                            colCordY += ((BoxCollider2D)obsticleCollider).edgeRadius;
+                        }
                     }
                     if (TryGetComponent(out Collider2D collider))
                     {
-                        height = collider.bounds.size.y;
+                        height = boxCollider.bounds.size.y;
                     }
-                    float cordY = transform.position.y - height / 2;
-                    float colCordY = collision.transform.position.y + obsticleHeight / 2;
-                    float diff = colCordY - cordY;
-                    if (diff <= height)
+                    float cordY = boxCollider.bounds.center.y - height / 2 - boxCollider.edgeRadius + height / 1.5f;
+                    LayerMask mask = ~LayerMask.GetMask("Enemy");
+                    RaycastHit2D hit = Physics2D.Raycast(new Vector2(boxCollider.bounds.center.x, cordY), new Vector2(facingDirection, 0), boxCollider.bounds.size.x, mask);
+                    Debug.DrawRay(new Vector2(boxCollider.bounds.center.x, cordY), new Vector2(facingDirection, 0)* boxCollider.bounds.size.x, Color.red);
+                    if (!hit)
                     {
                         canJumpOver = true;
                     }
@@ -525,18 +537,38 @@ public abstract class MovementControler : MonoBehaviour
         obsticle = null;
         hasCollided = false;
     }
-    public void Turn(float dir, float angle)
+    public void Turn(float dir)
     {
-        if (dir != 0)
+        if (TryGetComponent(out SpriteRenderer render))
         {
-            facingDirection = dir;
-            if (dir > 0)
+            if (dir != 0)
             {
-                GetComponentInChildren<SpriteRenderer>().flipX = false;
+                facingDirection = dir;
+                if (dir > 0)
+                {
+
+                    render.flipX = false;
+                }
+                else if (dir < 0)
+                {
+                    render.flipX = true;
+                }
             }
-            else if (dir < 0)
+        }
+        if (!gameObject.tag.Equals("Player"))
+        {
+            if (dir != 0)
             {
-                GetComponentInChildren<SpriteRenderer>().flipX = true;
+                facingDirection = dir;
+                if (dir > 0)
+                {
+
+                    GetComponentInChildren<SpriteRenderer>().flipX = false;
+                }
+                else if (dir < 0)
+                {
+                    GetComponentInChildren<SpriteRenderer>().flipX = true;
+                }
             }
         }
     }

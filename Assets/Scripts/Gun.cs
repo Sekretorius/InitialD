@@ -23,7 +23,7 @@ public class Gun : MonoBehaviour
             {
                 Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 float targetDirection = (target.x - player.transform.position.x) > 0 ? 1 : -1;
-                controler.Turn(targetDirection, 0);
+                controler.Turn(targetDirection);
                 if (controler.Shoot())
                 {
                     if(targetDirection > 0)

@@ -6,6 +6,12 @@ public class PlayerControler : MovementControler
 {
     public bool isHiden = false;
     private bool IsShooting = false;
+    private bool IsHoldingGun = false;
+    new void Start()
+    {
+        base.Start();
+        canCrawlSlide = true;
+    }
     protected override void ComputeMovement()
     {
         if (canMove)
@@ -40,9 +46,17 @@ public class PlayerControler : MovementControler
     }
     protected override void ComputeAnimation()
     {
+        if (IsHoldingGun)
+        {
+            anim.SetBool("IsHoldingGun", true);
+        }
+        else
+        {
+            anim.SetBool("IsHoldingGun", false);
+        }
         if (!IsSliding && !IsCrawling)
         {
-            Turn(move.x, 0);
+            Turn(move.x);
         }
         if (IsCrawling && !IsSliding && !IsClimbing)
         {
@@ -98,6 +112,10 @@ public class PlayerControler : MovementControler
             IsShooting = false;
             anim.SetBool("IsShooting", false);
         }
+    }
+    public void HoldingGun(bool isHolding)
+    {
+        IsHoldingGun = isHolding;
     }
     public bool Shoot()
     {
