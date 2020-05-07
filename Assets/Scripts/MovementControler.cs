@@ -5,7 +5,7 @@ public abstract class MovementControler : MonoBehaviour
 {
     [SerializeField] protected float speed = 10f;
     [SerializeField] protected float crawlSpeed = 5f;
-    [SerializeField] protected float JumpTakeOffSpeed = 40f;
+    [SerializeField] protected float JumpTakeOffSpeed = 60f;
     [SerializeField] protected float movementSmoothing = 0.05f;
     [SerializeField] protected float gravityModifier = 6f;
     [SerializeField] protected float slideSpeed = 8f;
@@ -13,49 +13,50 @@ public abstract class MovementControler : MonoBehaviour
     [SerializeField] protected float slideDragForce = 15f;
 
     protected Animator anim;
+    protected Rigidbody2D rgbd;
     protected BoxCollider2D boxCollider;
-    protected float minGroungNormalY = 0.65f;
+    protected Vector2 colliderDimensions;
     protected Vector2 targetVelocity;
     protected Vector2 move;
-    protected Rigidbody2D rgbd;
-    public bool ground = false;
+    protected Vector2 groundNormal = Vector2.zero;
     protected Vector3 velocity = Vector2.zero;
+
+    protected float minGroungNormalY = 0.65f;
+    public float facingDirection;
+
+    protected bool nullifiedImput = false;
+    protected bool canMove = true;
+    protected bool ground = false;
     protected bool jump = false;
     protected bool IsBlocked = false;
     protected bool hasCollided = false;
     protected Transform obsticle = null;
     protected bool canJumpOver = false;
+    
     protected bool IsSliding = false;
-    protected float slideDirection;
-    public float slideSpeedX;
-    protected float minSlopeNomal = 0.25F;
-    protected Vector2 slopeNormal = Vector2.zero;
-
-    protected float slopeAngle = 0;
-    protected Vector2 groundNormal = Vector2.zero;
-    protected bool IsBlockedByCeilling = false;
-
     protected bool IsJumping = false;
     public bool IsCrawling = false;
     public bool isHolding = false;
+
+    protected bool slope = false;
+    protected float slopeAngle = 0;
+    protected float slideDirection;
+    protected float slideSpeedX;
+    protected float minSlopeNomal = 0.25F;
+    protected Vector2 slopeNormal = Vector2.zero;
+
+    protected bool IsBlockedByCeilling = false;
     public bool canCarrie = true;
     public float inpickableTimmer = 0.15f;
     protected float timerToPick;
     protected Transform closestPickable;
     protected float distanceToPickable = -1;
-    public bool slope = false;
-    protected Vector2 colliderDimensions;
-    public float facingDirection;
-    protected Vector2 normalToFace;
-    protected float angle;
-    protected float lostBalanceDirection = 0;
 
-    protected bool canMove = true;
+    public bool IsOnLadder = false;
+    public bool IsClimbing = false;
+    public bool IsOnTopOfLadder = false;
+    protected PlatformEffector2D ladderEffector = null;
 
-    protected bool nullifiedImput = false;
-    protected float currentAngle = 0;
-
-    public List<ContactPoint2D> collisions = new List<ContactPoint2D>();
 
     protected void Start()
     {
@@ -74,7 +75,11 @@ public abstract class MovementControler : MonoBehaviour
                 IsBlockedByCeilling = CheckCeiling();
                 CheckSlope();
                 ComputeMovement();
-                Movement();
+                ClimbLadder(move);
+                if (!IsClimbing)
+                {
+                    Movement();
+                }
                 ComputeAnimation();
             }
         }
@@ -92,6 +97,66 @@ public abstract class MovementControler : MonoBehaviour
     abstract protected void ComputeMovement();
     abstract protected void ComputeAnimation();
 
+    private void ClimbLadder(Vector2 direction)
+    {
+        float climbSpeed = 10f;
+        float climbSidewaysSpeed = 8f;
+        if (!IsOnLadder || ground)
+        {
+            IsClimbing = false;
+            rgbd.gravityScale = 1f;
+        }
+        if(IsClimbing && direction.y < 0)
+        {
+            ground = false;
+        }
+        if (IsOnTopOfLadder)
+        {
+            if(ladderEffector != null && direction.y < 0)
+            {
+                ladderEffector.surfaceArc = 0;
+                IsClimbing = true;
+            }
+            else if (ladderEffector != null)
+            {
+                ladderEffector.surfaceArc = 180;
+            }
+        }
+        if (IsOnLadder || IsOnTopOfLadder)
+        {
+            if (direction.y > 0)
+            {
+                IsClimbing = true;
+                targetVelocity = new Vector2(0, climbSpeed);
+            }
+            else if (direction.y < 0 && !ground)
+            {
+                IsClimbing = true;
+                targetVelocity = new Vector2(0, -climbSpeed);
+            }
+            else if (IsClimbing && !ground)
+            {
+                rgbd.velocity = Vector2.zero;
+                targetVelocity = Vector2.zero;
+            }
+            if (direction.x != 0 && IsClimbing)
+            {
+                targetVelocity = new Vector2(climbSidewaysSpeed * direction.x, targetVelocity.y);
+                Turn(direction.x, 0);
+            }
+            if (IsClimbing || !ground)
+            {
+                rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, movementSmoothing);
+            }
+        }
+        if((IsOnLadder && !ground) || IsOnTopOfLadder)
+        {
+            rgbd.freezeRotation = true;
+            transform.eulerAngles = Vector3.zero;
+            rgbd.gravityScale = 0;
+        }
+
+    }
     public void Movement()
     {
         if (move.x != 0)
@@ -101,14 +166,6 @@ public abstract class MovementControler : MonoBehaviour
         if (IsBlockedByCeilling && ground)
         {
             IsCrawling = true;
-        }
-        if(IsSliding || IsCrawling)
-        {
-            //rgbd.gravityScale = 10f;
-        }
-        else
-        {
-            rgbd.gravityScale = 1f;
         }
         if (IsSliding && slideSpeedX != 0 && Input.GetAxisRaw("Horizontal") == slideDirection)
         {
@@ -133,7 +190,7 @@ public abstract class MovementControler : MonoBehaviour
         {
             IsSliding = false;
         }
-        if (IsCrawling)
+        if (IsCrawling && !IsSliding)
         {
             targetVelocity = new Vector2(move.x * crawlSpeed, rgbd.velocity.y);
             rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, movementSmoothing);
@@ -151,7 +208,7 @@ public abstract class MovementControler : MonoBehaviour
             Turn(facingDirection, transform.eulerAngles.z);
             AlignWithGround();
         }
-        if (jump && ground)
+        if (jump && ground && !IsJumping)
         {
             IsJumping = true;
             if (!IsCrawling && !IsSliding)
@@ -187,11 +244,11 @@ public abstract class MovementControler : MonoBehaviour
         boxCollider.Cast(-Vector2.up, contactFilter2D, hitResults, 2f);
         bool nearGround = false;
         Vector2 nearGroundNormal = Vector2.zero;
-        foreach(RaycastHit2D result in hitResults)
+        foreach (RaycastHit2D result in hitResults)
         {
-            if(result && result.collider.gameObject != gameObject)
+            if (result && result.collider.gameObject != gameObject)
             {
-                if(result.normal.y > 0.25f)
+                if (result.normal.y > 0.25f)
                 {
                     nearGroundNormal = result.normal;
                     nearGround = true;
@@ -271,28 +328,12 @@ public abstract class MovementControler : MonoBehaviour
             {
                 transform.eulerAngles = new Vector3(0, 0, 0);
             }
-
-            //-----------------------
-            //if (ground && !canRotateByContacts && angle < 60)
-            //{
-            //    if (hitLeft && hitRight)
-            //    {
-            //        if (distanceLeft >= distanceRight)
-            //        {
-            //            transform.up = hitRight.normal;
-            //        }
-            //        else
-            //        {
-            //            transform.up = hitLeft.normal;
-            //        }
-            //    }
-            //}
         }
         else
         {
             float angle = Vector2.Angle(transform.up, Vector2.up);
             rgbd.gravityScale = 1f;
-            if(angle > 30)
+            if (angle > 30)
             {
                 rgbd.freezeRotation = true;
             }
@@ -342,7 +383,7 @@ public abstract class MovementControler : MonoBehaviour
         Vector2 castOrigin = new Vector2(transform.position.x, deltaOffsetY);
         Vector2 fixedDimensions = new Vector2(colliderDimensions.x, colliderDimensions.x);
         LayerMask mask = ~LayerMask.GetMask("Player", "PickableObject", "NPC", "Enemy");
-        RaycastHit2D[] results = Physics2D.BoxCastAll(castOrigin, fixedDimensions, 0, Vector2.up, colliderDimensions.y + 0.5f, mask);
+        RaycastHit2D[] results = Physics2D.BoxCastAll(castOrigin, fixedDimensions, 0, Vector2.up, colliderDimensions.y + 0.3f, mask);
         foreach (RaycastHit2D result in results)
         {
             if (result && result.collider.gameObject != gameObject)
@@ -358,6 +399,15 @@ public abstract class MovementControler : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag.Equals("Ladder"))
+        {
+            if (collision.gameObject.TryGetComponent(out PlatformEffector2D effector))
+            {
+                ladderEffector = effector;
+                IsOnTopOfLadder = true;
+                return;
+            }
+        }
         foreach (ContactPoint2D contact in collision.contacts)
         {
             if (contact.normal.y > minGroungNormalY)
@@ -404,6 +454,15 @@ public abstract class MovementControler : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
+        if (collision.gameObject.tag.Equals("Ladder"))
+        {
+            if(collision.gameObject.TryGetComponent(out PlatformEffector2D effector))
+            {
+                ladderEffector = effector;
+                IsOnTopOfLadder = true;
+                return;
+            }
+        }
         foreach (ContactPoint2D contact in collision.contacts)
         {
             if(contact.normal.y < minSlopeNomal)
@@ -411,10 +470,9 @@ public abstract class MovementControler : MonoBehaviour
                 hasCollided = true;
             }
             if (contact.normal.y > minGroungNormalY)
-            {
+            { 
                 groundNormal = contact.normal;
                 ground = true;
-                IsJumping = false;
             }
             else
             {
@@ -453,6 +511,14 @@ public abstract class MovementControler : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
+        if (collision.gameObject.tag.Equals("Ladder"))
+        {
+            if (collision.gameObject.TryGetComponent(out PlatformEffector2D effector))
+            {
+                ladderEffector = effector;
+                IsOnTopOfLadder = false;
+            }
+        }
         groundNormal = Vector2.zero;
         ground = false;
         IsBlocked = false;
@@ -492,6 +558,15 @@ public abstract class MovementControler : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (collision.tag.Equals("Ladder"))
+        {
+            if (collision.gameObject.TryGetComponent(out PlatformEffector2D effector))
+            {
+                ladderEffector = effector;
+                ladderEffector.surfaceArc = 0;
+            }
+            IsOnLadder = true;
+        }
         if (collision.TryGetComponent(out PickObject script) && gameObject.CompareTag("Player"))
         {
             bool reachable = false;
@@ -543,6 +618,15 @@ public abstract class MovementControler : MonoBehaviour
         {
             closestPickable = null;
             distanceToPickable = -1;
+        }
+        if (collision.tag.Equals("Ladder"))
+        {
+            if (collision.gameObject.TryGetComponent(out PlatformEffector2D effector))
+            {
+                effector.surfaceArc = 180;
+            }
+            ladderEffector = null;
+            IsOnLadder = false;
         }
     }
 }

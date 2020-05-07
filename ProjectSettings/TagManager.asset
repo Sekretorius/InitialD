@@ -12,6 +12,7 @@ TagManager:
   - PickableItem
   - Enemy
   - ShootPoint
+  - Ladder
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - NPC
   - PickedUp
   - PickableObject
-  - 
+  - Ladder
   - 
   - 
   - 

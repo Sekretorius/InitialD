@@ -65,7 +65,7 @@ public class PickObject : Interactable
                     additionalForce += interactingObject.GetComponent<Rigidbody2D>().velocity.x;
                     Vector2 targetVelocity = new Vector2(rgbd.velocity.x, throwUpSpeed);
                     rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, .05f);
-                    rgbd.AddTorque(spiningForce * -interactingObject.right.x);
+                    rgbd.AddTorque(spiningForce * -playerControler.facingDirection);
                 }
                 else
                 {

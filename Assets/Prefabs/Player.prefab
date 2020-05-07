@@ -98,18 +98,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   crawlSpeed: 5
-  JumpTakeOffSpeed: 40
+  JumpTakeOffSpeed: 60
   movementSmoothing: 0.05
   gravityModifier: 6
-  slideSpeedModifier: 3
+  slideSpeed: 4
   minSlideSpeed: 5
-  slideDrag: 0.15
-  ground: 0
+  slideDragForce: 15
+  facingDirection: 0
   IsCrawling: 0
   isHolding: 0
   canCarrie: 1
   inpickableTimmer: 0.1
-  facingDirection: 0
   isHiden: 0
 --- !u!212 &2367362022330013735
 SpriteRenderer:
@@ -150,7 +149,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -6655711501924027856, guid: c420a8386f60050439a732b35f8a5aa4,
+  m_Sprite: {fileID: 4723107735738678597, guid: e30ed0a2bc690344dbb3609a8be45d2f,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
