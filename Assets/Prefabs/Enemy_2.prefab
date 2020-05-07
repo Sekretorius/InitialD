@@ -146,7 +146,7 @@ Animator:
   m_GameObject: {fileID: 3871264337081553747}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: eb911b97568ef23409938536cc43eb81, type: 2}
+  m_Controller: {fileID: 9100000, guid: 87225ce3f2a212448aba76c1750b9f65, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -180,8 +180,10 @@ MonoBehaviour:
   isHolding: 0
   canCarrie: 1
   inpickableTimmer: 0.15
-  foundTarget: 0
-  canJump: 0
+  IsOnLadder: 0
+  IsClimbing: 0
+  IsOnTopOfLadder: 0
+  target: {fileID: 0}
   time: 5
   rightBorder: 2
   leftBorder: 2
