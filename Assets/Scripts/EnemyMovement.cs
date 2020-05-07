@@ -19,6 +19,7 @@ public class EnemyMovement : MovementControler
     private float turnTimer;
     private float moveTimer;
     private float moveDirection;
+
     new void Start()
     {
         base.Start();

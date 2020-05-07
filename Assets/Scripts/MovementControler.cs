@@ -52,20 +52,11 @@ public abstract class MovementControler : MonoBehaviour
     protected Transform closestPickable;
     protected float distanceToPickable = -1;
 
-    //protected float angle;
-    //protected float lostBalanceDirection = 0;
-
-    
-
-   
-    //protected float currentAngle = 0;
-
-    protected bool IsOnLadder = false;
-    protected bool IsClimbing = false;
-    protected bool IsOnTopOfLadder = false;
+    public bool IsOnLadder = false;
+    public bool IsClimbing = false;
+    public bool IsOnTopOfLadder = false;
     protected PlatformEffector2D ladderEffector = null;
 
-    //public List<ContactPoint2D> collisions = new List<ContactPoint2D>();
 
     protected void Start()
     {
@@ -125,10 +116,13 @@ public abstract class MovementControler : MonoBehaviour
             {
                 ladderEffector.surfaceArc = 0;
                 IsClimbing = true;
-                IsOnLadder = true;
+            }
+            else if (ladderEffector != null)
+            {
+                ladderEffector.surfaceArc = 180;
             }
         }
-        if (IsOnLadder)
+        if (IsOnLadder || IsOnTopOfLadder)
         {
             if (direction.y > 0)
             {
@@ -161,6 +155,7 @@ public abstract class MovementControler : MonoBehaviour
             transform.eulerAngles = Vector3.zero;
             rgbd.gravityScale = 0;
         }
+
     }
     public void Movement()
     {
@@ -628,7 +623,7 @@ public abstract class MovementControler : MonoBehaviour
         {
             if (collision.gameObject.TryGetComponent(out PlatformEffector2D effector))
             {
-                effector.surfaceArc = 90;
+                effector.surfaceArc = 180;
             }
             ladderEffector = null;
             IsOnLadder = false;

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
-    public int viewDistance = 20;
+    public int viewDistance = 5;
     public int layerMask;
     public float offSetX = 0f;
     public float offSetY = 1f;
-    public int rayCount = 90;
-    public int startAngle = 45;
+    public int rayCount = 50;
+    public int startAngle = 25;
     public float minDistance = 5f;
     private EnemyMovement movement;
     private bool nearTarget = false;
@@ -20,7 +20,7 @@ public class FieldOfView : MonoBehaviour
     {
         movement = GetComponentInParent<EnemyMovement>();
         layerMask = ~LayerMask.GetMask("NPC", "Enemy");
-        offSetX += transform.localScale.x / 2;
+        //offSetX += transform.localScale.x / 2;
     }
     void FixedUpdate()
     {
@@ -42,7 +42,7 @@ public class FieldOfView : MonoBehaviour
             
             RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + offSetX * viewDirection, transform.position.y + offSetY), direction, viewDistance, layerMask);
             float hitDistance = hit.distance == 0 ? viewDistance : hit.distance;
-            Debug.DrawRay(new Vector2(transform.position.x + offSetX * viewDirection, transform.position.y + offSetY), direction * hitDistance, Color.red);
+            //Debug.DrawRay(new Vector2(transform.position.x + offSetX * viewDirection, transform.position.y + offSetY), direction * hitDistance, Color.red);
 
             if (hit.collider != null)
             {
