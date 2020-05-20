@@ -11,8 +11,9 @@ public class Disappearable : Interactable
     private bool inside;
 
     // Start is called before the first frame update
-    private void OnValidate()
+    protected new void Start()
     {
+        base.Start();
         Player = GameObject.FindWithTag("Player");
         tileMap = GetComponent<Tilemap>();
         exited = true;
