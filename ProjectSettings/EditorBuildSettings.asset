@@ -17,7 +17,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: c629ea9ce926bd24aa431cf4ab27b603
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/KaspaScene.unity
     guid: c0fa492cf61334546a9f30327031e073
+  - enabled: 1
+    path: Assets/Scenes/TempScene.unity
+    guid: 07ab50024d6057847abb5fce314911aa
   m_configObjects: {}
