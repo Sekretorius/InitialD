@@ -24,8 +24,9 @@ public class Bullet : MonoBehaviour
         //rb.velocity = transform.right * speed;
         Vector2 targetVelocity = ((target - new Vector2(player.transform.position.x, player.transform.position.y)).normalized * speed);
         Vector3 velocity = Vector3.zero;
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, movementSmoothing);
-        StartCoroutine(BulletTimeOut());
+		rb.velocity = targetVelocity; //Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, movementSmoothing);
+
+		StartCoroutine(BulletTimeOut());
 	}
 
 	void OnTriggerEnter2D(Collider2D hitInfo)

@@ -94,7 +94,9 @@ public class Inventory : MonoBehaviour
             gun.transform.SetParent(Player.transform); // assign gun to player
             gun.GetComponent<SpriteRenderer>().sprite = itemSlots[selection - 1].GetComponent<Image>().sprite; //assign sprite
             gun.GetComponent<Gun>().damage = gunItem.Damage;
-                if(Player.TryGetComponent(out PlayerControler controler))
+                gun.GetComponent<Gun>().spray = gunItem.Spray;
+
+                if (Player.TryGetComponent(out PlayerControler controler))
                 {
                     controler.HoldingGun(true);
                 }

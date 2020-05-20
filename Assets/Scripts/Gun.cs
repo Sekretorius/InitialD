@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
     public GameObject bulletPrefab;
 	public int damage;
     private GameObject player;
+    public int spray;
 	private void Start()
 	{
         player = GameObject.FindGameObjectWithTag("Player");
@@ -42,6 +43,9 @@ public class Gun : MonoBehaviour
 
 	void Shoot()
 	{
-		Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        for (int i = 0; i < spray; i++)
+        {
+            Instantiate(bulletPrefab, firePoint.position,  firePoint.rotation );
+        }
 	}
 }

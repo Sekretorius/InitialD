@@ -10,4 +10,5 @@ public class WeaponItem : Item
     public float FireRate;
     public float BulletSpeed;
     public float ChargeSpeed;
+    public int Spray;
 }
