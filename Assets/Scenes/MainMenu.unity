@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -185.79999, y: 121}
+  m_AnchoredPosition: {x: -185.79996, y: 121}
   m_SizeDelta: {x: -411.6, y: -542}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &192710551
@@ -609,7 +609,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -162.5, y: 73}
+  m_AnchoredPosition: {x: -162.50003, y: 73}
   m_SizeDelta: {x: -383, y: -542}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &323645652
@@ -1806,7 +1806,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -339.82495, y: -254}
+  m_AnchoredPosition: {x: -339.82498, y: -254}
   m_SizeDelta: {x: -713.65, y: -542}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &502475049
@@ -2198,7 +2198,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -155.82, y: 22.700012}
+  m_AnchoredPosition: {x: -155.81998, y: 22.700012}
   m_SizeDelta: {x: -351.55, y: -539.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &619278221
@@ -2358,7 +2358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -339.82495, y: -254}
+  m_AnchoredPosition: {x: -339.82498, y: -254}
   m_SizeDelta: {x: -713.65, y: -542}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &674677861
@@ -2750,7 +2750,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -339.82495, y: -254}
+  m_AnchoredPosition: {x: -339.82498, y: -254}
   m_SizeDelta: {x: -713.65, y: -542}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &705664298
@@ -3921,7 +3921,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1110508323}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1691438597}
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1110508323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4326,7 +4337,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -339.82495, y: -254}
+  m_AnchoredPosition: {x: -339.82498, y: -254}
   m_SizeDelta: {x: -713.65, y: -542}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1278111009
@@ -5603,6 +5614,7 @@ GameObject:
   - component: {fileID: 1691438594}
   - component: {fileID: 1691438596}
   - component: {fileID: 1691438595}
+  - component: {fileID: 1691438597}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -5669,6 +5681,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1691438593}
   m_CullTransparentMesh: 0
+--- !u!114 &1691438597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691438593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211eba337c2d14940adfbdfa301cc3c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1732471611
 GameObject:
   m_ObjectHideFlags: 0
@@ -6275,7 +6299,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1893564673}
   - component: {fileID: 1893564672}
-  - component: {fileID: 1893564674}
   m_Layer: 23
   m_Name: PostProcess
   m_TagString: Untagged
@@ -6314,40 +6337,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!328 &1893564674
-VideoPlayer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1893564671}
-  m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 336349db2fd6b4d47b97cd889a983447, type: 3}
-  m_TargetCameraAlpha: 1
-  m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 0}
-  m_TimeReference: 0
-  m_TargetMaterialRenderer: {fileID: 0}
-  m_TargetMaterialProperty: _MainTex
-  m_RenderMode: 2
-  m_AspectRatio: 2
-  m_DataSource: 0
-  m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
-  m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
-  m_SkipOnDrop: 1
-  m_Looping: 1
-  m_WaitForFirstFrame: 1
-  m_FrameReadyEventEnabled: 0
 --- !u!1 &2108058400
 GameObject:
   m_ObjectHideFlags: 0
