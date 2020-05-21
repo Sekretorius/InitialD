@@ -11055,7 +11055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactingObject: {fileID: 0}
-  sceneToLoad: {fileID: 102900000, guid: cd70cc1e4b4aab04ea01a1d2a0555a80, type: 3}
+  sceneToLoad: SecondLevel
 --- !u!1 &1658067593
 GameObject:
   m_ObjectHideFlags: 0
@@ -12093,7 +12093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactingObject: {fileID: 0}
-  sceneToLoad: {fileID: 102900000, guid: 5f486d035797367439fb25b6ee980ef2, type: 3}
+  sceneToLoad: FirstLevel
 --- !u!1 &1822398845
 GameObject:
   m_ObjectHideFlags: 0
@@ -14303,7 +14303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e553062abfb3fb49b80d37e0ed8d9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainScene: {fileID: 102900000, guid: 07ab50024d6057847abb5fce314911aa, type: 3}
+  mainScene: 
+  mainMenu: 
   startPosition: {fileID: 0}
 --- !u!114 &2084511683
 MonoBehaviour:

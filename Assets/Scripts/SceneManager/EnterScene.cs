@@ -20,7 +20,7 @@ public class EnterScene : Interactable
         {
             if (GameManager.TryGetComponent(out SceneLoader loader))
             {
-                loader.SetNewScene(sceneToLoad.name, "ChangeScene");
+                loader.SetNewScene(sceneToLoad, "ChangeScene");
             }
         }
     }
