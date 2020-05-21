@@ -9,7 +9,8 @@ public class ShowUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UI_object.SetActive(false);
+        if(UI_object != null)
+            UI_object.SetActive(false);
     }
 
     public void Disappear()
@@ -20,13 +21,15 @@ public class ShowUI : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
-            UI_object.SetActive(true);
+            if (UI_object != null)
+                UI_object.SetActive(true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
-            UI_object.SetActive(false);
+            if (UI_object != null)
+                UI_object.SetActive(false);
     }
 
 }
