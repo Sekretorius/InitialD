@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class EnterScene : Interactable
 {
-    public SceneAsset sceneToLoad;
+    public string sceneToLoad;
     private GameObject GameManager;
     protected new void Start()
     {

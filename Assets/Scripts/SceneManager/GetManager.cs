@@ -12,4 +12,12 @@ public class GetManager : MonoBehaviour
             saveManager.OnSceneSave();
         }
     }
+    public void OnGetManagerMenu()
+    {
+        GameObject manager = GameObject.Find("GameManager");
+        if (manager != null && manager.TryGetComponent(out LoadScreenManager saveManager))
+        {
+            saveManager.OnMainMenu();
+        }
+    }
 }

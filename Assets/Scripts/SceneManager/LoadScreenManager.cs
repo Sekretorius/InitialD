@@ -6,15 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class LoadScreenManager : MonoBehaviour
 {
-    public SceneAsset mainScene;
+    public string mainScene;
+    public string mainMenu;
     private GameObject player;
     public Transform startPosition;
+
+    private void Start()
+    {
+            
+    }
 
     public void OnStartNewGame()
     {
         if (TryGetComponent(out SceneLoader loader))
         {
-            loader.SetNewScene(mainScene.name, "ChangeScene");
+            loader.SetNewScene(mainScene, "ChangeScene");
             player = GameObject.FindGameObjectWithTag("Player");
         }
     }
@@ -44,6 +50,13 @@ public class LoadScreenManager : MonoBehaviour
         {
             levelSaveControler.setLevel(SceneManager.GetActiveScene().name);
             levelSaveControler.SaveLevel();
+        }
+    }
+    public void OnMainMenu()
+    {
+        if (TryGetComponent(out SceneLoader loader))
+        {
+            loader.SetNewScene(mainMenu, "LoadMenu");
         }
     }
 }
