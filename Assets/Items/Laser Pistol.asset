@@ -20,3 +20,4 @@ MonoBehaviour:
   FireRate: 10
   BulletSpeed: 0.5
   ChargeSpeed: 20
+  Spray: 1
