@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Enterable : Interactable
 {
-    public GameObject Player;
+    private GameObject Player;
     public GameObject Location;
 
     private UIFader Fade;
@@ -25,19 +25,27 @@ public class Enterable : Interactable
         fade = false;
         fadeOut = false;
     }
-
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    OnEvent();
-        
-    //}
+    new void Update()
+    {
+        if(Player == null)
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
+        }
+        base.Update();
+    }
 
     protected override void OnEvent()
     {
-        if (IsInteractable && (Input.GetButtonDown("Interact")))
-            fade = true;
-        StartFade(); // fading animation
+        if (Player != null)
+        {
+            if (IsInteractable && (Input.GetButtonDown("Interact")))
+                fade = true;
+            StartFade(); // fading animation
+        }
+        else
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
+        }
     }
 
     public void Teleport()

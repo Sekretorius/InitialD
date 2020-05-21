@@ -7,10 +7,22 @@ public class PlayerControler : MovementControler
     public bool isHiden = false;
     private bool IsShooting = false;
     private bool IsHoldingGun = false;
+    private GameObject saveManager;
     new void Start()
     {
         base.Start();
         canCrawlSlide = true;
+    }
+    new void FixedUpdate()
+    {
+        base.FixedUpdate();
+        if(saveManager == null)
+        {
+            if (TryGetComponent(out Player data))
+            {
+                data.addSettings(speed, JumpTakeOffSpeed);
+            }
+        }
     }
     protected override void ComputeMovement()
     {
@@ -134,5 +146,11 @@ public class PlayerControler : MovementControler
     public void Hide(bool hide)
     {
         isHiden = hide;
+    }
+    public void AddSettings(Player player)
+    {
+        speed = player.speed;
+        JumpTakeOffSpeed = player.jumpSpeed;
+        transform.position = player.playerPosition;
     }
 }

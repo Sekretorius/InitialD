@@ -78,7 +78,6 @@ public class PickObject : Interactable
                 }
             }
             bool isPickable = Reach();
-            
             if (isPickable && isBellow)
             {
                 isPickable = Input.GetButton("Crouch");
@@ -200,7 +199,6 @@ public class PickObject : Interactable
                     float diff = pickableUpperY - interactiveBottomY - 0.1f;
                     if (diff <= 0)
                     {
-                        
                         isBellow = true;
                     }
                     else
@@ -213,7 +211,7 @@ public class PickObject : Interactable
                     if (distance > width)
                     {
                         float objectDirection = (interactingObject.position.x - transform.position.x) < 0 ? -1 : 1;
-                        if (objectDirection == interactingObject.right.x)
+                        if (objectDirection == playerControler.facingDirection)
                         {
                             return false;
                         }

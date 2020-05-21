@@ -50,6 +50,5 @@ public class UIFader : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
-    }
-    
+    }    
 }

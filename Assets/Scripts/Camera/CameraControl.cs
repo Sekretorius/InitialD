@@ -23,23 +23,35 @@ public class CameraControl : MonoBehaviour
         stockSize = Camera.main.orthographicSize;
         // fovDiff = (zoomSize - stockSize) / 10;
 
+        player = GameObject.FindGameObjectWithTag("Player");
+        if(player != null)
+        {
+            transform.position = player.transform.position;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        mousePosition = new Vector3(Input.mousePosition.x / width * sensitivity, Input.mousePosition.y / height * sensitivity, 0);
-        transform.position = player.transform.position + stockPosition +
-            mousePosition;
-
-        if (Input.GetButton("Fire2") && Camera.main.orthographicSize != zoomSize)
+        if (player != null)
         {
-            ZoomIn();
+            mousePosition = new Vector3(Input.mousePosition.x / width * sensitivity, Input.mousePosition.y / height * sensitivity, 0);
+            transform.position = player.transform.position + stockPosition +
+                mousePosition;
+
+            if (Input.GetButton("Fire2") && Camera.main.orthographicSize != zoomSize)
+            {
+                ZoomIn();
+            }
+
+            else if (!Input.GetButton("Fire2") && Camera.main.orthographicSize != stockSize)
+            {
+                ZoomOut();
+            }
         }
-
-        else if (!Input.GetButton("Fire2") && Camera.main.orthographicSize != stockSize)
+        else
         {
-            ZoomOut();
+            player = GameObject.FindGameObjectWithTag("Player");
         }
     }
 

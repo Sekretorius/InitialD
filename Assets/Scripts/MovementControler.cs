@@ -69,7 +69,7 @@ public abstract class MovementControler : MonoBehaviour
         colliderDimensions = boxCollider.bounds.size;
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         if (rgbd != null)
         {
@@ -123,6 +123,14 @@ public abstract class MovementControler : MonoBehaviour
             else if (ladderEffector != null)
             {
                 ladderEffector.surfaceArc = 180;
+            }
+            if (jump && !IsJumping)
+            {
+                IsJumping = true;
+                targetVelocity = new Vector2(rgbd.velocity.x, JumpTakeOffSpeed);
+                rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, movementSmoothing);
+                IsClimbing = false;
+                return;
             }
         }
         if (IsOnLadder || IsOnTopOfLadder)
@@ -195,54 +203,58 @@ public abstract class MovementControler : MonoBehaviour
             {
                 IsSliding = false;
             }
+            if (IsCrawling && !IsSliding)
+            {
+                targetVelocity = new Vector2(move.x * crawlSpeed, rgbd.velocity.y);
+                rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, movementSmoothing);
+            }
+            if ((!IsSliding && !IsCrawling) || IsJumping)
+            {
+                Turn(facingDirection);
+                rgbd.freezeRotation = true;
+                transform.eulerAngles = new Vector3(0, 0, 0);
+                targetVelocity = new Vector2(move.x * speed, rgbd.velocity.y);
+                rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, movementSmoothing);
+            }
+            else if (!IsJumping)
+            {
+                Turn(facingDirection);
+                AlignWithGround();
+            }
         }
-        if (IsCrawling && !IsSliding)
-        {
-            targetVelocity = new Vector2(move.x * crawlSpeed, rgbd.velocity.y);
+            if (jump && ground && !IsJumping)
+            {
+                IsJumping = true;
+                if (!IsCrawling && !IsSliding)
+                {
+                    targetVelocity = new Vector2(rgbd.velocity.x, JumpTakeOffSpeed);
+                }
+                else if (IsCrawling || IsSliding)
+                {
+                    targetVelocity = new Vector2(rgbd.velocity.x, JumpTakeOffSpeed / 1.5f);
+                }
+            }
+            else if (!jump)
+            {
+                IsJumping = false;
+                if (rgbd.velocity.y > 0)
+                {
+                    targetVelocity = new Vector2(rgbd.velocity.x, rgbd.velocity.y * .5f);
+                }
+            }
             rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, movementSmoothing);
-        }
-        if ((!IsSliding && !IsCrawling) || IsJumping)
-        {
-            Turn(facingDirection);
-            rgbd.freezeRotation = true;
-            transform.eulerAngles = new Vector3(0, 0, 0);
-            targetVelocity = new Vector2(move.x * speed, rgbd.velocity.y);
-            rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, movementSmoothing);
-        }
-        else if (!IsJumping)
-        {
-            Turn(facingDirection);
-            AlignWithGround();
-        }
-        if (jump && ground && !IsJumping)
-        {
-            IsJumping = true;
-            if (!IsCrawling && !IsSliding)
-            {
-                targetVelocity = new Vector2(rgbd.velocity.x, JumpTakeOffSpeed);
-            }
-            else if (IsCrawling || IsSliding)
-            {
-                targetVelocity = new Vector2(rgbd.velocity.x, JumpTakeOffSpeed / 1.5f);
-            }
-        }
-        else if (!jump)
-        {
-            IsJumping = false;
-            if (rgbd.velocity.y > 0)
-            {
-                targetVelocity = new Vector2(rgbd.velocity.x, rgbd.velocity.y * .5f);
-            }
-        }
-        rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, movementSmoothing);
 
-        if (!ground)
-        {
-            rgbd.velocity += Physics2D.gravity * gravityModifier * Time.fixedDeltaTime;
-        }
+            if (!ground)
+            {
+                rgbd.velocity += Physics2D.gravity * gravityModifier * Time.fixedDeltaTime;
+            }
     }
     private void AlignWithGround()
     {
+        if(transform.up.y < 0)
+        {
+            transform.eulerAngles = Vector3.zero;
+        }
         LayerMask mask = ~LayerMask.GetMask("Player", "NPC", "Enemy");
         RaycastHit2D[] hitResults = new RaycastHit2D[15];
         ContactFilter2D contactFilter2D = new ContactFilter2D();
