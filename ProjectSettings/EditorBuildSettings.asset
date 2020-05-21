@@ -17,16 +17,22 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: c629ea9ce926bd24aa431cf4ab27b603
-  - enabled: 0
-    path: Assets/Scenes/TempScene.unity
-    guid: 07ab50024d6057847abb5fce314911aa
   - enabled: 1
     path: Assets/Scenes/MainMenuTemp.unity
     guid: b74704e5f3c3b4349af54a7e45c97ddf
   - enabled: 1
+    path: Assets/Scenes/TempScene.unity
+    guid: 07ab50024d6057847abb5fce314911aa
+  - enabled: 0
     path: Assets/Scenes/KaspaScene.unity
     guid: c0fa492cf61334546a9f30327031e073
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/SecondLevel.unity
+    guid: cd70cc1e4b4aab04ea01a1d2a0555a80
   - enabled: 1
     path: Assets/Scenes/FirstLevel.unity
-    guid: 5f486d035797367439fb25b6ee980ef2
+    guid: 6cb7c32d704110a4cb0d62da799fad77
   m_configObjects: {}

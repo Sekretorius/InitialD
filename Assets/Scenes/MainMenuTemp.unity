@@ -1193,7 +1193,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 774370436}
+      - m_Target: {fileID: 0}
         m_MethodName: OnLoadSavedGame
         m_Mode: 1
         m_Arguments:
@@ -2803,8 +2803,8 @@ GameObject:
   - component: {fileID: 774370440}
   - component: {fileID: 774370439}
   - component: {fileID: 774370438}
-  - component: {fileID: 774370436}
   - component: {fileID: 774370437}
+  - component: {fileID: 774370436}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2824,7 +2824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e553062abfb3fb49b80d37e0ed8d9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainScene: {fileID: 102900000, guid: 5f486d035797367439fb25b6ee980ef2, type: 3}
+  mainScene: {fileID: 0}
   startPosition: {fileID: 0}
 --- !u!114 &774370437
 MonoBehaviour:
@@ -3700,7 +3700,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 774370436}
+      - m_Target: {fileID: 0}
         m_MethodName: OnStartNewGame
         m_Mode: 1
         m_Arguments:

@@ -3,12 +3,7 @@ guid: 6b104b51d1bd2ea4980f6399548c66e4
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - heartSpriteFull: {fileID: 21300000, guid: 8bc8a57caeb99ba478890b43c443d151, type: 3}
-  - heartSprite75: {fileID: 21300000, guid: 54d723db9d06b024d83a1e804ef70e4d, type: 3}
-  - heartSprite50: {fileID: 21300000, guid: 48eecce84314acc499f818916322e577, type: 3}
-  - heartSprite25: {fileID: 21300000, guid: 22ddd9a228365cb46bb334758e75eac5, type: 3}
-  - heartSpriteEmpty: {fileID: 21300000, guid: 9d3925352dfd6034e98083e4c20fd6a7, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
