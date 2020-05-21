@@ -222,32 +222,40 @@ public abstract class MovementControler : MonoBehaviour
                 AlignWithGround();
             }
         }
-            if (jump && ground && !IsJumping)
-            {
-                IsJumping = true;
-                if (!IsCrawling && !IsSliding)
-                {
-                    targetVelocity = new Vector2(rgbd.velocity.x, JumpTakeOffSpeed);
-                }
-                else if (IsCrawling || IsSliding)
-                {
-                    targetVelocity = new Vector2(rgbd.velocity.x, JumpTakeOffSpeed / 1.5f);
-                }
-            }
-            else if (!jump)
-            {
-                IsJumping = false;
-                if (rgbd.velocity.y > 0)
-                {
-                    targetVelocity = new Vector2(rgbd.velocity.x, rgbd.velocity.y * .5f);
-                }
-            }
+        if(!gameObject.tag.Equals("Player") || IsJumping)
+        {
+            Turn(facingDirection);
+            rgbd.freezeRotation = true;
+            transform.eulerAngles = new Vector3(0, 0, 0);
+            targetVelocity = new Vector2(move.x * speed, rgbd.velocity.y);
             rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, movementSmoothing);
-
-            if (!ground)
+        }
+        if (jump && ground && !IsJumping)
+        {
+            IsJumping = true;
+            if (!IsCrawling && !IsSliding)
             {
-                rgbd.velocity += Physics2D.gravity * gravityModifier * Time.fixedDeltaTime;
+                targetVelocity = new Vector2(rgbd.velocity.x, JumpTakeOffSpeed);
             }
+            else if (IsCrawling || IsSliding)
+            {
+                targetVelocity = new Vector2(rgbd.velocity.x, JumpTakeOffSpeed / 1.5f);
+            }
+        }
+        else if (!jump)
+        {
+            IsJumping = false;
+            if (rgbd.velocity.y > 0)
+            {
+                targetVelocity = new Vector2(rgbd.velocity.x, rgbd.velocity.y * .5f);
+            }
+        }
+        rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, movementSmoothing);
+
+        if (!ground)
+        {
+            rgbd.velocity += Physics2D.gravity * gravityModifier * Time.fixedDeltaTime;
+        }
     }
     private void AlignWithGround()
     {
