@@ -24,7 +24,7 @@ public class EnemyBullet : MonoBehaviour
 		//Vector2 destination = Vector2.MoveTowards()
 		Rigidbody2D rb = GetComponent<Rigidbody2D>();
         //rb.velocity = transform.right * speed;
-        Vector2 targetVelocity = ((target - new Vector2(owner.transform.position.x, owner.transform.position.y + UnityEngine.Random.Range(-1f,1f) ) ).normalized * speed);
+        Vector2 targetVelocity = ((target - new Vector2(owner.transform.position.x, owner.transform.position.y + Random.Range(-1f,1f) ) ).normalized * speed);
         Vector3 velocity = Vector3.zero;
 		rb.velocity = targetVelocity; //Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, movementSmoothing);
 
@@ -33,18 +33,16 @@ public class EnemyBullet : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D hitInfo)
 	{
-		if (hitInfo.CompareTag("Enemy"))
+		if (hitInfo.CompareTag("Player"))
 		{
-           // Transform target = hitInfo.GetComponentInChildren<Transform>();                     
-            //print("AT LEAST IT WORKS");
-            HealthSystem enemy = hitInfo.GetComponent<HealthSystem>();
-			if (enemy != null)
+			// Transform target = hitInfo.GetComponentInChildren<Transform>();                     
+			//print("AT LEAST IT WORKS");
+			GameObject obj = GameObject.Find("PlayerStats");
+							HealthSystem health = obj.GetComponent<HealthSystem>();
+
+			if (player != null)
 			{
-                if(enemy.TryGetComponent(out EnemyMovement controler))
-                {
-                    controler.SetTarget(player.transform, true);
-                }
-                enemy.Damage(damage);
+				health.Damage(damage);
 			}
 			Destroy(gameObject);
 		}

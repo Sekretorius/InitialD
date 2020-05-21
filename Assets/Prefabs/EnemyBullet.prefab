@@ -145,8 +145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  damage: 40
+  damage: 1
   lifetime: 1
   movementSmoothing: 0.5
   impactEffect: {fileID: 0}
   player: {fileID: 0}
+  owner: {fileID: 0}

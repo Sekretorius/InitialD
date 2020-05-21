@@ -72,10 +72,12 @@ public class EnemyMovement : MovementControler
                 if (!isNear)
                 {
                     MoveTowardsTarget(target.position);
-                    Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-                    Instantiate(bulletPrefab, gameObject.transform.position, gameObject.transform.rotation);
+
 
                 }
+                Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                if (Random.Range(0f, 1f) > 0.98f)
+                    Instantiate(bulletPrefab, gameObject.transform.position, gameObject.transform.rotation);
             }
             if (IsBlocked && obsticle != null && canJumpOver) // kliūties peršokimas
             {
