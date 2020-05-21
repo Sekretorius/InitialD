@@ -20,6 +20,8 @@ public class EnemyMovement : MovementControler
     private float moveTimer;
     private float moveDirection;
     private bool chasePlayer = false;
+    public GameObject bulletPrefab;
+
 
     new void Start()
     {
@@ -29,6 +31,7 @@ public class EnemyMovement : MovementControler
         moveTimer = time;
         turnTimer = time;
     }   
+
     public void SetTarget(Transform targetTransform, bool chase)
     {
         chasePlayer = chase;
@@ -42,6 +45,7 @@ public class EnemyMovement : MovementControler
         }
         target = targetTransform;
     }
+
     protected override void ComputeMovement()
     {
         isNear = false;
@@ -68,6 +72,9 @@ public class EnemyMovement : MovementControler
                 if (!isNear)
                 {
                     MoveTowardsTarget(target.position);
+                    Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                    Instantiate(bulletPrefab, gameObject.transform.position, gameObject.transform.rotation);
+
                 }
             }
             if (IsBlocked && obsticle != null && canJumpOver) // kliūties peršokimas
