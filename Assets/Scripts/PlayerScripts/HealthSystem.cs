@@ -60,8 +60,10 @@ public class HealthSystem : MonoBehaviour
             Destroy(this);
         }
         else
-            StartCoroutine(DamageFade(0.5f, GetComponentInChildren<SpriteRenderer>()));
-
+        { var ColorChanger = GetComponentInChildren<SpriteRenderer>();
+            if(ColorChanger!=null)
+            StartCoroutine(DamageFade(0.5f, ColorChanger));
+        }
         if (OnChanged != null)
             OnChanged(this, EventArgs.Empty);
     }
