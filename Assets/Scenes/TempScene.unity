@@ -1831,7 +1831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactingObject: {fileID: 0}
-  cost: 5
+  cost: -5
   uses: 5
 --- !u!61 &295391182
 BoxCollider2D:
@@ -11325,6 +11325,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7466290376204291550, guid: 7d4e5c2fa26cec143ab07ca14ed96d73,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7466290376204291551, guid: 7d4e5c2fa26cec143ab07ca14ed96d73,
         type: 3}
