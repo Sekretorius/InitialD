@@ -7,7 +7,7 @@ public class Enterable : Interactable
 {
     private GameObject Player;
     public GameObject Location;
-
+    
     private UIFader Fade;
 
     private bool fade;
@@ -51,6 +51,8 @@ public class Enterable : Interactable
     public void Teleport()
     {
         Player.transform.position = new Vector3(Location.transform.position.x, Location.transform.position.y, 0);
+        GameObject.Find("Far Background").GetComponent<Parallax>().ReloadParallax();
+
     }
 
     public void StartFade()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Bullet : MonoBehaviour
 {
 	public float speed = 20f;
@@ -17,6 +18,7 @@ public class Bullet : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		
 		 player = GameObject.FindGameObjectWithTag("Player");
 		Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		//Vector2 destination = Vector2.MoveTowards()

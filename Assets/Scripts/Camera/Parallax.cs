@@ -5,7 +5,7 @@ using UnityEngine;
 public class Parallax : MonoBehaviour
 {
 
-    private float length, startpos;
+    public float length, startpos;
     public GameObject cam;
     public float parallaxEffect;
 
@@ -24,5 +24,10 @@ public class Parallax : MonoBehaviour
             startpos += length;
         else if (temp < startpos - length)
             startpos -= length;*/
+    }
+
+    public void ReloadParallax()
+    {
+        startpos = cam.transform.position.x * parallaxEffect;
     }
 }
