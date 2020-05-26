@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MovementControler
 {
     public Transform target;
+    public Transform firePoint;
     private bool foundTarget = false;
     private bool canJump = false;
     private bool isFollowing = false;
@@ -77,7 +78,18 @@ public class EnemyMovement : MovementControler
                 }
                 Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 if (Random.Range(0f, 1f) > 0.98f)
-                    Instantiate(bulletPrefab, gameObject.transform.position, gameObject.transform.rotation);
+                {
+                    if (target.position.x - transform.position.x > 0)
+                    {
+                        firePoint = transform.Find("ShootPointRight");
+                    }
+                    else
+                    {
+                        firePoint = transform.Find("ShootPointLeft");
+                    }
+                    Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                }
+                   
             }
             if (IsBlocked && obsticle != null && canJumpOver) // kliūties peršokimas
             {
