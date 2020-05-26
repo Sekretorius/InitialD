@@ -13,6 +13,7 @@ public abstract class MovementControler : MonoBehaviour
     [SerializeField] protected float slideDragForce = 15f;
 
     protected Animator anim;
+    protected Transform targetTransform;
     protected Rigidbody2D rgbd;
     protected BoxCollider2D boxCollider;
     protected Vector2 colliderDimensions;
@@ -24,6 +25,7 @@ public abstract class MovementControler : MonoBehaviour
     protected float minGroungNormalY = 0.65f;
     public float facingDirection;
 
+    protected bool isChasing = false;
     protected bool nullifiedImput = false;
     protected bool canMove = true;
     protected bool ground = false;
@@ -421,7 +423,7 @@ public abstract class MovementControler : MonoBehaviour
         return false;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag.Equals("Ladder"))
         {
@@ -476,7 +478,7 @@ public abstract class MovementControler : MonoBehaviour
             }
         }
     }
-    private void OnCollisionStay2D(Collision2D collision)
+    protected void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag.Equals("Ladder"))
         {
@@ -504,7 +506,6 @@ public abstract class MovementControler : MonoBehaviour
                 obsticle = collision.collider.transform;
                 if (!collision.collider.CompareTag("Player") && !collision.collider.CompareTag("NPC") && !collision.collider.CompareTag("Enemy"))
                 {
-                    
                     float obsticleHeight = 0;
                     float height = 0;
                     float colCordY = 0;
@@ -541,7 +542,7 @@ public abstract class MovementControler : MonoBehaviour
             }
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
+    protected void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag.Equals("Ladder"))
         {
@@ -680,5 +681,10 @@ public abstract class MovementControler : MonoBehaviour
             ladderEffector = null;
             IsOnLadder = false;
         }
+    }
+    public void SetTarget(Transform target, bool chase)
+    {
+        this.targetTransform = target;
+        isChasing = chase;
     }
 }

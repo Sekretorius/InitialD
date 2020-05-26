@@ -131,7 +131,7 @@ public class PlayerControler : MovementControler
     }
     public bool Shoot()
     {
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot_1"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot_1") && !IsCrawling && !IsSliding && !isHolding)
         {
             anim.SetBool("IsShooting", true);
             IsShooting = true;

@@ -37,29 +37,6 @@ public class Bullet : MonoBehaviour
 		StartCoroutine(BulletTimeOut());
 	}
 
-	void OnTriggerEnter2D(Collider2D hitInfo)
-	{
-		if (hitInfo.CompareTag("Enemy"))
-		{
-           // Transform target = hitInfo.GetComponentInChildren<Transform>();                     
-            //print("AT LEAST IT WORKS");
-            HealthSystem enemy = hitInfo.GetComponent<HealthSystem>();
-			if (enemy != null)
-			{
-                if(enemy.TryGetComponent(out EnemyMovement controler))
-                {
-                    controler.SetTarget(player.transform, true);
-                }
-                enemy.Damage(damage);
-			}
-			Destroy(gameObject);
-		}
-		//Instantiate(impactEffect, transform.position, transform.rotation); efektai poggers
-
-	}
-
-
-
     IEnumerator Damage(SpriteRenderer renderer)
     {
         renderer.color = new Color(1, 0, 0, 1);
@@ -75,4 +52,21 @@ public class Bullet : MonoBehaviour
 		print("poof");
 		Destroy(gameObject);
 	}
+    private void OnCollisionStay2D(Collision2D hitInfo)
+    {
+        if (hitInfo.collider.CompareTag("Enemy"))
+        {
+            HealthSystem enemy = hitInfo.collider.GetComponent<HealthSystem>();
+            if (enemy != null)
+            {
+                if (enemy.TryGetComponent(out EnemyMovement controler))
+                {
+                    controler.SetTarget(player.transform, true);
+                }
+                enemy.Damage(damage);
+            }
+        }
+        Debug.Log(gameObject.name);
+        Destroy(gameObject);
+    }
 }

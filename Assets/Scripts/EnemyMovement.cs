@@ -31,32 +31,29 @@ public class EnemyMovement : MovementControler
         leftBorder = transform.position.x - leftBorder;
         moveTimer = time;
         turnTimer = time;
-    }   
+    }
 
-    public void SetTarget(Transform targetTransform, bool chase)
+    public void SetTarget()
     {
-        chasePlayer = chase;
         if (targetTransform != null)
         {
+            target = targetTransform;
             isFollowing = true;
+            chasePlayer = isChasing;
         }
         else
         {
             isFollowing = false;
         }
-        target = targetTransform;
     }
 
     protected override void ComputeMovement()
     {
         isNear = false;
-        if (chasePlayer)
-        {
-            isFollowing = true;
-        }
+        SetTarget();
         if (canMove)
         {
-            if (target == null || !isFollowing) // kai nėra taikinio
+            if (target == null || (!isFollowing && !chasePlayer)) // kai nėra taikinio
             {
                 if (move.x == 0)
                 {
@@ -64,7 +61,7 @@ public class EnemyMovement : MovementControler
                 }
                 MoveOnTimer();
             }
-            if (isFollowing && target != null) // sekimas taikinio
+            if ((isFollowing || chasePlayer) && target != null)  // sekimas taikinio
             {
                 if (!(Vector2.Distance(transform.position, target.position) >= minDistance))
                 {

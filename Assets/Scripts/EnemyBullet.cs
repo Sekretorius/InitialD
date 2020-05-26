@@ -35,9 +35,9 @@ public class EnemyBullet : MonoBehaviour
 		StartCoroutine(BulletTimeOut());
 	}
 
-	void OnTriggerEnter2D(Collider2D hitInfo)
-	{
-		if (hitInfo.CompareTag("Player"))
+    private void OnCollisionStay2D(Collision2D hitInfo)
+    {
+        if (hitInfo.collider.CompareTag("Player"))
 		{
 			// Transform target = hitInfo.GetComponentInChildren<Transform>();                     
 			//print("AT LEAST IT WORKS");
@@ -53,8 +53,6 @@ public class EnemyBullet : MonoBehaviour
 		//Instantiate(impactEffect, transform.position, transform.rotation); efektai poggers
 
 	}
-
-
 
     IEnumerator Damage(SpriteRenderer renderer)
     {

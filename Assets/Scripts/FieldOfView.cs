@@ -11,14 +11,14 @@ public class FieldOfView : MonoBehaviour
     public int rayCount = 50;
     public int startAngle = 25;
     public float minDistance = 5f;
-    private EnemyMovement movement;
+    private MovementControler movement;
     private bool nearTarget = false;
     private Transform target;
     private float viewDirection = 1;
 
     private void Start()
     {
-        movement = GetComponentInParent<EnemyMovement>();
+        movement = GetComponentInParent<MovementControler>();
         layerMask = ~LayerMask.GetMask("NPC", "Enemy");
     }
     void FixedUpdate()
