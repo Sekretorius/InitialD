@@ -23,9 +23,15 @@ public class Bullet : MonoBehaviour
 		Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		//Vector2 destination = Vector2.MoveTowards()
 		Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        //rb.velocity = transform.right * speed;
-        Vector2 targetVelocity = ((target - new Vector2(player.transform.position.x, player.transform.position.y)).normalized * speed);
-        Vector3 velocity = Vector3.zero;
+		//rb.velocity = transform.right * speed;
+		//Vector2 targetVelocity = ((target - new Vector2(player.transform.position.x, player.transform.position.y)).normalized * speed);
+		Vector2 targetVelocity;
+		if ((target.x - player.transform.position.x) > 0)
+			targetVelocity = new Vector2(speed,0f);
+		else  targetVelocity = new Vector2(- speed,0f);
+		
+
+		Vector3 velocity = Vector3.zero;
 		rb.velocity = targetVelocity; //Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, movementSmoothing);
 
 		StartCoroutine(BulletTimeOut());
