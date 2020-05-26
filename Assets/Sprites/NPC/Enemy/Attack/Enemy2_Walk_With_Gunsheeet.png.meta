@@ -1,0 +1,451 @@
+fileFormatVersion: 2
+guid: 942873be16b76474c8d7d7e7aff1d5d0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5826152300301538864
+    second: Enemy2_Walk_With_Gunsheeet_0
+  - first:
+      213: -8878081139592894478
+    second: Enemy2_Walk_With_Gunsheeet_1
+  - first:
+      213: -4418567352815672568
+    second: Enemy2_Walk_With_Gunsheeet_2
+  - first:
+      213: -5453237130271158650
+    second: Enemy2_Walk_With_Gunsheeet_3
+  - first:
+      213: 6736579450970950515
+    second: Enemy2_Walk_With_Gunsheeet_4
+  - first:
+      213: -466266733603071914
+    second: Enemy2_Walk_With_Gunsheeet_5
+  - first:
+      213: -1591111444505334393
+    second: Enemy2_Walk_With_Gunsheeet_6
+  - first:
+      213: 2662139637688846292
+    second: Enemy2_Walk_With_Gunsheeet_7
+  - first:
+      213: 3326579341766061491
+    second: Enemy2_Walk_With_Gunsheeet_8
+  - first:
+      213: 4658553144992182191
+    second: Enemy2_Walk_With_Gunsheeet_9
+  - first:
+      213: -7946275763038838686
+    second: Enemy2_Walk_With_Gunsheeet_10
+  - first:
+      213: 1660982646814599531
+    second: Enemy2_Walk_With_Gunsheeet_11
+  - first:
+      213: -1328505680067971451
+    second: Enemy2_Walk_With_Gunsheeet_12
+  - first:
+      213: -3775445960059540354
+    second: Enemy2_Walk_With_Gunsheeet_13
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Enemy2_Walk_With_Gunsheeet_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 5
+        width: 19
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d9a335e959552fa0800000000000000
+      internalID: -5826152300301538864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Walk_With_Gunsheeet_1
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 5
+        width: 19
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f7687bdd38bac480800000000000000
+      internalID: -8878081139592894478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Walk_With_Gunsheeet_2
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 5
+        width: 19
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 803a84737681ea2c0800000000000000
+      internalID: -4418567352815672568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Walk_With_Gunsheeet_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 5
+        width: 20
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68e8736f8b53254b0800000000000000
+      internalID: -5453237130271158650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Walk_With_Gunsheeet_4
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 5
+        width: 20
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37bc15891532d7d50800000000000000
+      internalID: 6736579450970950515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Walk_With_Gunsheeet_5
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 5
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 658d10d40ec7789f0800000000000000
+      internalID: -466266733603071914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Walk_With_Gunsheeet_6
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 5
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78d6330429c3be9e0800000000000000
+      internalID: -1591111444505334393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Walk_With_Gunsheeet_7
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 5
+        width: 19
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d74ee655e1d1f420800000000000000
+      internalID: 2662139637688846292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Walk_With_Gunsheeet_8
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 5
+        width: 19
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bd6e1f49426a2e20800000000000000
+      internalID: 3326579341766061491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Walk_With_Gunsheeet_9
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 5
+        width: 20
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fafa98e376186a040800000000000000
+      internalID: 4658553144992182191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Walk_With_Gunsheeet_10
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 5
+        width: 20
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26026c07b4829b190800000000000000
+      internalID: -7946275763038838686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Walk_With_Gunsheeet_11
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 5
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b69e871caeefc0710800000000000000
+      internalID: 1660982646814599531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Walk_With_Gunsheeet_12
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 5
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 586b5796f13309de0800000000000000
+      internalID: -1328505680067971451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_Walk_With_Gunsheeet_13
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 5
+        width: 19
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7ca7f907ebea9bc0800000000000000
+      internalID: -3775445960059540354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -34,7 +34,6 @@ public class EnemyBullet : MonoBehaviour
 
 		StartCoroutine(BulletTimeOut());
 	}
-
     private void OnCollisionEnter2D(Collision2D hitInfo)
     {
         if (hitInfo.collider.CompareTag("Player"))
@@ -48,13 +47,13 @@ public class EnemyBullet : MonoBehaviour
             {
                 health.Damage(damage);
             }
-            Destroy(gameObject);
         }
         //Instantiate(impactEffect, transform.position, transform.rotation); efektai poggers
+        Destroy(gameObject);
     }
     private void OnCollisionStay2D(Collision2D hitInfo)
     {
-        if (hitInfo.collider.CompareTag("Player"))
+		if (hitInfo.collider.CompareTag("Player"))
 		{
 			// Transform target = hitInfo.GetComponentInChildren<Transform>();                     
 			//print("AT LEAST IT WORKS");
@@ -65,11 +64,10 @@ public class EnemyBullet : MonoBehaviour
 			{
 				health.Damage(damage);
 			}
-			Destroy(gameObject);
 		}
-		//Instantiate(impactEffect, transform.position, transform.rotation); efektai poggers
-
-	}
+        //Instantiate(impactEffect, transform.position, transform.rotation); efektai poggers
+        Destroy(gameObject);
+    }
 
     IEnumerator Damage(SpriteRenderer renderer)
     {

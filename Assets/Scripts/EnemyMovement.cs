@@ -71,9 +71,9 @@ public class EnemyMovement : MovementControler
                 {
                     MoveTowardsTarget(target.position);
                 }
-                Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 if (Random.Range(0f, 1f) > 0.98f)
                 {
+                    anim.SetBool("IsHoldingGun", true);
                     if (target.position.x - transform.position.x > 0)
                     {
                         firePoint = transform.Find("ShootPointRight");
@@ -83,8 +83,7 @@ public class EnemyMovement : MovementControler
                         firePoint = transform.Find("ShootPointLeft");
                     }
                     Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-                }
-                   
+                }                  
             }
             if (IsBlocked && obsticle != null && canJumpOver) // kliūties peršokimas
             {

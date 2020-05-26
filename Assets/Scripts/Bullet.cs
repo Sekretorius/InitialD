@@ -66,7 +66,6 @@ public class Bullet : MonoBehaviour
                 enemy.Damage(damage);
             }
         }
-        Debug.Log(gameObject.name);
         Destroy(gameObject);
     }
     private void OnCollisionStay2D(Collision2D hitInfo)
@@ -83,7 +82,6 @@ public class Bullet : MonoBehaviour
                 enemy.Damage(damage);
             }
         }
-        Debug.Log(gameObject.name);
         Destroy(gameObject);
     }
 }
