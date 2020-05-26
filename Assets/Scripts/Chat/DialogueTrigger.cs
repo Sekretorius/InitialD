@@ -7,6 +7,8 @@ public class DialogueTrigger : MonoBehaviour
     public GameObject NPC { get; private set; }
     public GameObject Player;
     public List<Dialogue> dialogues;
+    public Dialogue busy;
+    public Dialogue reward;
     public bool repeat;
     public bool mission;
 
@@ -14,6 +16,20 @@ public class DialogueTrigger : MonoBehaviour
     {
         NPC = gameObject;
         FindObjectOfType<DialogueManager>().StartDialogue(GetDialogue(), Player, NPC);
+        gameObject.GetComponent<ShowUI>().Disappear();
+    }
+
+    public void OnTriggerBusyDialogue()
+    {
+        NPC = gameObject;
+        FindObjectOfType<DialogueManager>().StartDialogue(busy, Player, NPC);
+        gameObject.GetComponent<ShowUI>().Disappear();
+    }
+
+    public void OnTriggerRewardDialogue()
+    {
+        NPC = gameObject;
+        FindObjectOfType<DialogueManager>().StartDialogue(reward, Player, NPC);
         gameObject.GetComponent<ShowUI>().Disappear();
     }
 

@@ -26,12 +26,19 @@ public class StoryLineManager : MonoBehaviour
     private Vector3 tempPosition;
     private List<GameObject> list = new List<GameObject>();
 
-    private void OnValidate()
+    private void Start()
     {
         Player = GameObject.FindWithTag("Player");
         dialogueManager = FindObjectOfType<DialogueManager>();
         Inv = FindObjectOfType<Inventory>();
         Cash = FindObjectOfType<MoneySystem>();
+
+        position = prefab.transform.position;
+        prefab.SetActive(false);
+        caseObject.SetActive(false);
+        active = false;
+        ShowOnScreen();
+        onMission = false;
     }
 
     void Update()
@@ -79,17 +86,6 @@ public class StoryLineManager : MonoBehaviour
         int count = 0;
         foreach (GameObject goal in list)
             goal.GetComponent<Text>().text = @case.Goals[count++].getDescription();
-    }
-
-    void Start()
-    {
-      //  setCase(0);
-        position = prefab.transform.position;
-        prefab.SetActive(false);
-        caseObject.SetActive(false);
-        active = false;
-        ShowOnScreen();
-        onMission = false;
     }
 
     public void ShowOnScreen()

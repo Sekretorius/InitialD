@@ -10,8 +10,9 @@ public class TestCase2 : Case
     public bool FirstGoal;
     public bool SecondGoal;
 
-    void Awake()
+    protected new void Start()
     {
+        base.Start();
         caseName = "OFFICE HUNT";
         Goals = new ReachGoal[2];
         Goals[0] = new ReachGoal("REACH YOUR OFFCE",0,1);
@@ -41,7 +42,7 @@ public class TestCase2 : Case
 
     }
 
-    public override void OnEvent()
+    protected override void OnEvent()
     {
         Enter();
         Exit();

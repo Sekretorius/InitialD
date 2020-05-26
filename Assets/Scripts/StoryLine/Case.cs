@@ -19,17 +19,17 @@ public class Case : MonoBehaviour
     public string EndGoalText { get;set; }
     public Goal[] Goals;
 
-    private void OnValidate()
+    protected void Start()
     {
         Manager = GetComponentInParent<StoryLineManager>();
     }
 
-    void Update()
+    protected void Update()
     {
         OnEvent();
     }
     
-    public virtual void OnEvent() { }
+    protected virtual void OnEvent() { }
 
     public virtual void Complete()
     {
@@ -57,7 +57,7 @@ public class Case : MonoBehaviour
         
     }
 
-    public void Destroy()
+    public void Destroy_Case()
     {
         Manager.@case = null;
         Manager.ShowOnScreen();
@@ -77,7 +77,7 @@ public class Case : MonoBehaviour
     }
 
     public virtual void GiveRewards() {
-        Manager.dialogueManager.StartDialogue(RewardSpeach, Manager.Player, NPC);
+       // Manager.dialogueManager.StartDialogue(RewardSpeach, Manager.Player, NPC);
         foreach(Item item in rewards)
             Manager.Inv.Add(item);
         if (CashReward > 0)

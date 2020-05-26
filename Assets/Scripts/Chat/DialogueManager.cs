@@ -153,6 +153,8 @@ public class DialogueManager : MonoBehaviour
         CaseId = 0;
         boxPlayer.SetActive(false);
         boxNPC.SetActive(false);
+        responses.Clear();
+        sentences.Clear();
     }
     
 
