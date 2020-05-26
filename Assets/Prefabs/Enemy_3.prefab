@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 7932547116246482415}
   - component: {fileID: 7932547116246482414}
   - component: {fileID: 1111554081199986954}
-  - component: {fileID: 3280116205827888080}
+  - component: {fileID: 7551166496225202651}
   m_Layer: 10
   m_Name: Enemy_3
   m_TagString: Enemy
@@ -285,7 +285,7 @@ MonoBehaviour:
   rayCount: 50
   startAngle: 25
   minDistance: 5
---- !u!114 &3280116205827888080
+--- !u!114 &7551166496225202651
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -294,10 +294,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7932547116246482407}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d49ea33e86c7ac4c86bacd4324221cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 91df9b10ae5c862458d71684c5f522b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 5
   crawlSpeed: 5
   JumpTakeOffSpeed: 60
   movementSmoothing: 0.05
@@ -313,9 +313,7 @@ MonoBehaviour:
   IsOnLadder: 0
   IsClimbing: 0
   IsOnTopOfLadder: 0
-  target: {fileID: 0}
-  firePoint: {fileID: 0}
+  runningTimmerDmg: -1
   time: 5
   rightBorder: 2
   leftBorder: 2
-  bulletPrefab: {fileID: 0}

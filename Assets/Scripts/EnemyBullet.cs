@@ -35,6 +35,23 @@ public class EnemyBullet : MonoBehaviour
 		StartCoroutine(BulletTimeOut());
 	}
 
+    private void OnCollisionEnter2D(Collision2D hitInfo)
+    {
+        if (hitInfo.collider.CompareTag("Player"))
+        {
+            // Transform target = hitInfo.GetComponentInChildren<Transform>();                     
+            //print("AT LEAST IT WORKS");
+            GameObject obj = GameObject.Find("PlayerStats");
+            HealthSystem health = obj.GetComponent<HealthSystem>();
+
+            if (player != null)
+            {
+                health.Damage(damage);
+            }
+            Destroy(gameObject);
+        }
+        //Instantiate(impactEffect, transform.position, transform.rotation); efektai poggers
+    }
     private void OnCollisionStay2D(Collision2D hitInfo)
     {
         if (hitInfo.collider.CompareTag("Player"))

@@ -70,8 +70,6 @@ public class EnemyMovement : MovementControler
                 if (!isNear)
                 {
                     MoveTowardsTarget(target.position);
-
-
                 }
                 Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 if (Random.Range(0f, 1f) > 0.98f)

@@ -52,6 +52,23 @@ public class Bullet : MonoBehaviour
 		print("poof");
 		Destroy(gameObject);
 	}
+    private void OnCollisionEnter2D(Collision2D hitInfo)
+    {
+        if (hitInfo.collider.CompareTag("Enemy"))
+        {
+            HealthSystem enemy = hitInfo.collider.GetComponent<HealthSystem>();
+            if (enemy != null)
+            {
+                if (enemy.TryGetComponent(out EnemyMovement controler))
+                {
+                    controler.SetTarget(player.transform, true);
+                }
+                enemy.Damage(damage);
+            }
+        }
+        Debug.Log(gameObject.name);
+        Destroy(gameObject);
+    }
     private void OnCollisionStay2D(Collision2D hitInfo)
     {
         if (hitInfo.collider.CompareTag("Enemy"))
