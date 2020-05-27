@@ -37,6 +37,10 @@ public class ForceEnter : Interactable
 
     protected override void OnEvent()
     {
+        if(Player == null)
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
+        }
         if (IsInteractable && !animation)
         {
             animation = true;
