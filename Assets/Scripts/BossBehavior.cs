@@ -249,7 +249,7 @@ public class BossBehavior : MovementControler
         {
             direction = 0;
         }
-        if (IsBlocked && obsticle != null && !canJumpOver)
+        if (obsticle != null && IsBlocked && !canJumpOver)
         {
             float blockingDirection = transform.position.x - obsticle.position.x;
             float directionCantMove = blockingDirection > 0 ? -1 : 1;
@@ -258,7 +258,7 @@ public class BossBehavior : MovementControler
                 IsBlocked = false;
             }
         }
-        if (!IsBlocked || canJumpOver)
+        if ((obsticle == null && !IsBlocked) || canJumpOver)
         {
             move = new Vector2(direction, move.y);
             return true;
@@ -281,8 +281,5 @@ public class BossBehavior : MovementControler
                 collision.rigidbody.AddForce(new Vector2(runningAttackDir * 3000f, 0));
             }
         }
-    }
-    new void OnCollisionExit2D(Collision2D collision)
-    {
     }
 }

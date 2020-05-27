@@ -434,6 +434,7 @@ public abstract class MovementControler : MonoBehaviour
                 return;
             }
         }
+        if (collision.collider.CompareTag("Player") || collision.collider.CompareTag("NPC") || collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Bullet")) return;
         foreach (ContactPoint2D contact in collision.contacts)
         {
             if (contact.normal.y > minGroungNormalY)
@@ -442,13 +443,10 @@ public abstract class MovementControler : MonoBehaviour
                 ground = true;
                 IsJumping = false;
             }
-            else if (!collision.collider.CompareTag("Player") && !collision.collider.CompareTag("NPC"))
+            else
             {
                 IsBlocked = true;
                 obsticle = collision.collider.transform;
-            }
-            else
-            {
                 slideSpeedX = 0;
             }
             if (collision.collider.CompareTag("Player") && gameObject.CompareTag("NPC_Ignored"))
@@ -456,7 +454,6 @@ public abstract class MovementControler : MonoBehaviour
                 IsBlocked = false;
                 Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<Collider2D>());
             }
-
         }
     }
     private void CanHold()
@@ -489,6 +486,7 @@ public abstract class MovementControler : MonoBehaviour
                 return;
             }
         }
+        if (collision.collider.CompareTag("Player") || collision.collider.CompareTag("NPC") || collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Bullet")) return;
         foreach (ContactPoint2D contact in collision.contacts)
         {
             if(contact.normal.y < minSlopeNomal)
@@ -504,36 +502,29 @@ public abstract class MovementControler : MonoBehaviour
             {
                 IsBlocked = true;
                 obsticle = collision.collider.transform;
-                if (!collision.collider.CompareTag("Player") && !collision.collider.CompareTag("NPC") && !collision.collider.CompareTag("Enemy"))
+                float obsticleHeight = 0;
+                float height = 0;
+                float colCordY = 0;
+                if (obsticle.TryGetComponent(out Collider2D obsticleCollider))
                 {
-                    float obsticleHeight = 0;
-                    float height = 0;
-                    float colCordY = 0;
-                    if (obsticle.TryGetComponent(out Collider2D obsticleCollider))
+                    obsticleHeight = obsticleCollider.bounds.size.y;
+                    colCordY = obsticleCollider.bounds.center.y + obsticleHeight / 2;
+                    if(obsticleCollider is BoxCollider2D)
                     {
-                        obsticleHeight = obsticleCollider.bounds.size.y;
-                        colCordY = obsticleCollider.bounds.center.y + obsticleHeight / 2;
-                        if(obsticleCollider is BoxCollider2D)
-                        {
-                            colCordY += ((BoxCollider2D)obsticleCollider).edgeRadius;
-                        }
+                        colCordY += ((BoxCollider2D)obsticleCollider).edgeRadius;
                     }
-                    if (TryGetComponent(out Collider2D collider))
-                    {
-                        height = boxCollider.bounds.size.y;
-                    }
-                    float cordY = boxCollider.bounds.center.y - height / 2 - boxCollider.edgeRadius + height / 1.5f;
-                    LayerMask mask = ~LayerMask.GetMask("Enemy");
-                    RaycastHit2D hit = Physics2D.Raycast(new Vector2(boxCollider.bounds.center.x, cordY), new Vector2(facingDirection, 0), boxCollider.bounds.size.x, mask);
-                    Debug.DrawRay(new Vector2(boxCollider.bounds.center.x, cordY), new Vector2(facingDirection, 0)* boxCollider.bounds.size.x, Color.red);
-                    if (!hit)
-                    {
-                        canJumpOver = true;
-                    }
-                    else
-                    {
-                        canJumpOver = false;
-                    }
+                }
+                if (TryGetComponent(out Collider2D collider))
+                {
+                    height = boxCollider.bounds.size.y;
+                }
+                float cordY = boxCollider.bounds.center.y - height / 2 - boxCollider.edgeRadius + height / 1.5f;
+                LayerMask mask = ~LayerMask.GetMask("Enemy");
+                RaycastHit2D hit = Physics2D.Raycast(new Vector2(boxCollider.bounds.center.x, cordY), new Vector2(facingDirection, 0), boxCollider.bounds.size.x, mask);
+                Debug.DrawRay(new Vector2(boxCollider.bounds.center.x, cordY), new Vector2(facingDirection, 0)* boxCollider.bounds.size.x, Color.red);
+                if (!hit)
+                {
+                    canJumpOver = true;
                 }
                 else
                 {

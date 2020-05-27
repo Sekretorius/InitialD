@@ -35,7 +35,7 @@ public class EnemyMovement : MovementControler
 
     public void SetTarget()
     {
-        if (targetTransform != null)
+        if (targetTransform != null && !chasePlayer)
         {
             target = targetTransform;
             isFollowing = true;
@@ -63,7 +63,7 @@ public class EnemyMovement : MovementControler
             }
             if ((isFollowing || chasePlayer) && target != null)  // sekimas taikinio
             {
-                if (!(Vector2.Distance(transform.position, target.position) >= minDistance))
+                if (Vector2.Distance(transform.position, target.position) < minDistance)
                 {
                     isNear = true;
                 }
@@ -98,7 +98,7 @@ public class EnemyMovement : MovementControler
     protected override void ComputeAnimation()
     {
         Turn(move.x);
-        if (isFollowing)
+        if (isFollowing || chasePlayer)
         {
             anim.SetBool("IsHoldingGun", true);
         }
@@ -155,7 +155,7 @@ public class EnemyMovement : MovementControler
         {
             direction = 0;
         }
-        if (IsBlocked && obsticle != null && !canJumpOver)
+        if (obsticle != null && IsBlocked && !canJumpOver)
         {
             float blockingDirection = transform.position.x - obsticle.position.x;
             float directionCantMove = blockingDirection > 0 ? -1 : 1;
@@ -164,7 +164,7 @@ public class EnemyMovement : MovementControler
                 IsBlocked = false;
             }
         }
-        if (!IsBlocked || canJumpOver)
+        if ((obsticle == null && !IsBlocked) || canJumpOver)
         {
             move = new Vector2(direction, move.y);
             return true;
