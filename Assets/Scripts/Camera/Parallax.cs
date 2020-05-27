@@ -28,6 +28,6 @@ public class Parallax : MonoBehaviour
 
     public void ReloadParallax()
     {
-        startpos = cam.transform.position.x * parallaxEffect;
+        startpos = 0;
     }
 }
