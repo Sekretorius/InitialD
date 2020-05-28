@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/AssetShowroom.unity
     guid: e45dcdd09d109fe4186a34d5df2d475e
   - enabled: 0
-    path: Assets/Scenes/IgnasScene2.unity
+    path: Assets/Scenes/Factory_Exterior.unity
     guid: 389917af636f7874bb83b2fb77e4043f
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
