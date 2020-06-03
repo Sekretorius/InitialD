@@ -30,6 +30,8 @@ public class Cashable : Interactable
         {
             System.Add(cash);
             cashed = true;
+            if(!source)
+                source = GameObject.Find("Sound").GetComponent<AudioSource>();
             source.PlayOneShot(sound);
             StartCoroutine(FadeImageToZeroAlpha(fadeSpeed));
         }
