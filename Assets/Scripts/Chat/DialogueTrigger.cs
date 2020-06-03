@@ -31,6 +31,10 @@ public class DialogueTrigger : MonoBehaviour
         NPC = gameObject;
         FindObjectOfType<DialogueManager>().StartDialogue(reward, Player, NPC);
         gameObject.GetComponent<ShowUI>().Disappear();
+        if (mission)
+        {
+            Destroy(this);
+        }
     }
 
     public void OnInteraction()
