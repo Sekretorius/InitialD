@@ -6064,6 +6064,7 @@ GameObject:
   - component: {fileID: 914890265}
   - component: {fileID: 914890263}
   - component: {fileID: 914890264}
+  - component: {fileID: 914890266}
   m_Layer: 0
   m_Name: PlayerStats
   m_TagString: Untagged
@@ -6116,6 +6117,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &914890266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914890262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2399464dc60a5534080ab9f388e6ba7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &939208126
 GameObject:
   m_ObjectHideFlags: 0
@@ -8432,6 +8445,7 @@ GameObject:
   - component: {fileID: 1466366381}
   - component: {fileID: 1466366380}
   - component: {fileID: 1466366379}
+  - component: {fileID: 1466366382}
   m_Layer: 5
   m_Name: Canvas_Chat
   m_TagString: Untagged
@@ -8522,6 +8536,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 3
   m_TargetDisplay: 0
+--- !u!114 &1466366382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466366377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2399464dc60a5534080ab9f388e6ba7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1470379359 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4864534585991057461, guid: cbeead5f547fc87448bcbe4ddc5f3011,
