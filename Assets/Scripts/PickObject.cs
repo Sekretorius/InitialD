@@ -30,6 +30,7 @@ public class PickObject : Interactable
     private bool collidedHorizontaly = false;
     private bool isBellow = false;
     private bool isBlocked = false;
+    private bool StartThrowing = false;
 
     protected new void Start()
     {
@@ -56,16 +57,10 @@ public class PickObject : Interactable
             interactibleCollider = interactingObject.GetComponent<BoxCollider2D>();
             if (isBeingCarried)
             {
-                if (Input.GetKeyDown(KeyCode.Joystick1Button2) || !Input.GetKey(KeyCode.LeftShift))
+                if (!Input.GetKey(KeyCode.LeftShift))
                 {
                     Dismount();
-                    
-                    ThrowDirection = playerControler.facingDirection;
-                    ignoreWithTag = interactingObject.gameObject.tag;
-                    additionalForce += interactingObject.GetComponent<Rigidbody2D>().velocity.x;
-                    Vector2 targetVelocity = new Vector2(rgbd.velocity.x, throwUpSpeed);
-                    rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, .05f);
-                    rgbd.AddTorque(spiningForce * -playerControler.facingDirection);
+                    StartThrowing = true;
                 }
                 else
                 {
@@ -97,6 +92,21 @@ public class PickObject : Interactable
                 }
             }
         }
+        ground = false;
+    }
+    protected override void OnEventFixed()
+    {
+        base.OnEventFixed();
+        if (StartThrowing)
+        {
+            ThrowDirection = playerControler.facingDirection;
+            ignoreWithTag = interactingObject.gameObject.tag;
+            additionalForce += interactingObject.GetComponent<Rigidbody2D>().velocity.x;
+            Vector2 targetVelocity = new Vector2(rgbd.velocity.x, throwUpSpeed);
+            rgbd.velocity = Vector3.SmoothDamp(rgbd.velocity, targetVelocity, ref velocity, .05f);
+            rgbd.AddTorque(spiningForce * -playerControler.facingDirection);
+            StartThrowing = false;
+        }
         if (isThrowing && !ground)
         {
             Throw();
@@ -110,8 +120,8 @@ public class PickObject : Interactable
         {
             rgbd.velocity += Physics2D.gravity * 6 * Time.fixedDeltaTime;
         }
-        ground = false;
     }
+
     public static bool CheckCeiling(Collider2D fromObject, GameObject objectToCheck, Vector2 colliderDimensions, float offset)
     {
         float objectDeltaY = fromObject.transform.position.y + fromObject.bounds.size.y / 2;

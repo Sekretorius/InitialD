@@ -12,9 +12,13 @@ public class Interactable : MonoBehaviour
         interactingObject = null;
         IsInteractable = false;
     }
-    protected void FixedUpdate()
+    protected void Update()
     {
         OnEvent();
+    }
+    protected void FixedUpdate()
+    {
+        OnEventFixed();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -51,7 +55,10 @@ public class Interactable : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().color = Color.green;
 
     }
+    protected virtual void OnEventFixed()
+    {
 
+    }
     public void SetFalse()
     {
         IsInteractable = false;

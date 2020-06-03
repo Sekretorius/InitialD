@@ -35,7 +35,7 @@ public class SceneLoader : MonoBehaviour
                 IsChangingScene = true;
                 SceneManager.sceneLoaded += OnSceneLoaded;
             }
-            else if(controler.done && change && !currentScene.name.Equals(sceneToLoad))
+            else if(controler.done && change)
             {
                 ChangeScene(sceneToLoad);
             }
