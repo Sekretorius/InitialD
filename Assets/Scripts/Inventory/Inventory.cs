@@ -68,6 +68,8 @@ public class Inventory : MonoBehaviour
         }
     }
 
+
+
     void UpdateGun()
     {
         if(items.Count==0)
@@ -115,6 +117,30 @@ public class Inventory : MonoBehaviour
         }
         return false;
     }
+
+    public int Exists(string str)
+    {
+        for (int j = 0; j < itemSlots.Length; j++)
+        {
+           if(itemSlots[j].Item.Name == str);
+            return j;
+        }
+        return -1;
+    }
+
+
+    public bool Remove(int item)
+    {
+        if (itemSlots[item].Item != null)
+        {
+            items.Remove(itemSlots[item].Item);
+            RefreshUI();
+            UpdateGun();
+            return true;
+        }
+        return false;
+    }
+
 
     public bool Remove()
     {
