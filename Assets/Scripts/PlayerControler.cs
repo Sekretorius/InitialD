@@ -8,8 +8,16 @@ public class PlayerControler : MovementControler
     private bool IsShooting = false;
     private bool IsHoldingGun = false;
     private GameObject saveManager;
+    [Space]
+    [Header("Sounds")]
+    [SerializeField] AudioSource Sound;
+    public AudioClip Shot;
+    public AudioClip Footstep;
+    public AudioClip Jump;
+
     new void Start()
     {
+        Sound = GameObject.Find("Sound").GetComponent<AudioSource>();
         base.Start();
         canCrawlSlide = true;
     }
@@ -135,6 +143,7 @@ public class PlayerControler : MovementControler
         {
             anim.SetBool("IsShooting", true);
             IsShooting = true;
+            Sound.PlayOneShot(Shot);
             return true;
         }
         return false;

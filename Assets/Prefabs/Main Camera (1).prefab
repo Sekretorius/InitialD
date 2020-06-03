@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41994f7f3a998cf4c8266014bddf818a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  length: 0
+  startpos: 0
   cam: {fileID: 1718130503732685754}
   parallaxEffect: 0.5
 --- !u!1 &1718130503732685754
@@ -58,6 +60,7 @@ GameObject:
   - component: {fileID: 1718130503732685753}
   - component: {fileID: 1718130503732685752}
   - component: {fileID: 1718130503732685755}
+  - component: {fileID: 1867988443795055127}
   m_Layer: 0
   m_Name: Main Camera (1)
   m_TagString: MainCamera
@@ -139,6 +142,14 @@ MonoBehaviour:
   zoomSize: 10
   player: {fileID: 0}
   zoomSpeed: 40
+--- !u!81 &1867988443795055127
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718130503732685754}
+  m_Enabled: 1
 --- !u!1 &3610161347726339635
 GameObject:
   m_ObjectHideFlags: 0

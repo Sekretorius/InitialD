@@ -207,6 +207,10 @@ MonoBehaviour:
   IsClimbing: 0
   IsOnTopOfLadder: 0
   isHiden: 0
+  Sound: {fileID: 0}
+  Shot: {fileID: 8300000, guid: 3ad0fc2aea694124c925d8e98a4640e4, type: 3}
+  Footstep: {fileID: 0}
+  Jump: {fileID: 0}
 --- !u!212 &2367362022330013735
 SpriteRenderer:
   m_ObjectHideFlags: 0
