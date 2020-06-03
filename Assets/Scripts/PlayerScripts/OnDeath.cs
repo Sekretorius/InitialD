@@ -12,6 +12,7 @@ public class OnDeath : MonoBehaviour
     private GameObject deathCanvas;
     private GameObject Canvas;
     private GameObject GameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +25,30 @@ public class OnDeath : MonoBehaviour
         health.OnDeath += OnPlayerDeath;
         deathCanvas.SetActive(false);
         GameManager = GameObject.Find("GameManager");
+
     }
 
     private void OnPlayerDeath(object sender, System.EventArgs e)
     {
         deathCanvas.SetActive(true);
         Canvas.SetActive(false);
+        StartCoroutine(ExampleCoroutine());
+
+    }
+
+    public void NormalSpeed()
+    {
+        Time.timeScale = 1;
+    }
+
+    IEnumerator ExampleCoroutine()
+    {
+
+        for (int i = 0; i < 50; i++)
+        {
+            Time.timeScale = 1 - i * 0.02f;
+            yield return new WaitForSeconds(0.01f);           
+        }
     }
 
     public void ReloadScene()
@@ -38,6 +57,7 @@ public class OnDeath : MonoBehaviour
         if (GameManager.TryGetComponent(out SceneLoader loader))
         {
             loader.SetNewScene(SceneManager.GetActiveScene().name, "ChangeScene");
+            health.SetHearts(5);
         }
     }
 }

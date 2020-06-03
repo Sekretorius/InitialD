@@ -63,7 +63,14 @@ public class SceneLoader : MonoBehaviour
                     controler.CreatePlayer();
                 }
             }
-            if (changeState == "ChangeScene")
+            if (changeState == "ChangeScene" && GameObject.Find("Check").activeInHierarchy)
+            {
+                Transform pos = GameObject.Find("Check").transform;
+                pos.position = new Vector3(pos.position.x,pos.position.y,pos.position.z);
+                playerControler.SetPosition(pos.position);
+                GameObject.Find("Check").SetActive(false);
+            }
+            else if (changeState == "ChangeScene")
             {
                 Transform pos = GameObject.FindGameObjectWithTag("Spawn").transform;
                 playerControler.SetPosition(pos.position);
