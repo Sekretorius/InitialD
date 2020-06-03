@@ -12,7 +12,7 @@ public class KillerBean : MonoBehaviour
     private void Start()
     {
         chalice = GameObject.Find("ConsumeTheChalice");
-        source = GameObject.Find("Music").GetComponent<AudioSource>();
+        source = GameObject.Find("Sound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
