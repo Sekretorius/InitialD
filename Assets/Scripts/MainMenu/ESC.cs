@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ESC : MonoBehaviour
 {
-    public bool active;
+    private bool active;
     private GameObject canvas;
     private GameObject canvas_disable;
     private bool EscState = false;
@@ -21,6 +21,11 @@ public class ESC : MonoBehaviour
         UIState = true;
     }
 
+    public void changeState(bool escSt, bool UISt)
+    {
+        EscState = escSt;
+        UIState = UISt;
+    }
     void Update()
     {
         OnEvent();
@@ -68,7 +73,9 @@ public class ESC : MonoBehaviour
         Time.timeScale = 1;
         canvas.SetActive(false);
         canvas_disable.SetActive(true);
-        active = false;
+        active = false
+        EscState = false;
+        UIState = true;
     }
 
     public void Exit()

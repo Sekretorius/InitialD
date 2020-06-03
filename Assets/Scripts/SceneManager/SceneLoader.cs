@@ -87,5 +87,10 @@ public class SceneLoader : MonoBehaviour
         {
             faderControler.IsFadingOut = true;
         }
+        GameObject eventSystem = GameObject.Find("EventSystem");
+        if(eventSystem != null && eventSystem.TryGetComponent(out ESC esc))
+        {
+            esc.changeState(false, true);
+        }
     }
 }
