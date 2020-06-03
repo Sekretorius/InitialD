@@ -64,10 +64,10 @@ public class SceneLoader : MonoBehaviour
                 }
             }
             GameObject checkPoint = GameObject.Find("Check");
-            if (changeState == "ChangeScene" && checkPoint != null && checkPoint.activeInHierarchy)
+            if (changeState == "ToCheckPoint" && checkPoint != null && checkPoint.activeInHierarchy)
             {
                 Transform pos = checkPoint.transform;
-                pos.position = new Vector3(pos.position.x,pos.position.y,pos.position.z);
+                pos.position = new Vector3(pos.position.x,pos.position.y,0);
                 playerControler.SetPosition(pos.position);
                 GameObject.Find("Check").SetActive(false);
             }
