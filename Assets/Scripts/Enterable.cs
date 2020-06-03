@@ -25,13 +25,13 @@ public class Enterable : Interactable
         fade = false;
         fadeOut = false;
     }
-    new void Update()
+    new void FixedUpdate()
     {
         if(Player == null)
         {
             Player = GameObject.FindGameObjectWithTag("Player");
         }
-        base.Update();
+        base.FixedUpdate();
     }
 
     protected override void OnEvent()

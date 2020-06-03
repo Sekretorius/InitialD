@@ -9,8 +9,8 @@ public class Player : MonoBehaviour
     public float speed;
     public float jumpSpeed;
     public GameObject player;
-    public static Player control;
 
+    public static Player control;
     void Awake()
     {
         if (control == null)

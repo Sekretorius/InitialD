@@ -56,7 +56,7 @@ public class LoadScreenManager : MonoBehaviour
     {
         if (TryGetComponent(out SceneLoader loader))
         {
-            loader.SetNewScene(mainMenu, "LoadMenu");
+            loader.SetNewScene(mainMenu, "ChangeScene");
         }
     }
 }

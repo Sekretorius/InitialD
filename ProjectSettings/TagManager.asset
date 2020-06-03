@@ -16,6 +16,7 @@ TagManager:
   - Escape
   - UI
   - Spawn
+  - Bullet
   layers:
   - Default
   - TransparentFX

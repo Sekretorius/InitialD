@@ -6,6 +6,7 @@ public class Chatable : Interactable
 {
     private DialogueManager manager;
     private StoryLineManager storyManager;
+    public GameObject parent;
     protected new void Start()
     {
         base.Start();
@@ -14,6 +15,18 @@ public class Chatable : Interactable
     }
     protected override void OnEvent()
     {
+        if (parent != null && parent.TryGetComponent(out npcMovement movement))
+        {
+            if (IsInteractable && Input.GetButtonDown("Chat"))
+            {
+                Debug.Log("Talk");
+                movement.Talk(true);
+            }
+            if (!IsInteractable)
+            {
+                movement.Talk(false);
+            }
+        }
         if (IsInteractable && manager.Chat == false && storyManager.onMission && storyManager.@case.completed && storyManager.@case.IsTouchingNPC() && storyManager.@case.Accepted == false)
         {
             storyManager.@case.GiveRewards();

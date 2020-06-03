@@ -7,7 +7,7 @@ public class npcMovement : MovementControler
 {
     public float right;
     public float left;
-
+    private bool IsTalking = false;
     private float timer;
     private float x;
 
@@ -27,6 +27,34 @@ public class npcMovement : MovementControler
     protected override void ComputeAnimation()
     {
         Turn(x);
+        try
+        {
+            if (move.x != 0 && !IsTalking)
+            {
+                anim.SetBool("IsWalking", true);
+            }
+            else
+            {
+                anim.SetBool("IsWalking", false);
+            }
+            if (IsTalking)
+            {
+                anim.SetBool("IsIdleFront", true);
+            }
+            else
+            {
+                anim.SetBool("IsIdleFront", false);
+            }
+        }
+        catch
+        {
+
+        }
+    }
+    public void Talk(bool state)
+    {
+        IsTalking = state;
+        nullifiedImput = state;
     }
     void Idle()
     {
