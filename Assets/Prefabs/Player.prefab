@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 2367362022330013735}
   - component: {fileID: 2367362022330013734}
   - component: {fileID: 161297260551602212}
+  - component: {fileID: 5999292367490098875}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -199,6 +200,7 @@ MonoBehaviour:
   minSlideSpeed: 5
   slideDragForce: 15
   facingDirection: 0
+  canJumpOver: 0
   IsCrawling: 0
   isHolding: 0
   canCarrie: 1
@@ -297,6 +299,19 @@ MonoBehaviour:
   speed: 0
   jumpSpeed: 0
   player: {fileID: 0}
+--- !u!114 &5999292367490098875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2367362022330013743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c5da84abd9e2a4881bdcd59debc5bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Footstep: []
 --- !u!1 &5901176396959525593
 GameObject:
   m_ObjectHideFlags: 0
