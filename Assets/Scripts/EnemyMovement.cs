@@ -23,10 +23,14 @@ public class EnemyMovement : MovementControler
     private bool chasePlayer = false;
     public GameObject bulletPrefab;
 
-
+    [SerializeField] AudioClip Sound;
+    [SerializeField] AudioSource Source;
     new void Start()
     {
+
         base.Start();
+        Sound = (AudioClip)Resources.Load("EnemyGun");
+        Source = GameObject.Find("Sound").GetComponent<AudioSource>();
         rightBorder = transform.position.x + rightBorder;
         leftBorder = transform.position.x - leftBorder;
         moveTimer = time;
@@ -83,6 +87,7 @@ public class EnemyMovement : MovementControler
                         firePoint = transform.Find("ShootPointLeft");
                     }
                     Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                    Source.PlayOneShot(Sound);
                 }                  
             }
             if (IsBlocked && canJumpOver) // kliūties peršokimas
