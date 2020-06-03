@@ -7,7 +7,8 @@ public class Cashable : Interactable
     public int cash;
     public float fadeSpeed;
     public MoneySystem System;
-
+    [SerializeField] AudioClip sound;
+    AudioSource source;
     private bool cashed;
 
     private void OnValidate()
@@ -16,12 +17,20 @@ public class Cashable : Interactable
         cashed = false;
     }
 
+    private void Start()
+    {
+        source = GameObject.Find("Sound").GetComponent<AudioSource>();
+        sound = (AudioClip)Resources.Load("Cash");
+
+    }
+
     protected override void OnEvent()
     {
         if (IsInteractable && cashed == false)
         {
             System.Add(cash);
             cashed = true;
+            source.PlayOneShot(sound);
             StartCoroutine(FadeImageToZeroAlpha(fadeSpeed));
         }
     }

@@ -12,12 +12,16 @@ public class Vendingable : Interactable
     private HealthSystem HSystem;
     private Text text;
 
+    [SerializeField] AudioClip sound;
+    AudioSource source;
 
     protected void Start()
     {
         MSystem = FindObjectOfType<MoneySystem>();
         HSystem = GameObject.Find("PlayerStats").GetComponent<HealthSystem>();
         text = GetComponentInChildren<Canvas>().GetComponentInChildren<Text>();
+        source = GameObject.Find("Sound").GetComponent<AudioSource>();
+        sound = (AudioClip)Resources.Load("Vending");
     }
 
     protected override void OnEvent()
@@ -31,6 +35,7 @@ public class Vendingable : Interactable
             else if(!HSystem.IsFullHealth())
             {
                 uses--;
+                source.PlayOneShot(sound);
                 MSystem.Add(cost);
                 HSystem.Heal(2);
                 // Health increase logic
