@@ -19,7 +19,7 @@ public class EnemyMovement : MovementControler
 
     private float turnTimer;
     private float moveTimer;
-    private float moveDirection;
+    public float moveDirection;
     private bool chasePlayer = false;
     public GameObject bulletPrefab;
 
@@ -85,7 +85,7 @@ public class EnemyMovement : MovementControler
                     Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
                 }                  
             }
-            if (IsBlocked && obsticle != null && canJumpOver) // kliūties peršokimas
+            if (IsBlocked && canJumpOver) // kliūties peršokimas
             {
                 jump = true;
             }
@@ -151,20 +151,15 @@ public class EnemyMovement : MovementControler
     {
         float diff = transform.position.x - target.x;
         float direction = diff > 0 ? -1 : 1;
-        if (diff <= 0.2f && diff >= -0.2f)
+        if (diff == 0)
         {
             direction = 0;
         }
-        if (obsticle != null && IsBlocked && !canJumpOver)
+        else
         {
-            float blockingDirection = transform.position.x - obsticle.position.x;
-            float directionCantMove = blockingDirection > 0 ? -1 : 1;
-            if(directionCantMove != direction)
-            {
-                IsBlocked = false;
-            }
+            IsBlocked = CheckFront(direction);
         }
-        if ((obsticle == null && !IsBlocked) || canJumpOver)
+        if (!IsBlocked || canJumpOver)
         {
             move = new Vector2(direction, move.y);
             return true;

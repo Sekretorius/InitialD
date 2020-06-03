@@ -33,7 +33,7 @@ public abstract class MovementControler : MonoBehaviour
     protected bool IsBlocked = false;
     protected bool hasCollided = false;
     protected Transform obsticle = null;
-    protected bool canJumpOver = false;
+    public bool canJumpOver = false;
     
     protected bool IsSliding = false;
     protected bool IsJumping = false;
@@ -445,14 +445,7 @@ public abstract class MovementControler : MonoBehaviour
             }
             else
             {
-                IsBlocked = true;
-                obsticle = collision.collider.transform;
                 slideSpeedX = 0;
-            }
-            if (collision.collider.CompareTag("Player") && gameObject.CompareTag("NPC_Ignored"))
-            {
-                IsBlocked = false;
-                Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<Collider2D>());
             }
         }
     }
@@ -498,39 +491,6 @@ public abstract class MovementControler : MonoBehaviour
                 groundNormal = contact.normal;
                 ground = true;
             }
-            else
-            {
-                IsBlocked = true;
-                obsticle = collision.collider.transform;
-                float obsticleHeight = 0;
-                float height = 0;
-                float colCordY = 0;
-                if (obsticle.TryGetComponent(out Collider2D obsticleCollider))
-                {
-                    obsticleHeight = obsticleCollider.bounds.size.y;
-                    colCordY = obsticleCollider.bounds.center.y + obsticleHeight / 2;
-                    if(obsticleCollider is BoxCollider2D)
-                    {
-                        colCordY += ((BoxCollider2D)obsticleCollider).edgeRadius;
-                    }
-                }
-                if (TryGetComponent(out Collider2D collider))
-                {
-                    height = boxCollider.bounds.size.y;
-                }
-                float cordY = boxCollider.bounds.center.y - height / 2 - boxCollider.edgeRadius + height / 1.5f;
-                LayerMask mask = ~LayerMask.GetMask("Enemy");
-                RaycastHit2D hit = Physics2D.Raycast(new Vector2(boxCollider.bounds.center.x, cordY), new Vector2(facingDirection, 0), boxCollider.bounds.size.x, mask);
-                Debug.DrawRay(new Vector2(boxCollider.bounds.center.x, cordY), new Vector2(facingDirection, 0)* boxCollider.bounds.size.x, Color.red);
-                if (!hit)
-                {
-                    canJumpOver = true;
-                }
-                else
-                {
-                    canJumpOver = false;
-                }
-            }
         }
     }
     protected void OnCollisionExit2D(Collision2D collision)
@@ -545,8 +505,6 @@ public abstract class MovementControler : MonoBehaviour
         }
         groundNormal = Vector2.zero;
         ground = false;
-        IsBlocked = false;
-        obsticle = null;
         hasCollided = false;
     }
     public void Turn(float dir)
@@ -677,5 +635,41 @@ public abstract class MovementControler : MonoBehaviour
     {
         this.targetTransform = target;
         isChasing = chase;
+    }
+    public bool CheckFront(float direction)
+    {
+        RaycastHit2D[] resultsFromFront = new RaycastHit2D[15];
+        Vector2 currentColliderDimensions = boxCollider.bounds.size;
+        Vector2 castDirection = new Vector2(direction, 0);
+        boxCollider.Cast(castDirection, resultsFromFront, currentColliderDimensions.x * 2, true);
+        foreach (RaycastHit2D result in resultsFromFront)
+        {
+            if (result)
+            {
+                if (result.collider.gameObject != gameObject && result.normal.y <= minGroungNormalY)
+                {
+                    float deltaOffsetY = boxCollider.bounds.center.y + boxCollider.bounds.size.y / 2;
+                    Vector2 castOrigin = new Vector2(transform.position.x, deltaOffsetY);
+                    Vector2 fixedDimensions = new Vector2(colliderDimensions.x, colliderDimensions.x * 2f);
+                    RaycastHit2D[] resultsBoxCast = Physics2D.BoxCastAll(castOrigin, fixedDimensions, 0, castDirection, colliderDimensions.x * 4);
+                    foreach (RaycastHit2D resultBoxCast in resultsBoxCast)
+                    {
+                        if (resultBoxCast && resultBoxCast.collider.gameObject != gameObject)
+                        {
+                            obsticle = result.collider.transform;
+                            canJumpOver = false;
+                            break;
+                        }
+                        else
+                        {
+                            canJumpOver = true;
+                        }
+                    }
+                    obsticle = null;
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

@@ -41,12 +41,22 @@ public class SceneFader : MonoBehaviour
 
     public void FadeIn()
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null && player.TryGetComponent(out PlayerControler pControler))
+        {
+            pControler.FreezeMovement(false);
+        }
         done = false;
         StartCoroutine(FadeCanvasGroup(uiElement, uiElement.alpha, 1, fadeIn));
     }
 
     public void FadeOut()
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null && player.TryGetComponent(out PlayerControler pControler))
+        {
+            pControler.FreezeMovement(true);
+        }
         done = false;
         if (uiElement != null)
         {
