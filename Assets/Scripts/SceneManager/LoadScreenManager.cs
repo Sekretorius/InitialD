@@ -38,15 +38,15 @@ public class LoadScreenManager : MonoBehaviour
         if(player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
-            if(player != null)
+        }
+        if (player != null)
+        {
+            if (player.TryGetComponent(out Player saveControler))
             {
-                if(player.TryGetComponent(out Player saveControler))
-                {
-                    saveControler.SavePlayer();
-                }
+                saveControler.SavePlayer();
             }
         }
-        if(TryGetComponent(out Level levelSaveControler))
+        if (TryGetComponent(out Level levelSaveControler))
         {
             levelSaveControler.setLevel(SceneManager.GetActiveScene().name);
             levelSaveControler.SaveLevel();

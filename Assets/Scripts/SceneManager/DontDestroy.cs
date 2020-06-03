@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
-    public GameObject control;
+    public static DontDestroy control;
 
-    void Start()
+    void Awake()
     {
         if (control == null)
         {
             DontDestroyOnLoad(gameObject);
-            control = gameObject;
+            control = this;
         }
         else if (control != null)
         {
