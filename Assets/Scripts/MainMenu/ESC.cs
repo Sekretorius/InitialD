@@ -73,7 +73,7 @@ public class ESC : MonoBehaviour
         Time.timeScale = 1;
         canvas.SetActive(false);
         canvas_disable.SetActive(true);
-        active = false
+        active = false;
         EscState = false;
         UIState = true;
     }
