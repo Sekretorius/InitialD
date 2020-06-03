@@ -8,6 +8,7 @@ public class PlayerControler : MovementControler
     private bool IsShooting = false;
     private bool IsHoldingGun = false;
     private GameObject saveManager;
+    private float shootDirection = 0;
     [Space]
     [Header("Sounds")]
     [SerializeField] AudioSource Sound;
@@ -34,7 +35,7 @@ public class PlayerControler : MovementControler
     }
     protected override void ComputeMovement()
     {
-        if (canMove)
+        if (canMove && !anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot_1"))
         {
             move.x = Input.GetAxisRaw("Horizontal");
             move.y = Input.GetAxisRaw("Vertical");
@@ -127,6 +128,7 @@ public class PlayerControler : MovementControler
         {
             anim.SetBool("IsJumping", false);
         }
+ 
         if (IsShooting && anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot_1"))
         {
             IsShooting = false;
@@ -137,8 +139,9 @@ public class PlayerControler : MovementControler
     {
         IsHoldingGun = isHolding;
     }
-    public bool Shoot()
+    public bool Shoot(float dir)
     {
+        shootDirection = dir;
         if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Shoot_1") && !IsCrawling && !IsSliding && !isHolding)
         {
             anim.SetBool("IsShooting", true);
