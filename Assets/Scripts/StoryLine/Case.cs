@@ -48,6 +48,7 @@ public class Case : MonoBehaviour
             update[count] = new EndGoal(EndGoalText);
             Goals = update;
             Manager.ShowOnScreen();
+            Extra();
           //  Destroy(this);
         }
     }
@@ -75,6 +76,8 @@ public class Case : MonoBehaviour
     {
         Manager.dialogueManager.StartDialogue(BusySpeach, Manager.Player, NPC);
     }
+
+    public virtual void Extra() {}
 
     public virtual void GiveRewards() {
        // Manager.dialogueManager.StartDialogue(RewardSpeach, Manager.Player, NPC);
