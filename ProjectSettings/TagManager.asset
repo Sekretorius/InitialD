@@ -17,6 +17,7 @@ TagManager:
   - UI
   - Spawn
   - Bullet
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
