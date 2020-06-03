@@ -6,6 +6,7 @@ using UnityEngine;
 public class HealthSystem : MonoBehaviour
 {
     public event EventHandler OnChanged;
+    public event EventHandler OnDeath;
     public SpriteRenderer sprite;
 
 
@@ -56,8 +57,10 @@ public class HealthSystem : MonoBehaviour
 
         if (heartList[0].GetFragmentAmount() == 0)
         {
-            gameObject.SetActive(false);
-            Destroy(this);
+            //gameObject.SetActive(false);
+            OnChanged(this, EventArgs.Empty);
+            OnDeath(this, EventArgs.Empty);
+           // Destroy(this);
         }
         else
         { var ColorChanger = GetComponentInChildren<SpriteRenderer>();
