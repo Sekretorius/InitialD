@@ -7,7 +7,8 @@ public class Enterable : Interactable
 {
     private GameObject Player;
     public GameObject Location;
-    
+    [SerializeField] AudioClip Door;
+    [SerializeField] AudioSource Source;
     private UIFader Fade;
 
     private bool fade;
@@ -19,6 +20,8 @@ public class Enterable : Interactable
 
     protected new void Start()
     {
+        Door =(AudioClip) Resources.Load("Door");
+        Source = GameObject.Find("Sound").GetComponent<AudioSource>();
         base.Start();
         Fade = FindObjectOfType<UIFader>();
         position = new Vector3();
@@ -39,7 +42,11 @@ public class Enterable : Interactable
         if (Player != null)
         {
             if (IsInteractable && (Input.GetButtonDown("Interact")))
+            {
                 fade = true;
+                Source.PlayOneShot(Door);
+
+            }
             StartFade(); // fading animation
         }
         else
