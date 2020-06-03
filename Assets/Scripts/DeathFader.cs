@@ -13,6 +13,7 @@ public class DeathFader : MonoBehaviour
     void Start()
     {
         done = false;
+
     }
 
     public void FadeIn()
