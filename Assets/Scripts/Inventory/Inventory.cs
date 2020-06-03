@@ -122,8 +122,12 @@ public class Inventory : MonoBehaviour
     {
         for (int j = 0; j < itemSlots.Length; j++)
         {
-           if(itemSlots[j].Item.Name == str);
-            return j;
+            if (itemSlots[j].Item != null)
+            {
+                if (itemSlots[j].Item.Name == str)
+                return j;
+            }
+
         }
         return -1;
     }
