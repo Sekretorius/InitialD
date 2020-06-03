@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
-    public static GameObject control;
+    public GameObject control;
 
     void Start()
     {
