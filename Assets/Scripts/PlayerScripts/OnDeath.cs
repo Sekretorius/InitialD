@@ -56,7 +56,7 @@ public class OnDeath : MonoBehaviour
         GameManager = GameObject.Find("GameManager");
         if (GameManager.TryGetComponent(out SceneLoader loader))
         {
-            loader.SetNewScene(SceneManager.GetActiveScene().name, "ChangeScene");
+            loader.SetNewScene(SceneManager.GetActiveScene().name, "ToCheckPoint");
             health.SetHearts(5);
         }
     }
