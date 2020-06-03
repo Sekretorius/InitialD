@@ -5,14 +5,19 @@ using UnityEngine;
 public class KillerBean : MonoBehaviour
 {
     public GameObject chalice;
-    [SerializeField] AudioSource source;
-    bool triggeredMusic=false;
+    [SerializeField] AudioSource soundsource;
+    [SerializeField] AudioSource musicsource;
+
+    bool triggeredMusic =false;
     public AudioClip Sound;
+    public AudioClip Music;
 
     private void Start()
     {
         chalice = GameObject.Find("ConsumeTheChalice");
-        source = GameObject.Find("Sound").GetComponent<AudioSource>();
+        soundsource = GameObject.Find("Sound").GetComponent<AudioSource>();
+        musicsource = GameObject.Find("Music").GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -24,9 +29,12 @@ public class KillerBean : MonoBehaviour
             this.transform.position = new Vector3(this.transform.position.x+0.01f, this.transform.position.y,this.transform.position.z);
             if(!triggeredMusic)
             {
-                source.Stop();
-                source.clip = Sound;
-                source.Play();
+                soundsource.Stop();
+                soundsource.clip = Sound;
+                soundsource.Play();
+                musicsource.Stop();
+                musicsource.clip = Music;
+                musicsource.Play();
                 triggeredMusic = true;
             }
         }     
