@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Feet : MonoBehaviour
 {
-    AudioClip[] Footstep;
+    [SerializeField]AudioClip[] Footstep;
     AudioSource source;
     // Start is called before the first frame update
     void Start()
     {
+        Footstep = new AudioClip[8];
         source = GameObject.Find("Sound").GetComponent<AudioSource>();
-        for(int i=0; i<8; i++)
+        for (int i = 0; i < 8; i++)
         {
             Footstep[i] = (AudioClip)Resources.Load("Footsteps/" + i);
         }

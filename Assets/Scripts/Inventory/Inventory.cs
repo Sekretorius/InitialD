@@ -72,15 +72,15 @@ public class Inventory : MonoBehaviour
 
     void UpdateGun()
     {
-        if(items.Count==0)
-            Destroy(GameObject.Find("GunTemplate(Clone)"));
-
-
         for (int i = 1; i <= items.Count; i++)
         {
             if (itemSlots[i - 1].Item.Tag == "Gun" && i != selection)
             {
                 Destroy(GameObject.Find("GunTemplate(Clone)"));
+                if(Player == null)
+                {
+                    Player = GameObject.FindGameObjectWithTag("Player");
+                }
                 if (Player.TryGetComponent(out PlayerControler controler))
                 {
                     controler.HoldingGun(false);
