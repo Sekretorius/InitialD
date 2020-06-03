@@ -13,13 +13,16 @@ public class Feet : MonoBehaviour
         source = GameObject.Find("Sound").GetComponent<AudioSource>();
         for (int i = 0; i < 8; i++)
         {
-            Footstep[i] = (AudioClip)Resources.Load("Footsteps2/" + i);
+            Footstep[i] = (AudioClip)Resources.Load("Footsteps3/" + i);
         }
     }
 
     public void PlayFoot()
     {
-       source.PlayOneShot(Footstep[Random.Range(0, 7)]);
+        if(!source)
+            source = GameObject.Find("Sound").GetComponent<AudioSource>();
+
+        source.PlayOneShot(Footstep[Random.Range(0, 7)]);
     }
 
 }

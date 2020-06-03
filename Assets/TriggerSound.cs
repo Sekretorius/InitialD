@@ -5,6 +5,7 @@ using UnityEngine;
 public class TriggerSound : MonoBehaviour
 {
     public bool Music;
+    public bool Loop;
     [Space]
     [SerializeField] AudioSource source;
     public AudioClip Sound;
@@ -25,6 +26,7 @@ public class TriggerSound : MonoBehaviour
         if (!source.isPlaying)
         {
             source.clip=Sound;
+            source.loop = Loop;
             source.Play();
         }
         

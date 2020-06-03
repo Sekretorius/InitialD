@@ -146,6 +146,8 @@ public class PlayerControler : MovementControler
         {
             anim.SetBool("IsShooting", true);
             IsShooting = true;
+            if (!Sound)
+                Sound = GameObject.Find("Sound").GetComponent<AudioSource>();
             Sound.PlayOneShot(Shot);
             return true;
         }
