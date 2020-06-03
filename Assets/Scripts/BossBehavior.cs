@@ -18,14 +18,14 @@ public class BossBehavior : MovementControler
     private float minDistance = 2f;
     private float attackTimmer = 0;
     private float atRunningTimer = 0;
-    private Vector2 rangeOfAttackTime = new Vector2(3, 10);
+    public Vector2 rangeOfAttackTime = new Vector2(2, 4);
     public float time = 5f;
     public float rightBorder = 2f;
     public float leftBorder = 2f;
 
     private float turnTimer;
     private float moveTimer;
-    private float moveDirection;
+    public float moveDirection;
     private bool chasePlayer = false;
 
     new void Start()
@@ -78,7 +78,7 @@ public class BossBehavior : MovementControler
                     MoveTowardsTarget(target.position);
                 }
             }
-            if (IsBlocked && obsticle != null && canJumpOver) // kliūties peršokimas
+            if (IsBlocked && canJumpOver && !isAttacking) // kliūties peršokimas
             {
                 jump = true;
             }
@@ -149,9 +149,9 @@ public class BossBehavior : MovementControler
     }
     private void RunningAttack (int direction)
     {
-        if (obsticle != null && IsBlocked)
+        if (IsBlocked)
         {
-            if (!obsticle.tag.Equals("Player") && !obsticle.tag.Equals("Enemy") && !obsticle.tag.Equals("NPC"))
+            if (obsticle != null && !obsticle.tag.Equals("Player") && !obsticle.tag.Equals("Enemy") && !obsticle.tag.Equals("NPC"))
             {
                 atRunningTimer = 0;
             }
@@ -245,20 +245,15 @@ public class BossBehavior : MovementControler
     {
         float diff = transform.position.x - target.x;
         float direction = diff > 0 ? -1 : 1;
-        if (diff <= 0.2f && diff >= -0.2f)
+        if(diff == 0)
         {
             direction = 0;
         }
-        if (obsticle != null && IsBlocked && !canJumpOver)
+        else
         {
-            float blockingDirection = transform.position.x - obsticle.position.x;
-            float directionCantMove = blockingDirection > 0 ? -1 : 1;
-            if (directionCantMove != direction)
-            {
-                IsBlocked = false;
-            }
+            IsBlocked = CheckFront(direction);
         }
-        if ((obsticle == null && !IsBlocked) || canJumpOver)
+        if (!IsBlocked || canJumpOver)
         {
             move = new Vector2(direction, move.y);
             return true;

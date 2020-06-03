@@ -15,19 +15,30 @@ public class FieldOfView : MonoBehaviour
     private bool nearTarget = false;
     private Transform target;
     private float viewDirection = 1;
+    public float chaseTime = 5f;
+    private float chaseTimer;
 
     private void Start()
     {
         movement = GetComponentInParent<MovementControler>();
         layerMask = ~LayerMask.GetMask("NPC", "Enemy");
+        chaseTimer = chaseTime;
     }
     void FixedUpdate()
     {
         if (target != null)
         {
             if (Vector3.Distance(transform.position, target.position) > minDistance)
-            {   
-                movement.SetTarget(null, false);
+            {
+                if (chaseTimer > 0)
+                {
+                    chaseTimer -= Time.fixedDeltaTime;
+                }
+                else
+                {
+                    movement.SetTarget(null, false);
+                    chaseTimer = chaseTime;
+                }
             }
         }
         for (int i = 0; i < rayCount; i++)
@@ -53,6 +64,7 @@ public class FieldOfView : MonoBehaviour
                             {
                                 target = hit.collider.gameObject.transform;
                                 movement.SetTarget(target, false);
+                                chaseTimer = chaseTime;
                             }
                         }
                     }
