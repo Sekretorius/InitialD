@@ -34,7 +34,6 @@ public class LoadScreenManager : MonoBehaviour
     }
     public void OnSceneSave()
     {
-        Debug.Log("Saving");
         if(player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");

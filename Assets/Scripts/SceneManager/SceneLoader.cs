@@ -53,7 +53,6 @@ public class SceneLoader : MonoBehaviour
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        
         if (TryGetComponent(out PlayerManager playerControler))
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");

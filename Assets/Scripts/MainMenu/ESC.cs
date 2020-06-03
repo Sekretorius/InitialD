@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ESC : MonoBehaviour
 {
     public bool active;
     private GameObject canvas;
     private GameObject canvas_disable;
+    private bool EscState = false;
+    private bool UIState = false;
 
     private void Start()
     {
@@ -14,19 +17,35 @@ public class ESC : MonoBehaviour
         canvas = GameObject.FindWithTag("Escape");
         canvas_disable = GameObject.FindWithTag("UI");
         canvas.SetActive(false);
+        EscState = false;
+        UIState = true;
     }
 
     void Update()
     {
         OnEvent();
     }
-
     private void OnEvent()
     {
+        if (SceneManager.GetActiveScene().name.Equals("MainMenuTemp"))
+        {
+            EscState = false;
+            UIState = false;
+        }
+        if (canvas.activeInHierarchy != EscState)
+        {
+            canvas.SetActive(EscState);
+        }
+        if (canvas_disable.activeInHierarchy != UIState)
+        {
+            canvas_disable.SetActive(UIState);
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (active)
             {
+                EscState = false;
+                UIState = true;
                 Time.timeScale = 1;
                 canvas.SetActive(false);
                 canvas_disable.SetActive(true);
@@ -34,6 +53,8 @@ public class ESC : MonoBehaviour
             }
             else
             {
+                UIState = false;
+                EscState = true;
                 Time.timeScale = 0;
                 canvas_disable.SetActive(false);
                 canvas.SetActive(true);
