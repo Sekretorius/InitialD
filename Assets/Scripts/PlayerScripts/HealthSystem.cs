@@ -58,8 +58,13 @@ public class HealthSystem : MonoBehaviour
         if (heartList[0].GetFragmentAmount() == 0)
         {
             //gameObject.SetActive(false);
-            OnChanged(this, EventArgs.Empty);
-            OnDeath(this, EventArgs.Empty);
+            if (gameObject.tag.Equals("Enemy"))
+                Destroy(gameObject);
+            else
+            {
+                OnChanged(this, EventArgs.Empty);
+                OnDeath(this, EventArgs.Empty);
+            }
            // Destroy(this);
         }
         else
