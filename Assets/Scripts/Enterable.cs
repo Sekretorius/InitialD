@@ -11,6 +11,9 @@ public class Enterable : Interactable
     [SerializeField] AudioSource Source;
     private UIFader Fade;
 
+    public bool Locked;
+    public int fee;
+
     private bool fade;
     private bool fadeOut;
     public bool isEntering { get; private set; }
@@ -41,11 +44,19 @@ public class Enterable : Interactable
     {
         if (Player != null)
         {
-            if (IsInteractable && (Input.GetButtonDown("Interact")))
+            if (IsInteractable && (Input.GetButtonDown("Interact")) && Locked == false)
             {
                 fade = true;
                 Source.PlayOneShot(Door);
-
+            } else if (IsInteractable && (Input.GetButtonDown("Interact")) && Locked == true )
+            {
+                MoneySystem money = GameObject.Find("PlayerStats").GetComponent<MoneySystem>();
+                if (money.Cash >= fee)
+                {
+                    money.Add(-fee);
+                    fade = true;
+                    Source.PlayOneShot(Door);
+                }
             }
             StartFade(); // fading animation
         }

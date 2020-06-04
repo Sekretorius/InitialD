@@ -13,20 +13,44 @@ public class OnDeath : MonoBehaviour
     private GameObject Canvas;
     private GameObject GameManager;
 
+    bool active;
+
     // Start is called before the first frame update
     void Start()
     {
+        active = false;
         //health = GameObject.Find("PlayerStats")HealthSystem;
-        deathCanvas = GameObject.Find("Canvas_Death");
         //Canvas = GameObject.FindGameObjectWithTag("UI");
         Canvas = GameObject.Find("Canvas");
-        health = GetComponent<HealthSystem>();
-        fade = deathCanvas.GetComponentInChildren<DeathFader>();
+        health = GameObject.Find("PlayerStats").GetComponent<HealthSystem>();
         health.OnDeath += OnPlayerDeath;
-        deathCanvas.SetActive(false);
-        GameManager = GameObject.Find("GameManager");
+        //fade = deathCanvas.GetComponentInChildren<DeathFader>();
 
+        //deathCanvas = GameObject.Find("Canvas_Death");
+
+
+        //deathCanvas.SetActive(false);
+        GameManager = GameObject.Find("GameManager");
     }
+
+    private void FixedUpdate()
+    {
+        if (deathCanvas == null && !active)
+        {
+            deathCanvas = GameObject.FindGameObjectWithTag("Death");
+        }
+        else if(!active)
+        {
+            deathCanvas.SetActive(false);
+            active = true;
+        }
+    }
+
+    public void SetEvent()
+    {
+        deathCanvas.SetActive(false);
+    }
+
 
     private void OnPlayerDeath(object sender, System.EventArgs e)
     {

@@ -25,6 +25,12 @@ public class ShowUI : MonoBehaviour
                 UI_object.SetActive(true);
     }
 
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (!collision.CompareTag("Player"))
+    //        UI_object.SetActive(false);
+    //}
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

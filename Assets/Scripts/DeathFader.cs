@@ -13,7 +13,7 @@ public class DeathFader : MonoBehaviour
     void Start()
     {
         done = false;
-
+        //transform.parent.gameObject.SetActive(false);
     }
 
     public void FadeIn()

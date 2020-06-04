@@ -18,6 +18,7 @@ TagManager:
   - Spawn
   - Bullet
   - CheckPoint
+  - Death
   layers:
   - Default
   - TransparentFX
