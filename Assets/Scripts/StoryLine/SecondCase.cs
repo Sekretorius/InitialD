@@ -26,7 +26,7 @@ public class SecondCase : Case
         FirstGoal = false;
         Picked = false;
         Accepted = false;
-        CashReward = 25;
+        CashReward = 250;
         slot = -1;
     }
 
