@@ -13,6 +13,9 @@ public class barrier : MonoBehaviour
     public GameObject first;
     public GameObject second;
 
+    [SerializeField] AudioSource source;
+    public AudioClip Sound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,8 @@ public class barrier : MonoBehaviour
         second = GameObject.Find("BossCheck");
         //checkPoint.SetActive(false);
         checkPoint.transform.position = first.transform.position;
+        // source = GameObject.Find("Music").GetComponent<AudioSource>();
+        source = GameObject.Find("Sound").GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,6 +38,9 @@ public class barrier : MonoBehaviour
         Fight = true;
         //checkPoint.SetActive(true);
         checkPoint.transform.position = second.transform.position;
+
+        source.clip = Sound;
+        source.Play();
     }
     // Update is called once per frame
     void Update()
