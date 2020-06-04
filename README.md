@@ -16,9 +16,9 @@ Game is 2D platformer type in a retro styled environment. The game is a detectiv
 
 # Controls
 
-1. WASD - buttons for movement.
-2. Space - jump.
-3. Shift - pick objects.
-4. E - interact.
-5. T - talk to NPC.
-6. ESC - enter game menu.
+WASD - buttons for movement  
+Space - jump  
+Shift - pick objects  
+E - interact  
+T - talk to NPC  
+ESC - enter game menu  
