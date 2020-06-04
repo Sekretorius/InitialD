@@ -13,51 +13,57 @@ public class OnDeath : MonoBehaviour
     private GameObject Canvas;
     private GameObject GameManager;
 
-    bool active;
+    public GameObject checkPoint;
+
+    bool StillActive;
 
     // Start is called before the first frame update
     void Start()
     {
-        active = false;
+        StillActive = false;
         //health = GameObject.Find("PlayerStats")HealthSystem;
         //Canvas = GameObject.FindGameObjectWithTag("UI");
         Canvas = GameObject.Find("Canvas");
         health = GameObject.Find("PlayerStats").GetComponent<HealthSystem>();
         health.OnDeath += OnPlayerDeath;
         //fade = deathCanvas.GetComponentInChildren<DeathFader>();
-
-        //deathCanvas = GameObject.Find("Canvas_Death");
-
-
+        deathCanvas = GameObject.Find("Canvas_Death");
+        checkPoint = GameObject.Find("Check");
         //deathCanvas.SetActive(false);
         GameManager = GameObject.Find("GameManager");
     }
 
+    public GameObject GetPoint()
+    {
+        return checkPoint;
+    }
+
     private void FixedUpdate()
     {
-        if (deathCanvas == null && !active)
+        if (deathCanvas == null && !StillActive)
         {
             deathCanvas = GameObject.FindGameObjectWithTag("Death");
         }
-        else if(!active)
+        else if (!StillActive)
         {
             deathCanvas.SetActive(false);
-            active = true;
+            StillActive = true;
         }
     }
-
-    public void SetEvent()
-    {
-        deathCanvas.SetActive(false);
-    }
-
 
     private void OnPlayerDeath(object sender, System.EventArgs e)
     {
         deathCanvas.SetActive(true);
         Canvas.SetActive(false);
+        checkPoint.SetActive(true);
+        health.SetHearts(5);
         StartCoroutine(ExampleCoroutine());
 
+    }
+
+    private void SetCheckPoint()
+    {
+        checkPoint.transform.position = GameObject.Find("IndianaPoint").transform.position;
     }
 
     public void NormalSpeed()
@@ -70,7 +76,7 @@ public class OnDeath : MonoBehaviour
 
         for (int i = 0; i < 50; i++)
         {
-            Time.timeScale = 1 - i * 0.02f;
+            Time.timeScale = 1 - i * 0.05f;
             yield return new WaitForSeconds(0.01f);           
         }
     }

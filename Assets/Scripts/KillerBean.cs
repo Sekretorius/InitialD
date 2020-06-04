@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KillerBean : MonoBehaviour
 {
@@ -12,11 +13,19 @@ public class KillerBean : MonoBehaviour
     public AudioClip Sound;
     public AudioClip Music;
 
+    //public GameObject checkPoint;
+    public GameObject otherPoint;
+
+    private GameObject GameManager;
+
     private void Start()
     {
         chalice = GameObject.Find("ConsumeTheChalice");
         soundsource = GameObject.Find("Sound").GetComponent<AudioSource>();
         musicsource = GameObject.Find("Music").GetComponent<AudioSource>();
+
+        //checkPoint.SetActive(false);
+        otherPoint = GameObject.Find("IndianaPoint");
 
     }
 
@@ -44,7 +53,14 @@ public class KillerBean : MonoBehaviour
     {
         if (collision.collider.tag.Equals("Player"))
         {
-            GameObject.Find("PlayerStats").GetComponent<HealthSystem>().Damage(999);
+            GameManager = GameObject.Find("GameManager");
+            if (GameManager.TryGetComponent(out SceneLoader loader))
+            {
+                loader.SetNewScene(SceneManager.GetActiveScene().name, "ToCheckPoint");
+                //health.SetHearts(5);
+            }
+            Inventory inv = GameObject.FindObjectOfType<Inventory>();
+            GameObject.FindObjectOfType<Inventory>().Remove(inv.Exists("Chalice"));
         }
     }
 }

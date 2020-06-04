@@ -69,7 +69,8 @@ public class SceneLoader : MonoBehaviour
                 Transform pos = checkPoint.transform;
                 pos.position = new Vector3(pos.position.x,pos.position.y,0);
                 playerControler.SetPosition(pos.position);
-                GameObject.Find("Check").SetActive(false);
+                
+               // GameObject.Find("PlayerStats").GetComponent<HealthSystem>().SetHearts(5);
             }
             else if (changeState == "ChangeScene")
             {
