@@ -6,13 +6,13 @@ Game is 2D platformer type in a retro styled environment. The game is a detectiv
 
 # Game includes
 
-1. Main world level,
-2. Two main mission levels,
-3. One Mini level,
-4. Diffrent enemy types,
-5. Jumping, slyding, carrying, crawling physics,
-6. Inventory, money system, heart system,
-7. And much more.
+Main world level,  
+Two main mission levels,  
+One Mini level,  
+Diffrent enemy types,  
+Jumping, slyding, carrying, crawling physics,  
+Inventory, money system, heart system,  
+And much more.  
 
 # Controls
 
