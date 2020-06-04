@@ -22,7 +22,7 @@
   * E - interact,  
   * T - talk to NPC,  
   * ESC - enter game menu,  
-  * Q - active quests.
+  * C - active quests.
 # Engine
 
 Made in Unity 2019.3.2f1 engine
