@@ -17,7 +17,7 @@ public class FirstFirstCase : Case
     protected new void Start()
     {
         base.Start();
-        caseName = "OFFICE HUNT";
+        caseName = "MEDICINE HUNT";
         Goals = new Goal[3];
         Goals[0] = new ReachGoal("ENTER THE OLD HAGS HOUSE", 0, 1);
         Goals[1] = new PickedGoal("FIND THE HAGDS MEDICINE", 0, 1);

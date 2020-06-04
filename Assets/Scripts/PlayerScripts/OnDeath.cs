@@ -56,7 +56,7 @@ public class OnDeath : MonoBehaviour
         deathCanvas.SetActive(true);
         Canvas.SetActive(false);
         checkPoint.SetActive(true);
-        health.SetHearts(5);
+
         StartCoroutine(ExampleCoroutine());
 
     }
