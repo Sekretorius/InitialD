@@ -35098,8 +35098,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd690ebed774fb04ea5d6452f39e0590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Music: 0
-  Loop: 0
+  Music: 1
+  Loop: 1
   source: {fileID: 0}
   Sound: {fileID: 8300000, guid: 5197209cccae08743b64c68290ee64d7, type: 3}
 --- !u!1 &2034778791
