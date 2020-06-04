@@ -13,7 +13,7 @@ public class KillerBean : MonoBehaviour
     public AudioClip Sound;
     public AudioClip Music;
 
-    //public GameObject checkPoint;
+    public GameObject checkPoint;
     public GameObject otherPoint;
 
     private GameObject GameManager;
@@ -24,7 +24,7 @@ public class KillerBean : MonoBehaviour
         soundsource = GameObject.Find("Sound").GetComponent<AudioSource>();
         musicsource = GameObject.Find("Music").GetComponent<AudioSource>();
 
-        //checkPoint.SetActive(false);
+        checkPoint = GameObject.Find("Check");
         otherPoint = GameObject.Find("IndianaPoint");
 
     }
@@ -53,6 +53,7 @@ public class KillerBean : MonoBehaviour
     {
         if (collision.collider.tag.Equals("Player"))
         {
+            checkPoint.transform.position = otherPoint.transform.position;
             GameManager = GameObject.Find("GameManager");
             if (GameManager.TryGetComponent(out SceneLoader loader))
             {

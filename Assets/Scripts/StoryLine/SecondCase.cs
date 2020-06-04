@@ -16,11 +16,11 @@ public class SecondCase : Case
     protected new void Start()
     {
         base.Start();
-        caseName = "OFFICE HUNT";
+        caseName = "EXPENSIVE CAT";
         Goals = new Goal[2];
-        Goals[0] = new ReachGoal("GO RIGHT ->", 0, 1);
+        Goals[0] = new ReachGoal("GO RIGHT", 0, 1);
         Goals[1] = new PickedGoal("TRY TO FIDN THE CAT", 0, 1);
-        EndGoalText = "GOOD ENOUGH, BRING THE \"CAT\" BACK";
+        EndGoalText = "GOOD ENOUGH, BRING THE \"CAT\" BACK HOME";
         inv = GameObject.Find("Inventory").GetComponent<Inventory>();
         completed = false;
         FirstGoal = false;

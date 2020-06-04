@@ -48,7 +48,7 @@ public class Case : MonoBehaviour
             update[count] = new EndGoal(EndGoalText);
             Goals = update;
             Manager.ShowOnScreen();
-            Extra();
+
           //  Destroy(this);
         }
     }
@@ -87,6 +87,7 @@ public class Case : MonoBehaviour
             Manager.Cash.Add(CashReward);
         Accepted = true;
         Manager.onMission = false;
+        Extra();
     }
 
     public bool IsTouchingNPC()

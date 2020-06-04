@@ -56,6 +56,7 @@ public class Enterable : Interactable
                     money.Add(-fee);
                     fade = true;
                     Source.PlayOneShot(Door);
+                    Locked = false;
                 }
             }
             StartFade(); // fading animation
