@@ -38,9 +38,15 @@ public class barrier : MonoBehaviour
         Fight = true;
         //checkPoint.SetActive(true);
         checkPoint.transform.position = second.transform.position;
+        if (source.clip != Sound)
+            source.Stop();
+        if (!source.isPlaying)
+        {
+            source.clip = Sound;
+            source.loop = true;
+            source.Play();
+        }
 
-        source.clip = Sound;
-        source.Play();
     }
     // Update is called once per frame
     void Update()
