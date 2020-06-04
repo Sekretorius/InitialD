@@ -11,14 +11,11 @@ public class Cashable : Interactable
     AudioSource source;
     private bool cashed;
 
-    private void OnValidate()
-    {
-        System = FindObjectOfType<MoneySystem>();
-        cashed = false;
-    }
 
     private void Start()
     {
+        System = FindObjectOfType<MoneySystem>();
+        cashed = false;
         source = GameObject.Find("Sound").GetComponent<AudioSource>();
         sound = (AudioClip)Resources.Load("Cash");
 
