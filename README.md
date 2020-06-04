@@ -4,10 +4,10 @@ Detective Jones game places in the town of unknown mysteries where lies a lot of
 Game is 2D platformer type in a retro styled environment. The game is a detective genre.
 
 # Game includes
-1. (1) Main world level
-2. (2) main mission levels
-3. (1) mini level
-4. (4) diffrent enemy types
-5. Jumping, slyding, carrying, crawling physics
-6. Inventory, money system, heart system
-7. And much more
+1. Main world level (1),
+2. Main mission levels (2),
+3. Mini level (1),
+4. Diffrent enemy types (4),
+5. Jumping, slyding, carrying, crawling physics,
+6. Inventory, money system, heart system,
+7. And much more.
