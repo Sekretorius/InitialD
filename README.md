@@ -6,7 +6,7 @@ Game is 2D platformer type in a retro styled environment. The game is a detectiv
 
 # Game includes
 
-  **Main world level,  
+  Main world level,  
   Two main mission levels,  
   One Mini level,  
   Diffrent enemy types,  
