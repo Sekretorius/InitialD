@@ -135,6 +135,8 @@ public class Inventory : MonoBehaviour
 
     public bool Remove(int item)
     {
+        if (item < 0)
+            return false;
         if (itemSlots[item].Item != null)
         {
             items.Remove(itemSlots[item].Item);
