@@ -7,6 +7,7 @@ public class barrier : MonoBehaviour
 {
     [SerializeField] GameObject Boss;
     [SerializeField] GameObject BossBarrier;
+    [SerializeField] GameObject EndBarrier;
     [SerializeField] bool Fight = false;
     public GameObject checkPoint;
     public GameObject first;
@@ -17,6 +18,7 @@ public class barrier : MonoBehaviour
     {
         Boss = GameObject.Find("boss");
         BossBarrier = GameObject.Find("Boss constraint");
+        EndBarrier = GameObject.Find("End constraint");
         checkPoint = GameObject.Find("Check");
         first = GameObject.Find("FirstCheck");
         second = GameObject.Find("BossCheck");
@@ -38,6 +40,7 @@ public class barrier : MonoBehaviour
         if (Fight && !Boss)
         {
             Destroy(BossBarrier);
+            Destroy(EndBarrier);
             Destroy(gameObject);
         }
     }
