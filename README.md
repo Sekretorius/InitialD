@@ -13,3 +13,12 @@ Game is 2D platformer type in a retro styled environment. The game is a detectiv
 5. Jumping, slyding, carrying, crawling physics,
 6. Inventory, money system, heart system,
 7. And much more.
+
+# Controls
+
+WASD - buttons for movement,
+Space - jump,
+Shift - pick objects,
+E - interact,
+T - talk to NPC,
+ESC - enter game menu.
