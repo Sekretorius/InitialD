@@ -28,6 +28,7 @@ public class OnDeath : MonoBehaviour
         health.OnDeath += OnPlayerDeath;
         //fade = deathCanvas.GetComponentInChildren<DeathFader>();
         deathCanvas = GameObject.Find("Canvas_Death");
+        deathCanvas.SetActive(false);
         checkPoint = GameObject.Find("Check");
         //deathCanvas.SetActive(false);
         GameManager = GameObject.Find("GameManager");
@@ -42,7 +43,7 @@ public class OnDeath : MonoBehaviour
     {
         if (deathCanvas == null && !StillActive)
         {
-            deathCanvas = GameObject.FindGameObjectWithTag("Death");
+            deathCanvas = GameObject.Find("Canvas_Death");
         }
         else if (!StillActive)
         {
