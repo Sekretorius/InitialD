@@ -15,9 +15,11 @@ public class MoneySystem : MonoBehaviour
     private Color red;
     private bool active;
     
-
+    public static MoneySystem moneySystem;
     void Start()
     {
+        moneySystem = this;
+        Player.control.UpdateCash(Cash);
         ColorUtility.TryParseHtmlString("#238C20", out green);
         ColorUtility.TryParseHtmlString("#9D292F", out red);
 
@@ -28,8 +30,14 @@ public class MoneySystem : MonoBehaviour
         CashText.GetComponent<Text>().text = Cash + " $";
         CashAdd.color = new Color(CashAdd.color.r, CashAdd.color.g, CashAdd.color.b, 0);
         active = false;
+        Player.control.UpdateCash(Cash);
     }
-
+    public void LoadMoney()
+    {
+        int amount = Player.control.money;
+        Cash = 0;
+        UpdateMoney(amount);
+    }
     public void Add(int amount)
     {
         if(active == true)
@@ -58,6 +66,7 @@ public class MoneySystem : MonoBehaviour
         }
         StartCoroutine(FadeTextToZeroAlpha(FadeSpeed, CashAdd));
         Cash += amount;
+        Player.control.UpdateCash(Cash);
     }
 
     public IEnumerator FadeTextToZeroAlpha(float t, Text i)

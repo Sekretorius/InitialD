@@ -8,6 +8,8 @@ public class PlayerData
     public float speed { get; set; }
     public float jumpSpeed { get; set; }
     public float[] position { get; set; }
+    public int money { get; set; }
+    public int hearts { get; set; }
 
     public PlayerData(Player player)
     {
@@ -17,5 +19,7 @@ public class PlayerData
         position[0] = player.playerPosition.x;
         position[1] = player.playerPosition.y;
         position[2] = player.playerPosition.z;
+        money = player.money;
+        hearts = player.hearts;
     }
 }

@@ -12,8 +12,9 @@ public class Cashable : Interactable
     private bool cashed;
 
 
-    private void Start()
+    protected new void Start()
     {
+        base.Start();
         System = FindObjectOfType<MoneySystem>();
         cashed = false;
         source = GameObject.Find("Sound").GetComponent<AudioSource>();

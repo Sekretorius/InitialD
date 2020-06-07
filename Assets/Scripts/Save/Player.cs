@@ -8,7 +8,12 @@ public class Player : MonoBehaviour
     public Vector3 playerPosition;
     public float speed;
     public float jumpSpeed;
+    public int money;
+    public int hearts;
     public GameObject player;
+    private GameObject PlayerStats;
+    private bool update = false;
+    private int loadState = 0;
 
     public static Player control;
     void Awake()
@@ -33,18 +38,33 @@ public class Player : MonoBehaviour
         {
             playerPosition = transform.position;
         }
-        if (Input.GetKeyDown(KeyCode.P))
+        if (update)
         {
-            Debug.Log("Saving");
-            SavePlayer();
-            Level level = new Level();
-            level.setLevel(SceneManager.GetActiveScene().name);
-            SaveScript.SaveLevel(level);
+            loadData();
         }
-        if (Input.GetKeyDown(KeyCode.O))
+    }
+    private void loadData()
+    {
+        switch (loadState)
         {
-            Debug.Log("Loding");
-            LoadPlayer();
+            case 0:
+                if (MoneySystem.moneySystem != null)
+                {
+                    MoneySystem.moneySystem.LoadMoney();
+                    loadState++;
+                }
+                break;
+            case 1:
+                if (HealthSystem.healthSystem != null)
+                {
+                    HealthSystem.healthSystem.LoadHearts();
+                    loadState++;
+                }
+                break;
+            default:
+                update = false;
+                loadState = 0;
+                break;
         }
     }
     public void addSettings(float speed = 0, float jumpSpeed = 0)
@@ -52,8 +72,23 @@ public class Player : MonoBehaviour
         this.speed = speed;
         this.jumpSpeed = jumpSpeed;
     }
+    public void UpdateCash(int money)
+    {
+        if (!update)
+        {
+            this.money = money;
+        }
+    }
+    public void UpdateHealth(int hearts)
+    {
+        if (!update)
+        {
+            this.hearts = hearts;
+        }
+    }
     public void SavePlayer()
     {
+        hearts = HealthSystem.healthSystem.GetFragmentCount();
         SaveScript.SavePlayer(this);
     }
     public void LoadPlayer()
@@ -63,6 +98,9 @@ public class Player : MonoBehaviour
         playerPosition = new Vector3 (playerData.position[0], playerData.position[1], playerData.position[2]);
         speed = playerData.speed;
         jumpSpeed = playerData.jumpSpeed;
+        money = playerData.money;
+        hearts = playerData.hearts;
+        update = true;
         SetParameters();
     }
     private void SetParameters()

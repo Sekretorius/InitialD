@@ -8,9 +8,10 @@ public class HealthSystem : MonoBehaviour
     public event EventHandler OnChanged;
     public event EventHandler OnDeath;
     public SpriteRenderer sprite;
-
+    public static HealthSystem healthSystem;
 
     public int hearts;
+    public int fragCount;
 
     private List<Heart> heartList;
 
@@ -20,6 +21,26 @@ public class HealthSystem : MonoBehaviour
         sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
+    private void Start()
+    {
+        healthSystem = this;
+        Player.control.UpdateHealth(GetFragmentCount());
+    }
+    public void LoadHearts()
+    {
+        int laodHearts = Player.control.hearts;
+        SetAmountOfHearts(laodHearts);
+        OnChanged(this, EventArgs.Empty);
+    }
+    public int GetFragmentCount()
+    {
+        int fragCount = 0;
+        foreach (Heart heart in heartList)
+        {
+            fragCount += heart.GetFragmentAmount();
+        }
+        return fragCount;
+    }
     public void SetHearts(int heartAmount)
     {
         heartList = new List<Heart>();
@@ -104,7 +125,27 @@ public class HealthSystem : MonoBehaviour
         if (OnChanged != null)
             OnChanged(this, EventArgs.Empty);
     }
+    public void SetAmountOfHearts(int amount)
+    {
+        for (int i = 0; i < heartList.Count && amount > 0; i++)
+        {
+            if (amount <= 0)
+                break;
+            if (amount >= 4)
+            {
+                heartList[i].SetFragments(4);
+                amount -= 4;
+            }
+            else
+            {
+                heartList[i].SetFragments(amount);
+                amount -= 4;
+            }
+        }
 
+        if (OnChanged != null)
+            OnChanged(this, EventArgs.Empty);
+    }
     public bool IsFullHealth()
     {
         bool isFull = true;
